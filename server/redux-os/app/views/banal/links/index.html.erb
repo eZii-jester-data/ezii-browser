@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Links</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>URL</th>
+      <th>Category</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_links.each do |banal_link| %>
+      <tr>
+        <td><%= link_to(banal_link.uri, banal_link.uri, target: '_blank') %></td>
+        <td><%= banal_link.metadata.category %></td>
+        <td><%= banal_link.metadata.language %></td>
+        <td><%= link_to 'Show', banal_link %></td>
+        <td><%= link_to 'Edit', edit_banal_link_path(banal_link) %></td>
+        <td><%= link_to 'Destroy', banal_link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banal Link', new_banal_link_path %>

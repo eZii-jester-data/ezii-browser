@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App detection:</strong>
+  <%= @app_detection_strategy.app_detection_id %>
+</p>
+
+<p>
+  <strong>Implementation in ruby dsl:</strong>
+  <%= @app_detection_strategy.implementation_in_ruby_dsl %>
+</p>
+
+<%= link_to 'Edit', edit_app_detection_strategy_path(@app_detection_strategy) %> |
+<%= link_to 'Back', app_detection_strategies_path %>

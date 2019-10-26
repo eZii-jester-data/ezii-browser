@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Whitelabel System Extensions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rfc</th>
+      <th>Comment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @whitelabel_system_extensions.each do |whitelabel_system_extension| %>
+      <tr>
+        <td><%= whitelabel_system_extension.rfc %></td>
+        <td><%= whitelabel_system_extension.comment_id %></td>
+        <td><%= link_to 'Show', whitelabel_system_extension %></td>
+        <td><%= link_to 'Edit', edit_whitelabel_system_extension_path(whitelabel_system_extension) %></td>
+        <td><%= link_to 'Destroy', whitelabel_system_extension, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+
+      <tr>
+        <td colspan="8">
+          <% #if banal_brainstorm.comments.none? %>
+            <%= form_for Comment.new(banal_brainstorm_id: whitelabel_system_extension.comment.banal_brainstorm.id) do |f| %>
+                <%= f.text_field :comment_text %>
+                <%= f.hidden_field :banal_brainstorm_id %>
+                <%= f.submit %>
+            <% end %>
+          <% #end %>
+
+          <br />
+
+          <%= render 'shared/comment', comment: whitelabel_system_extension.comment %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Whitelabel System Extension', new_whitelabel_system_extension_path %>

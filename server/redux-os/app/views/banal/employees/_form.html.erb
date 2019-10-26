@@ -1,0 +1,77 @@
+<%= form_with(model: banal_employee, local: true) do |form| %>
+  <% if banal_employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_employee.errors.count, "error") %> prohibited this banal_employee from being saved:</h2>
+
+      <ul>
+        <% banal_employee.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Facebook %>
+    <%= form.text_area :Facebook %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Linkedin %>
+    <%= form.text_area :Linkedin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Role %>
+    <%= form.text_area :Role %>
+  </div>
+
+  <div class="field">
+    <%= form.label :e_mail %>
+    <%= form.text_area :e_mail %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Mobile %>
+    <%= form.text_area :Mobile %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Address %>
+    <%= form.text_area :Address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Country %>
+    <%= form.text_area :Country %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Full_Name %>
+    <%= form.text_area :Full_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Last_Name_2 %>
+    <%= form.text_area :Last_Name_2 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Last_Name_1 %>
+    <%= form.text_area :Last_Name_1 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Middle_Name %>
+    <%= form.text_area :Middle_Name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :First_Name %>
+    <%= form.text_area :First_Name %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

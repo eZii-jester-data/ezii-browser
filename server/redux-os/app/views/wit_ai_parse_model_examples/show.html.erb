@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wit ai parse model:</strong>
+  <%= @wit_ai_parse_model_example.wit_ai_parse_model_id %>
+</p>
+
+<p>
+  <strong>Wit ai response:</strong>
+  <%= @wit_ai_parse_model_example.wit_ai_server_response %>
+</p>
+
+<p>
+  <strong>Prorperty name</strong>
+  <%= @wit_ai_parse_model_example.entity_name %>
+</p>
+
+<p>
+  <strong>Prorperty value</strong>
+  <%= @wit_ai_parse_model_example.entity_value %>
+</p>
+
+<%= link_to 'Edit', edit_wit_ai_parse_model_example_path(@wit_ai_parse_model_example) %> |
+<%= link_to 'Back', wit_ai_parse_model_examples_path %>

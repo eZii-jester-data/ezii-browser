@@ -1,0 +1,1 @@
+json.partial! "whitelabel_system_extensions/whitelabel_system_extension", whitelabel_system_extension: @whitelabel_system_extension

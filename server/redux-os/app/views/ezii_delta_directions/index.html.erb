@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Delta Directions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ezii delta git</th>
+      <th>Direction y</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_delta_directions.each do |ezii_delta_direction| %>
+      <tr>
+        <td><%= ezii_delta_direction.ezii_delta_git_id %></td>
+        <td><%= ezii_delta_direction.direction_y %></td>
+        <td><%= link_to 'Show', ezii_delta_direction %></td>
+        <td><%= link_to 'Edit', edit_ezii_delta_direction_path(ezii_delta_direction) %></td>
+        <td><%= link_to 'Destroy', ezii_delta_direction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Delta Direction', new_ezii_delta_direction_path %>

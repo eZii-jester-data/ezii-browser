@@ -1,0 +1,49 @@
+<%= form_with(model: local_law_pipeline, local: true) do |form| %>
+  <% if local_law_pipeline.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(local_law_pipeline.errors.count, "error") %> prohibited this local_law_pipeline from being saved:</h2>
+
+      <ul>
+        <% local_law_pipeline.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_area :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paragraph %>
+    <%= form.text_area :paragraph %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_law_link %>
+    <%= form.text_area :local_law_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :paragraph_number %>
+    <%= form.number_field :paragraph_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :book %>
+    <%= form.text_field :book %>
+  </div>
+
+  <div class="field">
+    <%= form.label :local_law_pipeline_id %>
+    <%= form.text_field :local_law_pipeline_id %>
+  </div>
+
+      <%= form.rich_text_area :content %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

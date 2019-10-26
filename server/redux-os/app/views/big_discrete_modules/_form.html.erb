@@ -1,0 +1,37 @@
+<%= form_with(model: big_discrete_module, local: true) do |form| %>
+  <% if big_discrete_module.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(big_discrete_module.errors.count, "error") %> prohibited this big_discrete_module from being saved:</h2>
+
+      <ul>
+        <% big_discrete_module.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :why %>
+    <%= form.text_area :why %>
+  </div>
+
+  <div class="field">
+    <%= form.label :how %>
+    <%= form.text_area :how %>
+  </div>
+
+  <div class="field">
+    <%= form.label :what %>
+    <%= form.text_area :what %>
+  </div>
+
+  <div class="field">
+    <%= form.label :when %>
+    <%= form.text_area :when %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

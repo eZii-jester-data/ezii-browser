@@ -1,0 +1,32 @@
+<%= form_with(model: ezii_seed, local: true) do |form| %>
+  <% if ezii_seed.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_seed.errors.count, "error") %> prohibited this ezii_seed from being saved:</h2>
+
+      <ul>
+        <% ezii_seed.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :github_link %>
+    <%= form.text_area :github_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :gist_link %>
+    <%= form.text_area :gist_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

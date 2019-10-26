@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Zip file path:</strong>
+  <%= @unzip.zip_file_path %>
+</p>
+
+<p>
+  <strong>Target dir path:</strong>
+  <%= @unzip.target_dir_path %>
+
+  <%= link_to 'List entries;', directory_path(@unzip.target_dir_path) %>
+</p>
+
+<%= link_to 'Edit', edit_unzip_path(@unzip) %> |
+<%= link_to 'Back', unzips_path %>

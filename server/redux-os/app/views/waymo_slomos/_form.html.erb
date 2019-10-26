@@ -1,0 +1,22 @@
+<%= form_with(model: waymo_slomo, local: true) do |form| %>
+  <% if waymo_slomo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(waymo_slomo.errors.count, "error") %> prohibited this waymo_slomo from being saved:</h2>
+
+      <ul>
+        <% waymo_slomo.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :banal_brainstorm_id %>
+    <%= form.number_field :banal_brainstorm_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

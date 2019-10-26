@@ -1,0 +1,62 @@
+<%= form_with(model: banal_project, local: true) do |form| %>
+  <% if banal_project.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_project.errors.count, "error") %> prohibited this banal_project from being saved:</h2>
+
+      <ul>
+        <% banal_project.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_category %>
+    <%= form.text_field :main_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :launch_date %>
+    <%= form.text_field :launch_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comments %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <div class="field">
+    <%= form.label :project_manager %>
+    <%= form.text_field :project_manager %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idea_owner %>
+    <%= form.text_field :idea_owner %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dev_budget_cost %>
+    <%= form.text_field :dev_budget_cost %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

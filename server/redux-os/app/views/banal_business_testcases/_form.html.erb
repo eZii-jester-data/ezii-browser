@@ -1,0 +1,37 @@
+<%= form_with(model: banal_business_testcase, local: true) do |form| %>
+  <% if banal_business_testcase.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_business_testcase.errors.count, "error") %> prohibited this banal_business_testcase from being saved:</h2>
+
+      <ul>
+        <% banal_business_testcase.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :org_id %>
+    <%= form.text_field :org_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :metainfo %>
+    <%= form.text_area :metainfo %>
+  </div>
+
+  <div class="field">
+    <%= form.label :link %>
+    <%= form.text_field :link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

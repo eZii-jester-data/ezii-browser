@@ -1,0 +1,10 @@
+<ul>
+    <% @source_files.each do |source_file| %>
+        <li>
+            <%= source_file %>
+            <% if source_file =~ /\.zip\Z/ %>
+                <%= button_to('Unzip', unzips_path(unzip: {zip_file_path: source_file})) %>
+            <% end %>
+        </li>
+    <% end %>
+</ul>

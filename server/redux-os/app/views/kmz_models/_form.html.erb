@@ -1,0 +1,27 @@
+<%= form_with(model: kmz_model, local: true) do |form| %>
+  <% if kmz_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(kmz_model.errors.count, "error") %> prohibited this kmz_model from being saved:</h2>
+
+      <ul>
+        <% kmz_model.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :global_path %>
+    <%= form.text_field :global_path %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

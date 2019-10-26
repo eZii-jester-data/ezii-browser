@@ -1,0 +1,71 @@
+<p>
+  <strong>Name:</strong>
+  <%= @banal_project.name %>
+</p>
+
+<p>
+  <strong>Main category:</strong>
+  <%= @banal_project.main_category %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @banal_project.priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @banal_project.status %>
+</p>
+
+<p>
+  <strong>Launch date:</strong>
+  <%= @banal_project.launch_date %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @banal_project.comments %>
+</p>
+
+<p>
+  <strong>Project manager:</strong>
+  <%= @banal_project.project_manager %>
+</p>
+
+<p>
+  <strong>Idea owner:</strong>
+  <%= @banal_project.idea_owner %>
+</p>
+
+<p>
+  <strong>Dev budget cost:</strong>
+  <%= @banal_project.dev_budget_cost %>
+</p>
+
+<h3>Associated resources</h3>
+
+<p>
+  <h4>Links</h4>
+  
+  <span>
+    <%= link_to(banal_links_path(related_object_id: @banal_project.id, related_object_type: 'Banal::Project'), class: 'btn btn-primary') do %>
+      <%= @banal_project.links.count %>
+    <% end %>
+  </span>
+
+  <%= link_to 'Add link', new_banal_link_path(related_object_id: @banal_project.id, related_object_type: 'Banal::Project'), class: 'btn btn-secondary' %>
+</p>
+
+<p>
+  <h4>Documents</h4>
+  <span>
+    <%= link_to(banal_documents_path(related_object_id: @banal_project.id, related_object_type: 'Banal::Project'), class: 'btn btn-primary') do %>
+      <%= @banal_project.documents.count %>
+    <% end %>
+  </span>
+
+  <%= link_to 'Add document', new_banal_document_path(related_object_id: @banal_project.id, related_object_type: 'Banal::Project'), class: 'btn btn-secondary' %>
+</p>
+
+<%= link_to 'Back', banal_projects_path %>

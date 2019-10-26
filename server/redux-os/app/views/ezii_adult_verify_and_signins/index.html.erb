@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Adult Verify And Signins</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User name</th>
+      <th>Scm</th>
+      <th>Shell script used</th>
+      <th>When will scm scl011 be available as rubygem integration</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_adult_verify_and_signins.each do |ezii_adult_verify_and_signin| %>
+      <tr>
+        <td><%= ezii_adult_verify_and_signin.user_name %></td>
+        <td><%= ezii_adult_verify_and_signin.scm_id %></td>
+        <td><%= ezii_adult_verify_and_signin.shell_script_used %></td>
+        <td><%= ezii_adult_verify_and_signin.when_will_scm_scl011_be_available_as_rubygem_integration %></td>
+        <td><%= link_to 'Show', ezii_adult_verify_and_signin %></td>
+        <td><%= link_to 'Edit', edit_ezii_adult_verify_and_signin_path(ezii_adult_verify_and_signin) %></td>
+        <td><%= link_to 'Destroy', ezii_adult_verify_and_signin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Adult Verify And Signin', new_ezii_adult_verify_and_signin_path %>
+
+<% content_for(:youtube_autoplay) do %>
+  <iframe width="560" height="315" src="<%= ENV['EZII_TV_CHANNEL_2']%>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<% end %>

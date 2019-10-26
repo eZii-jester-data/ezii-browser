@@ -1,0 +1,27 @@
+<%= form_with(model: ezii_zapping, local: true) do |form| %>
+  <% if ezii_zapping.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_zapping.errors.count, "error") %> prohibited this ezii_zapping from being saved:</h2>
+
+      <ul>
+        <% ezii_zapping.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :previous_url %>
+    <%= form.text_area :previous_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :next_url %>
+    <%= form.text_area :next_url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,13 @@
+production:
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: "banal"
+  password: "banal"
+  database: "cat_list_production"
+  host:   "/cloudsql/banal-250712:us-central1:e-123"
+
+
+development:
+  url: postgres://yprxfzrq:Ne6smq...@salt.db.elephantsql.com:5432/yprxfzrq 

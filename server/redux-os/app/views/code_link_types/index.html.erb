@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Code Link Types</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type description</th>
+      <th>Type</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @code_link_types.each do |code_link_type| %>
+      <tr>
+        <td><%= code_link_type.type_description %></td>
+        <td><%= code_link_type.type_id %></td>
+        <td><%= link_to 'Show', code_link_type %></td>
+        <td><%= link_to 'Edit', edit_code_link_type_path(code_link_type) %></td>
+        <td><%= link_to 'Destroy', code_link_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Code Link Type', new_code_link_type_path %>

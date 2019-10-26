@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wit Ai Parse Model Examples</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wit ai parse model</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wit_ai_parse_model_examples.each do |wit_ai_parse_model_example| %>
+      <tr>
+        <td><%= wit_ai_parse_model_example.wit_ai_parse_model_id %></td>
+        <td><%= link_to 'Show', wit_ai_parse_model_example %></td>
+        <td><%= link_to 'Edit', edit_wit_ai_parse_model_example_path(wit_ai_parse_model_example) %></td>
+        <td><%= link_to 'Destroy', wit_ai_parse_model_example, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wit Ai Parse Model Example', new_wit_ai_parse_model_example_path %>

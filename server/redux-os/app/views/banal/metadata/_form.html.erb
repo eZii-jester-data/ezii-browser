@@ -1,0 +1,32 @@
+<%= form_with(model: banal_metadatum, local: true) do |form| %>
+  <% if banal_metadatum.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_metadatum.errors.count, "error") %> prohibited this banal_metadatum from being saved:</h2>
+
+      <ul>
+        <% banal_metadatum.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :category %>
+    <%= form.text_area :category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :language %>
+    <%= form.text_field :language %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sub_category %>
+    <%= form.text_area :sub_category %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @file_system.description %>
+</p>
+
+<p>
+  <strong>Machine readable identifier:</strong>
+  <%= @file_system.machine_readable_identifier %>
+</p>
+
+<%= link_to 'Edit', edit_file_system_path(@file_system) %> |
+<%= link_to 'Back', file_systems_path %>

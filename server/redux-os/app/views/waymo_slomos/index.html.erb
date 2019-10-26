@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Waymo Slomos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Banal brainstorm</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @waymo_slomos.each do |waymo_slomo| %>
+      <tr>
+        <td><%= waymo_slomo.banal_brainstorm_id %></td>
+        <td><%= link_to 'Show', waymo_slomo %></td>
+        <td><%= link_to 'Edit', edit_waymo_slomo_path(waymo_slomo) %></td>
+        <td><%= link_to 'Destroy', waymo_slomo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Waymo Slomo', new_waymo_slomo_path %>

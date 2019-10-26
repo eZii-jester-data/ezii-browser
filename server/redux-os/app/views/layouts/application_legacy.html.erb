@@ -1,0 +1,486 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>BanalTodo1</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+	  
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	      <script
+	  src="https://code.jquery.com/jquery-3.4.1.js"
+	  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	  crossorigin="anonymous"></script>
+
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+      <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    </head>
+    <% if true || Time.now.strftime('%M').to_i < 70 %>
+
+<% if true || cookies['level'].to_s == '2' ||   (ENV['ALLOWED_LISTED_FOR_SECOND_LEVEL'] || '').split(',').include?(request.remote_ip) %>
+
+    <body>
+          <%= render 'shared/imprint' %>
+
+	<%= link_to 'Back to new version', request.path, class: 'btn btn-primary' %>
+	
+		<% if cookies['level'].to_s == '2' %>
+		
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+		
+	  <button class="btn btn-warning">Simulate Factory</button>
+	  <br />
+	  <br />
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  <button class="btn btn-dark">Deploy passive system</button>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <button class="btn btn-danger">Deploy active system slowly to production factory</button>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <a href="https://medium.com/@manu_78098/declarations-in-coding-idempotence-517329b2886d" target="_blank" class="btn btn-primary">Add new coding paragraph</a>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+
+	  <div>
+	    <span class="level-slider" style="font-size: 10em;">
+	      🎚️<%= cookies['level'] %>
+	    </span>
+
+	    <span>
+	      <input 
+	        type="range" 
+	        name="level" 
+	        min="0" 
+	        max="10" 
+	        onchange="$.post('/cookie_changes', {cookie_change: {identifier: 'level', value: event.target.value}}, (data, status)=> { this.value = data;alert(this.value); });"
+	      >
+	    </span>
+	  </div>
+	  <% elsif cookies['level'] == '1'%>
+		
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+		
+	  <button class="btn btn-warning">This button is thought for the first step which needs to be secure</button>
+	  <br />
+	  <br />
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  <button class="btn btn-dark">This Button is intended for a passive and very dangerous step</button>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <button class="btn btn-danger">This button is thought for the deploymnt and is very dangerous, hence the red alert color</button>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  <div class="progress">
+	    <div 
+			class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" 
+			style="background-color: black; color: yellow; width: 75%;background-image:linear-gradient(45deg,rgba(255,255,0,.9) 25%,transparent 25%,transparent 50%,rgba(255,255,0,.9) 50%,rgba(255,255,0,.9) 75%,transparent 75%,transparent); transform: scale(2.5)"
+		></div>
+	  </div>
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <a href="https://medium.com/@manu_78098/declarations-in-coding-idempotence-517329b2886d" target="_blank" class="btn btn-primary">This button is for implementing laws in code, so blue meaans it signals hope §§§§§§</a>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+
+	  <div>
+	    <span class="level-slider" style="font-size: 10em;">
+	      🎚️<%= cookies['level'] %>
+	    </span>
+
+	    <span>
+	      <input 
+	        type="range" 
+	        name="level" 
+	        min="0" 
+	        max="10" 
+	        onchange="$.post('/cookie_changes', {cookie_change: {identifier: 'level', value: event.target.value}}, (data, status)=> { this.value = data;alert(this.value); });"
+	      >
+	    </span>
+		
+	  <% elsif cookies['level'] === '3' %>
+	  
+	  
+	  
+		
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+  	  <br />
+		
+	  <a href="/ezii_os_files/%2Fdropbox%2Fquora-human-question-systm.xlsx" target="_blank" class="btn btn-warning">put questions for quora into my quora xlsx file</a>
+	  <br />
+	  <br />
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  <a href="https://www.quora.com/search?q=Manuel+Arno+Korfmann" target="_blank" class="btn btn-dark">search for one of the questions in the xlsx</a>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <a href="https://www.quora.com/questions" target="_blank" class="btn btn-danger">actually ask a question if it's sensible and mark it as asked in the xlsx</a>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  <div class="progress">
+	    <div 
+			class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" 
+			style="background-color: black; color: yellow; width: 75%;background-image:linear-gradient(45deg,rgba(255,255,0,.9) 25%,transparent 25%,transparent 50%,rgba(255,255,0,.9) 50%,rgba(255,255,0,.9) 75%,transparent 75%,transparent); transform: scale(2.5)"
+		></div>
+	  </div>
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+	  
+	  <a href="https://medium.com/@manu_78098/declarations-in-coding-idempotence-517329b2886d" target="_blank" class="btn btn-primary">This button is for implementing laws in code, so blue meaans it signals hope §</a>
+	  
+	  
+	  <a href="https://github.com/juandebravo/quora-client" target="_blank" class="btn btn-primary">Quora Api Ruby clint §</a>
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+
+	  
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  <br />
+	  
+
+	  <div>
+	    <span class="level-slider" style="font-size: 10em;">
+	      🎚️<%= cookies['level'] %>
+	    </span>
+
+	    <span>
+	      <input 
+	        type="range" 
+	        name="level" 
+	        min="0" 
+	        max="10" 
+	        onchange="$.post('/cookie_changes', {cookie_change: {identifier: 'level', value: event.target.value}}, (data, status)=> { this.value = data;alert(this.value); });"
+	      >
+	    </span>
+	  
+	  
+	  <% else %>
+	  
+	  
+      <div class="content">
+      <header>
+        <h5 style="background-color: green; color: white;">BE CONSERVATIVELY SECURE</h5>
+        <h4 style="background-color: yellow; color: black">FIRST SIMULATE, THEN DEPLOY A PASSIVE (EXTREMELY PASSIVE) SYSTEM TO REAL WORLD, FINALLY MAKE IT ACTIVE IN A <b>SECURE</b> WAY</h4>
+        <h3 style="background-color: red; color: white">If you don't know what this is please only take the survey if you want to help and then leave this site again, thanks.</h3>
+        <script>(function(t,e,s,o){var n,a,c;t.SMCX=t.SMCX||[],e.getElementById(o)||(n=e.getElementsByTagName(s),a=n[n.length-1],c=e.createElement(s),c.type="text/javascript",c.async=!0,c.id=o,c.src=["https:"===location.protocol?"https://":"http://","widget.surveymonkey.com/collect/website/js/tRaiETqnLgj758hTBazgd1xa5A9y8yPlVJPl45ILXuqWKd1oAWzR0gaU37YaYtdR.js"].join(""),a.parentNode.insertBefore(c,a))})(window,document,"script","smcx-sdk");</script>
+        
+        <h2 onclick="window.location = '/searches'">Search</h2>
+        <h1><a href="/">eZii Operating System Start</a></h1>
+
+      </header>
+
+      <main>
+        <%= yield %>
+      </main>
+
+
+      <script>
+        Turbolinks.__visit = Turbolinks.visit
+        Turbolinks.visit = false;
+      </script>
+    <textarea
+    id="story" name="story"
+            rows="5" cols="33"
+
+            onClick="if(!confirm()) { return; };$.post('/code_change_requests', {code_change_request: {text: this.value}}, (data, status)=> { this.value = data;alert(this.value) });"
+            >
+    </textarea>
+
+    <div
+		<script>
+		function moveCube(direction) {
+			$(document).trigger({type: 'eZii/moveCube', direction: direction});
+		}
+	</script>
+
+
+      <button style="background-color: blue; color: white;" onclick="moveCube('sraight')">Move straight way</button>
+      <button style="background-color: black; color: white;" onclick="moveCube('nearest_poi')">Look at nearest POI</button>
+      <button style="background-color: yellow" onclick="moveCube('stand_still')">Stand still</button>
+      <button style="background-color: pink; color: red;" onclick="moveCube('next_poi')">Move to next POI</button>
+    </div>
+      <%- if ENV['HEROKU_FEATURE_SWITCH_GLITCH_APP_LAYOUT_EMBED'] == '1' %>
+        <!-- Copy and Paste Me -->
+        <!-- Copy and Paste Me -->
+        <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+          <iframe
+            src="https://glitch.com/embed/#!/embed/like-bladder?path=views/index.html&previewSize=100"
+            title="like-bladder on Glitch"
+            allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+            style="height: 100%; width: 100%; border: 0;">
+          </iframe>
+        </div>
+      <% end %>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      </br>
+      <footer>
+        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATAAAACmCAMAAABqbSMrAAABaFBMVEVLoPH////xtR/A0Bj///3//v////z9//+8zQBLoPDAzxpNn/GTnMK8zgDwth/xsQDo7PKHkb40SZUuRpV+iLXh4/CdpMjF0QA1SZZgbqkuRJcrRZNxfLK9w9iwt9JUZKX4tQDT2ek9nvhIWp5NnvTo7rrvtAA/U5/ysAAnPZP2253447P89uHzyGJAnfvyqwD104iKsspigsTxwE3Z4oXh6KNXp/D09dPFzeHyvkDt8sb0vDPd55b67tD56cTU33e4z13U3nfD1E3n7rKFt8v8/O+9vqRqr+2lxpy40W2tzYOLu8bI1kGWwLK80070ynH01Y9jmdqbqox3gaNZhNTGuouvyom3u7jQ32aewql2sty3z2m/1kuzzHalrsx8reDYunfivV5qi8WatMJDV43Y085unMaQwL2kpqVyfLupx5QLMo6NsNDIuJCDuMtwsOPbv23YqTKAnK+zuKijtrvpwVO/r53CupG7eJnXAAAXAElEQVR4nO2di2PaxpbGGRBIQpaEJWNAmJcAiYegxBhhwIAfJU5vuMHe2zTEuXHTdne79ya96W6b3X9/z0i8kYDWbm21fEkwBoKYH+ecOXM0mnG5ttrqzybG/EGP72y1UgyTKWPJspyhH/rDPH4BLf3zZ29PT0+/ePb9pZxhXFto9mJcGfnmL55QKESB4Meb5xn5oT/UYxaTuXwbYlnPWH429OJzeRvJrMUwrvL3oRBgmvDy+z3+0D+ZLTFLMbT8VWgCawLNEzqlMw/92R6lGOC1iMsk9oLe2tiSaEZ+bcULK/RW3naVS8rcLPvjOJSF/rrtKxfFZF6w1rxAbOiS3iax88o8t3NIbGOhr8rbvnJe5XN7XjiMXW4tbE72EWwE7PV2JD4n+y7SFHVa3lrYVDRdfjMBRo1+UPjv1MT0h/6Qj0m0i+5PPHI47HfPqX73zD88G06Bfdy65FgMTTM6HjcaYutH2Vqzm60N+73htCcIPd8CGwuAZS4nHslmuxdn582Lk35f8087gtD32wHlWNfX+jyw7Nl5/SJ71O8dDbfAlsXoauL60j8FNrzonmUvulRfo6bJP/s/1zqNg92f3TPpjOsyERYS/UkZrF47yTb7teZFv35xNOknQ+moGrnWXZk/MzAGDEa/joRFVYp3J2hYXJ6GlIL1UCw7rSbGd9OSpB5e0wzEvIf+5A8jGrzxMB2NRnaECLqYybksxA4RIoL76aiYMJA99Gd/GOmHqiTuBBEKp1CPWjk0orKIIBAijyP5MCB76E/++4thAJcgpeNehHxEDPnQ0L66g4HB60ylDvJCQv8jV62ZDNZCdSbjwrhi4GcYGDae+ipg1InxSrjxEigVyQuHCyMlhrE4iOPEuBhZzugfPjx58uFGlzM4pTceddHXiWj4lkSGn2Hj8RFoaOeU8LDfZ7wSEyPgf8XVKA5ltEmNzsiy/vEJ6MMlXcZlIKfaHyMzT15WuaSSTCoK983TGxk3BPdyh+H8XgDNyod6HltgVJOcezEK7EnCIX39Le5pmfLlTz+2klgK33j3sy47FJdL1p+2oA2c2+3mODeXSyarP0NjAFhCUo8xoxkRPtS06yjBIYk5XoAvJoiRdIJ2ZeQPPwIpN2ccxM3xSeXlx/JDN/2XCzp++RWXdC9IqT6R6eu0tOdFXrQgAlILCxsD+zpbfKlhZJGwmtDLH39M8gsH4ZMvdQdWzy6/SXL4e58VBwbw8ktBukXjkLRAzCLw+6kjRFoAQ3uikGZeLeHCSraeOMzIaPlDy6olgFD57/Qx8nnJJQgE/Kn7F5FR7AVCy3ARuk1EDnbfJTmOWz4K507+5KhIxshPlrxx6pYNH+mzIGAyO6GoSVEHvJHq9qxfakAs8cu0xkb21EGnMmn5a3te8P237CAgL3SWF30YQ1Lwh2X7R5rdK7EGOQvzmhB75RxijN6y54VtrGQZlCbqNWtHR0e1rGZjiKbIgrLyKMkPjpkoJf+4uinuXGEFCMI3DlkWHcOM2vxinzInMGTdIcAy363hBTbWs7cxHPxhsORdyjtmX0MgsrruKMmXznBKRm+s/Oqx+AG50nrWCUaUxdy6b8Wd/NoRJlb+ObmOF5jYymi+XgSx/ltx8+8cYWLlT2txAbBVUWwDXmR7vYFBznfpgFMAzKqUYqrW3YChgVVevKjkq0dfzabp8k8bAeM1clVUXydyk2Nw/I+Pf0zJQE6xPoRhn1ydi62RZp/jzyF79BbmyrgmSSu0iec5nufd+C+Hb3LucUPv2E8W4c0Uzkgs4ABjeKMaz8hbuZw7+ehnZNCMPuq9uGqBb3WKg6tiUSlU3IVSsVgtlqqVcfb06S4WRhZy1UqlNXB/gh+Dgbta4gaDEj8YVBuNUqkyaFT5ailX4pLfPf4huK6YA7xcqa00tM9y7Uax0um12pXiZ7yvMyiOg3X1DrwQqvCFYrWFKsVBSWu0S+12qaOVioVS4UqraoPqVTFXIHnNnfz5sScWDAAbESm1+UavUG0X241Op9KutAstTatMgLWsq1wbasBftQtcr1MotbTPCleddqXSafQUvtC7+qxdrMBhClqlrSjOApZraJzSLmnu9kDrVIotXhu0J8AadwJW4a+KrVa72AFg/KBTLBZL7UYvxxc6nc/aJTcGVmm3eQcAo/VxJwkuWdUUXqsWCu1qG2wLRpC8rzjm2bhL0CevABjX0hoIA6v6KoWeu13tVFqFq/ag/Um5wsCKPT7582OPYQBsxItrQJQpFEuDRqMyaJUqcL9R4QelcS9ZsqsibqQiD+8HPUihwVV4d6FRLbQKA75wVfoERytewZdUqlavuOTN47cw+dOoqscpPPzFeQTcKkZakeOU8QiQv7qThbUVt/HeOTN7gbyOUxSOV8B+eQUfiYcjwWOXj93CXC75h7XFHQNY+w72hZBvo4O4G+XHnofhatgGxQr49m3L1JuIQJuM8N38Dw64qotxbfLlr6tSrxNZXF1vNb+V5AcnXD8iv9ygkMB37sSLIHvuFSdAxsCqj98hQczlBuWKBnE3C/OiynpDhqTCEVPv5Jdr2wIGdqcSNai33o6rzjgLAsl+a423KCXku5uF4fH3OmLJJ48/pzDFfLfaKTlurosMxmPmZDm4gxUP4ElggTjcwQ/7jEfAC+OxWchesrr6NFvypQO6yJHK/7eSWG4+4u/mJS+BU4WdfBQk5XcQ6YVfpPwunhMVkKLRCLws9v59YMaPSbK3Muzzn5w0Q11+Z0+M44vzo6LdsICr1QTaD6uqIODJPT4CqUJESOPoHoBH82Brx1Ep4JsFhrQVTqk0HHb520ubQjXHKcWF8LUrCKaF7YfDAWO+KyKJQF68DUeDhA8DSwj7AEySAvNdBdnmLJFx4I+fdEd0kBMx8k+WM7c4nmsvDiLngI0fjIlCMCzewqMBQdgLq14UWwSGZ65UrY0s+U533OUP8pPG4ow6juNypR65mIJNgYniBNieEEGRcATHMEHcF6TjZWDwPiSq8LnZg+CqPgy/X8mM41Yfo8uZn1oKP9sWnq+2lyfSzQITjoOpVBB3iWlhB+2IQgBbmBiLCAfLwEy31Er8zBkkDtdIXuqPvahjJYbOuA7/t4TPGvHGqR2Fq7RJ5FtOWKfABFXK56X3YGZBSYxB1IIbA1hclALLMQwLugHtqqEYBzGOUv1hh3HmfH3mMC0mUK9dqAxKpUGlaDvbaxZYAguA3YaBjjcq7AGwcDROQteJe0mb8QGpFa/gIKVKodNDsfzhQzf9V0k/FFQVQg8ynZA0LuJYAwxc0AhOCB2E06njVFpQSQMY2hMTK4ARo7AIQY0kA2JCd0qKPyuG0ROCeICB4dlcWOstDHpJTBZ5IfeSpDzcpExgKVGAyG8HbMyKgGN4UUR1xhhySboQIeMBuxZaAZukFceSKkqiJKjijgmMSAgH6ipgU2tDO9Hrh276rxFDX0v7G5UkAJh5Zz88Tit2hHzKG/AGJCEBQR+AobiQ3hQYBDGHpWAjHeIIthEwiPWRxP4o6EcSMcjAVKPtEXDDgIiBeUV1M2Awhndm1Kf1iLSBPyLjkg4RhtwHMN4WJVB+P5CX9oyn9qV8nIR/+FWSmN8IGIzWEw/d+F8jACZsNgPseGcftHOMUsad/Z1UYGcnZaCBO8fEPr5oFwXhyY3ejyDViMMG3qbodNq2Y7Rs6NIVa+bDls+ueh+USDsxhjG0mtishT7MFScFJhy445vMOvcauYJRwCA3rGrjyOdIYLoa2dQo7lUEOhCc6JIMpGFbYL9EdsAgGgXiOzvxAAG3IxEkhPcdMwuJGY/gjDc4eT4ITwdxXfF2Jz5+RYxcvkjVBLYXvnzoxv8a2QHzov085A6SQEakqBgOi6L4PoBu82EpYYT2PUkQxShOvuLvRXgeXvA+nsrnY/i/qtKBkWGAomrQMqiBhYUdaWF02jroE7F8OHK7n4ignUgkoqoJuCUhVT1Q8wHCh0v8aiSSkOC3FDyTVtPwWyolSTHcc8IICRcX4RVpUU1bdsJODfo0nVCts4qDsICf8OJyT0CKxnAjA4IYV4EJYZwTgUf2RUwIQeOxnRIp41fIGMImMIRfByNzS2AJ1ZnA7DL9CG4vTh18BApGRTzuIY7zYiCCaxsGMECJT4JgprhMDRnFIjCCJFJ5g/WSfGQ64USXpJnDfNDOwnYR4TVqr0EJAyPQjqjCiNuwvN2wiPBJtbzRB2BgINMlZ4ARRCoqWQIjvJIjgbmYb/PWg+/jfFpIx81zRyYwZMSmmGiM1sHCgoFjI7rbA/OiAB6YW75/QHJktYJxXedvLS0ABtlhVUoHZ4BBKIujgBjeMYCp0Iem48QqYOlEOJzfseQFX4gjqxUATNyzbhFKRSQ1bJSjR8CMM0JgZgkTmCoI6r45mrQBFo1K6i2ymjNFQIZy7cSKK+3S1bQ1L2jmcVqQ9qfA9sLC7W08okpBwyXJwIFo1HRsgQWDQa/1RH8S7YnXTqzpA7JIPmBbrgiIELWIMTA1rEZFUVCFWwwsTOKifnrOwnAvScylFdbfBXSwalp3YgwDfZuP2VUYSDzZZAQM30JQAqk4LcUWRhLGye4xMJx+SHF8pXcau/kePplk88bBQECKOJSX6zq8h/DCXwQxV806TpHYZIS9iYXdimYOmsZFfRNYMA/woCcdASOjmCUKipCdrQIG2VnEWI3NaTMrDOlpaJh5+na2eZF8+iASVvOYkQnsQBCMqV87YTArA5gXeoAorkiPXBICk3gQ308LeOLTKguD91KF9NcOuNbbSsZpkJ5Wr8+e9SbTkhSVRDPnCL6H4O59L5lUjt/n99BePo9Lhvt54xWJvDki9Ubgv0SjUTxZcS8v2QNLSQJeVdJ5FsYwTOZa/LdhnzJ0flKH1vgwOPL4dnf31kjDCDIWC+Abc0zgi8VSRDB2jNMFLzxIgIvFUqaJEsf7u7tx4zQIvGLBEQnk1bInR93uUa35ty9pR86tYJjy5VeeEGUu1IcXaupn5xqJndVIpPANMXZcY0LB+FwACQPO8VPGJMXRr0vWpZ30WWok9sVr2jGr7kxEu5jy6xA7v6whe67hpfvImcqfQYycrhtjLCJp9BGElyRIuDuakUH44DXwqxET52aJgdOfsXOrAYZCz3S8dOBDQ/hFYvQvljetYNksustFf1YiUI1dWjwx5P+87KQohhdNfmG5yQd1cc+0kG9osdaknw09kzOOQYY3bTq1WccW29hdLwKZBeY7t1mbM/QX2TF7eTJ0+a3trjusdqeLvRd1bruGdeifZadMpKbLz1fsUtS/43VZU0EXcMbaHyj0V6cstcm4+ratgDBWuyde4JDZlYvKO2anmjW7OuGFpe8FmM/nX73d1puyM+aeZ/6+8ounmveTWxDoZOWS8h5/6HNHxH1m9T5rfmp4P2Hf61tpX/ireeOAi+RdTOb1CBjeE9jjHw2N8N1xQ+4psWiyxkFYv99PQWeJR2GUeRz8ED5w6NIBwFzlt0ZX78ejO0ju8a4oMJL0411RTGTUHRdAHAtSVqqrZY8uss3usNk8r2Xr57Ujj3be7Dbhd3jaGVufZsxckupms33qJOu5aF4Mm9nzbLc/ijlUdj2MTYQtqpv11Gvdk1q9P2zWjs7rBrC65qdqJ/Ap2LcOAMZkzKSCOqkN61S916c0aBZLafXzURZwT+OjHouXjtea3VpTo7Q+htXXAFiv72tSrAHM03dAKsbQE2BUD77+I1bzdLWav948GgO7j0yMgBBmWBhFXXSzZ2MLOzmieufN+tC0MI/HAdc4ZFwzwIZatg4WdpaFwNWtjzYvYu/Dwsys1bDdi7PzOo5ZtWYd7mVr581+bwTMCbkrPYphbO0CwnHX02M16qjZB2vrjS2seU/Axh2wB3oWvycEPSb0LNBreowBE/4Xunn8wBj5rRnbz09O2K6f6va7/v7RyXk3NBxVYtj76CVH4yKcPBgZBDBjWQCGE4wxLodYmDzOwyCloIyWGHfxXmvjPOwuS7hOgNUn4wk/lfXUPEfDI+poCIGsNhmZ+T0OSMQyzMfRB7YZ6UGmfy+JqzYFxjb9qN87qbP1k7NmvzktYfQfmsZGkk8tQU2A3UcIw5qOJPvZ8+ZFtnYxzB41m2x9UiPzv3FAWgE29v2qagXbv6+K67Q47c8Oa71udlg/q51R1HSDJPa1AxLXaepqKf+6tBWfoyXME22Ed+UofbrFIlvvng37F566/wh6mOzE9EI3jpjHQ2f+FbKrVPnZ8zUVVxKRvp4G8sG9lZcY9cbA/NQQbwqO+xjoJPuTvZupF49/8W4smi5/ZeuUlGZ37feIV/uqild/VBSuUemsKpwRaLIj7CiP8E/+jAzs+8ffR46UeWNZE8P70iH7a9wIslfg+OlaFzyvVDSStHFMAvXsPd/QC9kxZ3MzLmtioZU9JFlQ+IW1VHi+0rMhTPhQbWXJFSKYY4DRDPM2tLD/od/Pen7+RySStpr87IM4ry2tpINXhlG4js1VRaD+CmLsPx01xYIpf+8PzTWHCp1efimqNleCE2THbiXAXMHWi1dUqUNfZBzRRU7ElPVn/lBoQit0+nk5c23OY7VoOSra8QK/rNjwQrf/vrT93ZjXKeOENUnnlJH152/PQ1ie02c3+ISELhym83sWDmZvXxhZrkIur8RMosCBpP7n3606ZH/orQMnIeKdfssZ/fLmRtdlOcOAh9CHLjoxuqhhTis3+eDcuaLF0tUxNZrQZf3tMrFQ6LXsiBx/XsZMQAZujb7K8A+8D7B+KOLLquYIkA17XIZX5rT5MEaAeeWFQzAjpvy8H6Jwicc8U+RhQ6EvPjKMAy3MTvS1ivcUngLzrV9j1F2dB0buR6XENW3suSyXn5+GWDNcgvv739444XTkLxDjuk6IqmFkI2i9tUvlcnxnlFsYlhlXo+lvaZexbh/NZBj54/Ov3pz2+6dfPPuXXs64nDJvZ2PRh2HpIICXWTAYVDZYvhpv8WC6MRFPL22NzmTwluIZvLH4H8u6RspgI8vvj4aVvk32jsq1Edr14gVw0xLgoheTBhzOHJPY/3IxeAU7KXyLs36yuMlGa0oFBd+ngjthSQVcy4toAix48I/milNB+/RDVRLw8gob7Uzn5vBVHpKUBmf842KxF423lNfByqTE/vyWusaO8BznHv1wu0frjib/I6+qkWvdaRPK71Wyfp0Q/jbuI3Gtgser/+ItUHiey+XwvfFWa8n/SgiCIxefuz+BkbloerIpeOlKqZQaxUK1WhhweEO3wqBSco+3Gkg+la8P//Fn9MZZAbHMaDV5Tin6lF5n0OE4rdFqDxqtnltp97jxGt38SxlGCn92YCD5pzGwTnvQ7pTalVZPa3V6pVav0sAPjYaZGJjLWRWb30byK9PnOL5d0a7apXbVDbj4ItnoVd3AaxYY/YdL4X+Fxi7p5rWqr9obdBSu4e7Bb580JddutEcuyeUcsm/3b67MhzGwAtdyF6rFYgnvu1YcuIuFwVVrUJgG/Yf+qI9Dmcm+PsYC3O7RHrHmP+P+CJgDtiP9XUTL1U0SfXfSATNxfhcx5U322nK7G1uPHAmC2AbVim0IGyvjkhubALvZZhRjyRvsPq+8c9Rp2d9Y9OpzIIaBfb3lNREtr9mcDAxsm7XOiKFXbbXlxqOmxp+yaGgnGgK/zZZOYwPbOuSC5MvWis38lCdbh1wQnfnYsDk5yfFbXhZiXPo3i3uTjXhxN46bh/N7iHbJT5PJpT0jleQ7R+4c9jsIiH18p+Q494yZKclPH7YJq70Y+esfGskkj6MZr/BJ7t0Hh00j/L1FM2X65tXLbxqN6jfvnn4AZ/wjTVv6LUTjE7yyXJZBuH6/NbCtttpqlf4fn5Hqi49pOZgAAAAASUVORK5CYII=" />
+      
+     
+
+
+<!-- <span class='quora-content-embed' data-name='When-will-there-be-drones-that-taser-people-instead-of-killing-them-non-lethal-drone-eliminations/answer/David-Hambling'>Read <a class='quora-content-link' data-width='560' data-height='260' href='https://www.quora.com/When-will-there-be-drones-that-taser-people-instead-of-killing-them-non-lethal-drone-eliminations/answer/David-Hambling' data-type='answer' data-id='163921462' data-key='ee9e46a83d2467afb2fb815b9424ade1' load-full-answer='False' data-embed='bzrcecw'><a href='https://www.quora.com/David-Hambling'>David Hambling</a>&#039;s <a href='/When-will-there-be-drones-that-taser-people-instead-of-killing-them-non-lethal-drone-eliminations#ans163921462'>answer</a> to <a href='/When-will-there-be-drones-that-taser-people-instead-of-killing-them-non-lethal-drone-eliminations' ref='canonical'><span class="rendered_qtext">When will there be drones that taser people instead of killing them (non-lethal drone eliminations)?</span></a></a> on <a href='https://www.quora.com'>Quora</a><script type="text/javascript" src="https://www.quora.com/widgets/content"></script></span> -->
+
+<span 
+  onclick="
+    alert('Do u want to work? Write an email to manu@korfmann.info and ask for our Discord')
+    fetch('/code_change_requests/1')
+  "
+  class="pickaxe" style="font-size: 10em;">⛏️
+</span> 
+
+<span
+  onclick="alert('Do u want to work? Write an email to manu@korfmann.info and ask for our Discord')
+  fetch('/code_change_requests/1')"
+>
+  By using this website, you agree to the following: We show you your ip
+</span>
+
+<span 
+  style="background-color: red"
+  onclick="confirm('Do you want peace? Peaceeful eliminations are a key, non-lethal weapons, like a drone that tasers, but without 80000 volt which could kill a being.');fetch('/code_change_requests/1');">
+  Do you want to get to the next level?
+</span>
+
+<div>
+  <span class="level-slider" style="font-size: 10em;">
+    🎚️<%= cookies['level'] %>
+  </span>
+
+  <span>
+    <input 
+      type="range" 
+      name="level" 
+      min="0" 
+      max="10" 
+      onchange="$.post('/cookie_changes', {cookie_change: {identifier: 'level', value: event.target.value}}, (data, status)=> { this.value = data;alert(this.value); });"
+    >
+  </span>
+</div>
+<%# RUSSIAN DOLL %>
+YOUR IP
+
+<%= request.remote_ip %>
+
+<% end %>
+<span class='yellow' style="background-color: yellow">
+<% case cookies['level'] %>
+<% when nil %>
+  Please select a level
+<% when '1' %>
+  <p> Landing Page (glitch + discord) </p>
+<% when '2' %>
+  <p>eZii OS</p>
+<% when '3' %>
+  <p>GAM download (github.com/ezii123/gam)</p>
+<% when '4' %>
+  <p>DEVIL IS IMPOSSIBLE TO UNDERSTAND</p>
+
+  <span>BRAINFREEZER VIA NEURALINK</span>
+
+  <span>Understanding ideas is often simple, translate it to your native language</span>
+<% when '5' %>
+  <p>GAM in browser via artichoke</p>
+<% when '6' %>
+  <p>GOD IS IMPOSSIBLE TO UNDERSTAND</p>
+<% when '7' %>
+  <p>LIFE IS IMPOSSIBLE TO UNDERSTAND</p>
+<% when '8' %>
+  <p>IMPOSSIBLE BURGER</p>
+<% when '9' %>
+  <p>MAC DONALDS</p>
+<% when '10' %>
+  <p>eZii</p>
+<% end %>
+</span>
+
+
+      
+      
+        <!-- I wish i could render the following in the web browser somehow and then display it with an erb conditional -->
+        <!-- Maybe it could work using artichoke -->
+        <!--
+            <widgetbot
+              server="<%= ENV['DISCORD_SERVER_ID'] %>"
+              channel="<%= ENV['DISCORD_CHANNEL_ID'] %>"
+              width="800"
+              height="600"
+              shard="https://disweb.deploys.io"
+            >
+            </widgetbot>
+            <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+        -->
+      </footer>
+
+<% elsif false %>
+  <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+    <iframe
+      src="https://glitch.com/embed/#!/embed/like-bladder?path=views/index.html&previewSize=100"
+      title="like-bladder on Glitch"
+      allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+      style="height: 100%; width: 100%; border: 0;">
+    </iframe>
+  </div>
+
+  <widgetbot
+    server="<%= ENV['DISCORD_SERVER_ID'] %>"
+    channel="<%= ENV['DISCORD_CHANNEL_ID'] %>"
+    width="800"
+    height="600"
+    shard="https://disweb.deploys.io"
+  >
+  </widgetbot>
+  <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
+<% end %>
+    </div>
+    </body>
+    <% else %>
+      <body>
+        <h1>Get back to work</h1>
+      </body>
+    <% end %>
+  </html>

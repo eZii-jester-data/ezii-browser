@@ -1,0 +1,202 @@
+// ⚕
+
+import Simmer from 'simmerjs'
+
+const simmer = new Simmer()
+
+<%= 
+"""
+//
+// ⚕(element) {
+//  return simmer(element);
+// }
+
+// File last modified :
+// #{ActionController::Base.helpers.time_ago_in_words(Time.now)}
+// #{ActionController::Base.helpers.time_ago_in_words(File.mtime(File.join(Rails.application.root, 'app', 'javascript', 'packs', 'game-engine.js.erb')))}
+// soon?
+
+
+"""
+%>
+
+window.gameX = { mouse: { x: 0, y: 0, clickConsumed: 0 } };
+
+function gameXLoop() {
+  var eyeLashTweezer = imageAsset('<%= ActionController::Base.helpers.image_path('c.svg') %>');
+  var alterTool = spanAsset('hammer-and-pliers')
+
+  var taskInputTag = inputAsset('alter-tool-input');
+  var tweezerDock = $('.tweezer-docking');
+
+
+  var pastElems = [];
+  setInterval(function () {
+    if (window.currentGameXTool === 'archiving') {
+    
+
+
+
+
+                let elementX = tweezerDock.offset().left - $(window).scrollLeft();
+                let elementY = tweezerDock.offset().top - $(window).scrollTop();
+
+                let elementXRight = elementX + tweezerDock.width();
+                let elementYBottom = elementY + tweezerDock.height();
+
+
+                if (
+                  (window.gameX.mouse.x > elementX) && (window.gameX.mouse.y > elementY) && (window.gameX.mouse.x < elementXRight) && (window.gameX.mouse.y < elementYBottom)
+                ) {
+                    tweezerDock.find('pre').show();
+
+                    let text = $(tweezerDock).find('.tweezer-digestable').text();
+
+                    if (window.gameX.mouse.click && window.gameX.mouse.clickConsumed < 1) {
+                      window.gameX.mouse.clickConsumed = 1;
+                      digestMessage(text).then((digest) => {
+                        if (confirm(`Redirect to code archive? Digest: ${digest}`)) {
+                          window.open('https://banal-code-archive.herokuapp.com/abstract_canonical_codes/1', '_blank');
+                        };
+                      });
+                    } else {
+                      tweezerDock.find('pre').hide();
+                      tweezerDock.css('background-color', 'initial');
+                      tweezerDock.css('border', 'initial');
+                    }
+                  }
+
+                  eyeLashTweezer.show();
+                  eyeLashTweezer.css('position', 'fixed')
+                  eyeLashTweezer.css('left', window.gameX.mouse.x);
+                  eyeLashTweezer.css('top', window.gameX.mouse.y); // eyeLashTweeeter lulz JAR™
+
+
+
+
+
+
+    } else if (window.currentGameXTool === 'alter') {
+  
+
+
+
+
+
+
+                              alterTool.show();
+                              alterTool.css('position', 'fixed')
+
+                              // §NON_CHANGEABLE_STRUCTURE("X")
+                              alterTool.css('left', window.gameX.mouse.x + 5); // X_1 window.gameX.mouse.x + 5
+                              alterTool.css('top', window.gameX.mouse.y + 5); // X_2 window.gameX.mouse.x + 5
+
+
+                              pastElems.forEach(function (elem) {
+                                $(elem).css('background-color', 'initial');
+                              });
+
+                              let elem = document.elementFromPoint(window.gameX.mouse.x, window.gameX.mouse.y); // X_3
+                              $(elem).css('background-color', 'red');
+
+
+                                          if (window.gameX.mouse.click && window.gameX.mouse.clickConsumed < 1) {
+                                              window.gameX.mouse.clickConsumed = 1;
+                                              taskInputTag.show();
+                                              updatePosition(taskInputTag);
+
+                                              alert(simmer(elem));
+                                            } else {
+                                            //  taskInputTag.hide();
+                                            }
+
+                                  pastElems.push(elem);
+
+                                  if (window.gameX.mouse.clickConsumed >= 1) { 
+                                    window.gameX.mouse.click = false; window.gameX.mouse.clickConsumed = 0; 
+                                  } 
+
+
+
+
+
+
+
+
+
+    } 
+  }, 10)   
+}
+
+function updatePosition(tag, plus = 0) {
+  tag.css('position', 'fixed')
+
+  // §NON_CHANGEABLE_STRUCTURE("X")
+  tag.css('left', window.gameX.mouse.x + plus); // X_1 window.gameX.mouse.x + 5
+  tag.css('top', window.gameX.mouse.y + plus); // X_2 window.gameX.mouse.x + 5
+}
+
+$(document).on('mousemove', function (e) {
+  //  debugger;
+  window.gameX.mouse.x = e.clientX;
+  window.gameX.mouse.y = e.clientY;
+})
+
+$(document).on('mousedown', function (e) {
+  if (window.gameX.mouse.clickConsumed < 1) {
+    window.gameX.mouse.click = true;
+  } else {
+    window.gameX.mouse.click = false;
+  }
+})
+
+$(document).on('mouseup', function (e) {
+  window.gameX.mouse.click = false;
+  window.gameX.mouse.clickConsumed = 0;
+})
+
+
+$(document).on('keydown', function (e) {
+  if (e.which === 27) {
+    window.currentGameXTool = undefined;
+  } else if (e.which === 13) {
+    if ((window.currentGameXTool === 'alter') && ($('#alter-tool-input').is(':visible'))) {
+      <%# alert($('#alter-tool-input').val()); %>
+      //⚕(body);
+      $.post('/tasks.json', {task: {title: $('#alter-tool-input').val()}}, (data, status)=> { window.open(`/tasks/${data.id}`, '_blank') });
+    }
+  }
+})
+
+
+function imageAsset(imageAssetUrlPath) {
+  let imageTag = $(`<img src="${imageAssetUrlPath}" style="display: none; width: 30px;"/>`);
+  $('body').append(imageTag);
+  return imageTag;
+}
+
+function spanAsset(identifier) {
+  let spanTag = $('<span style="font-size: 1.2em; display: none;">🛠️</span>');
+  $('body').append(spanTag);
+  return spanTag;
+}
+
+function inputAsset(identifier = '') {
+  let inputTag = $(`<input class=\'form-control\' style="display: none;" id="${identifier}"></input>`);
+  $('body').append(inputTag);
+  return inputTag;
+}
+
+gameXLoop();
+
+
+async function digestMessage(message) {
+  const msgUint8 = new TextEncoder().encode(message);
+  if (crypto.subtle === undefined) {
+    alert('You can\'t use this feature if the protocol isn\'t HTTPS');
+  }                           // encode as (utf-8) Uint8Array
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgUint8);           // hash the message
+  const hashArray = Array.from(new Uint8Array(hashBuffer));                     // convert buffer to byte array
+  const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join(''); // convert bytes to hex string
+  return hashHex;
+}

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Zappings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Previous url</th>
+      <th>Next url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_zappings.each do |ezii_zapping| %>
+      <tr>
+        <td><%= ezii_zapping.previous_url %></td>
+        <td><%= ezii_zapping.next_url %></td>
+        <td><%= link_to 'Show', ezii_zapping %></td>
+        <td><%= link_to 'Edit', edit_ezii_zapping_path(ezii_zapping) %></td>
+        <td><%= link_to 'Destroy', ezii_zapping, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Zapping', new_ezii_zapping_path %>

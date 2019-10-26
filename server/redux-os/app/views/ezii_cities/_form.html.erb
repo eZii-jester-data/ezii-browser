@@ -1,0 +1,22 @@
+<%= form_with(model: ezii_city, local: true) do |form| %>
+  <% if ezii_city.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_city.errors.count, "error") %> prohibited this ezii_city from being saved:</h2>
+
+      <ul>
+        <% ezii_city.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Github link:</strong>
+  <%= @code.github_link %>
+</p>
+
+<p>
+  <strong>Gist link:</strong>
+  <%= @code.gist_link %>
+</p>
+
+<p>
+  <strong>Code links:</strong>
+  <%= @code.code_links_id %>
+</p>
+
+<%= link_to 'Edit', edit_code_path(@code) %> |
+<%= link_to 'Back', codes_path %>

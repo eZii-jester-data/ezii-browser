@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Address Searches</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Sentiment</th>
+      <th>Search string</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @address_searches.each do |address_search| %>
+      <tr id="address-search-<%= address_search.id %>">
+        <td><%= address_search.sentiment %></td>
+        <td><%= address_search.search_string %></td>
+        <td><%= link_to 'Show', address_search %></td>
+        <td><%= link_to 'Edit', edit_address_search_path(address_search) %></td>
+        <td><%= link_to 'Destroy', address_search, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Address Search', new_address_search_path %>

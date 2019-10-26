@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ezii os global path:</strong>
+  <%= @mercurial.ezii_os_global_path %>
+</p>
+
+<p>
+  <strong>Detected app type:</strong>
+  <%= @mercurial.detected_app_type %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @mercurial.level %>
+</p>
+
+<%= link_to 'Edit', edit_mercurial_path(@mercurial) %> |
+<%= link_to 'Back', mercurials_path %>

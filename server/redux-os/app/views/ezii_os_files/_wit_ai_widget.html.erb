@@ -1,0 +1,228 @@
+
+<script>
+  window.showRedDot = function(coordsString) {
+    alert(coordsString);
+  }
+</script>
+
+<% if params[:admin].present? %>
+  <textarea 
+    onclick="$.post('/cookie_changes', {cookie_change: {identifier: 'erb_dummy_data', value: event.target.value}}, (data, status)=> { alert(this.value); });">
+    <%= cookies[:erb_dummy_data] %>
+  </textarea>
+
+  <pre><code>
+    <%= @last_file_input %>
+  </pre></code>
+<% end %>
+
+<% case File.extname(file_path.global_path) %>
+<% when '.shp' %>
+<%
+require 'rgeo/shapefile'
+str = ""
+leafletScript_geojson_features = []
+str += RGeo::Shapefile::Reader.open(file_path.global_path) do |file|
+  str += "File contains #{file.num_records} records."
+  file.each do |record|
+
+    geojson_ruby_hash = RGeo::GeoJSON.encode(record.geometry)
+    geojson_ruby_hash["coordinates"][0][0].map! do |coordinates|
+      [coordinates[0] / 100000,  coordinates[1] / 100000]
+    end
+
+    leafletScript_geojson_features.push("L.geoJSON(#{geojson_ruby_hash.to_json}).addTo(map);")
+    str += "Record number #{record.index}:"
+    str += "  Geometry: #{record.geometry.as_text}"
+    str += "  Attributes: #{record.attributes.inspect}"
+  end
+  file.rewind
+  record = file.next
+  str += "First record geometry was: #{record.geometry.as_text}"
+end
+str
+
+
+
+leafletScript = """
+setTimeout(function() {
+var map = L.map('map', { center: [37.0, 45.0], zoom: 0 });
+  #{leafletScript_geojson_features.join("\n")}
+}, 1500)
+"""
+
+%>
+ <div id="map" style="height: 200px"></div>
+
+<script><%= leafletScript.html_safe %></script>
+
+<% when '.xlsx' %>
+  <%
+    b = Workbook::Book.open(file_path.global_path)
+  %>
+
+  <h3><%= b.title %></h3>
+  <!--
+  <ul class="list-group">
+    <% b.each do |sheet| %>
+      <li class="list-group-item">
+        <a href="#"><%= sheet.name %></a>
+      </li>
+    <% end %>
+  </ul>
+  -->
+  
+  <div class="accordion" id="accordionXLSX">
+    <% b.each.with_index do |sheet, i| %>
+      <div class="card">
+        <div class="card-header" id="heading<%= i %>">
+          <h2 class="mb-0">
+            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapse<%= i %>" aria-expanded="false" aria-controls="collapse<%= i %>">
+              <%= sheet.name %>
+            </button>
+          </h2>
+        </div>
+        <div id="collapse<%= i %>" class="collapse" aria-labelledby="heading<%= i %>" data-parent="#accordionXLSX">
+          <div class="card-body">
+            <pre><code>
+              <%= sheet.table.to_html.html_safe %>
+            </pre></code>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+
+<% when '.erb' %>
+  <% if params[:admin].present? || params[:user].present? # == Digest::SHA256::hexdigest(request.remote_ip)%>
+    <h3>ERB output</h3>
+
+    <pre><code>
+      <%=
+        begin
+          erb_dummy_data = cookies[:erb_dummy_data] || ''
+
+
+          # eZii explain tool
+
+
+          # put = -> { } instead of string.inspect for the following code interpolations?
+
+          # The symbol after the Q, which is repated at the end, can be replaced with arbitrary
+          # characters, it's just a MUST, that they don't appear in the string or
+          # ar properly escaped if they appear in the string
+
+          dummy_binding = Object.new.instance_exec { eval(erb_dummy_data); notice = "test"; binding };
+          template = ::ERB.new @last_file_input
+          template.result(dummy_binding)
+          
+                # -rerb = require erb -e = execute 
+
+
+          # HART machine learning
+        rescue Exception => e
+          e.inspect
+        end
+      %>
+    </pre></code>
+
+    <h3>HTML output</h3>
+    <pre>
+     <%=
+        begin
+          erb_dummy_data = cookies[:erb_dummy_data].tap { |string| string.present? && string.concat(';binding') }|| ''
+
+
+          # eZii explain tool
+
+
+          # put = -> { } instead of string.inspect for the following code interpolations?
+
+          # The symbol after the Q, which is repated at the end, can be replaced with arbitrary
+          # characters, it's just a MUST, that they don't appear in the string or
+          # ar properly escaped if they appear in the string
+
+          dummy_binding = Object.new.instance_eval(erb_dummy_data);
+          template = ::ERB.new @last_file_input
+          template.result(dummy_binding).html_safe
+          
+                # -rerb = require erb -e = execute 
+
+
+          # HART machine learning
+        rescue Exception => e
+          e.inspect
+        end
+      %>
+    </pre>
+  <% end %>
+<% when '.pdf' %>
+  <iframe src="data:application/pdf;base64,<%= Base64.encode64(open(file_path.global_path) { |io| io.read }) %>" width="600" height="780" style="border: none;"> </iframe>
+<% when '.jpg' %>
+  <img 
+    usemap="#planetmap"
+    ondrop="
+      alert('test dropzone');
+      let coords = `${event.x},${event.y},${ event.x + 250 },${ event.y + 250}`;  
+      window.showRedDot(coords);
+      console.log(`[eZii OS]: Logging cords for image map ${this.coords}`);
+      this.coords = coords;
+    " 
+    src="data:image/jpg;base64,<%= Base64.encode64(open(file_path.global_path) { |io| io.read }) %>" />
+
+  <map name="planetmap">
+    <area
+      style="border: solid red 1px;"
+      draggable="true"
+      ondragend="
+        alert('test dropzone');
+        let previousCoords = this.coords.split(',').map((x) => parseInt(x));
+
+        let vorzeichenX = Math.sign(event.x - window.eventXPrior);
+        let vorzeichenY = Math.sign(event.y - window.eventYPrior);
+
+        if(window.eventXPrior === undefined) {
+          window.eventXPrior = event.x;
+          window.eventYPrior = event.y;
+          return; 
+        }
+
+        window.eventXPrior = event.x;
+        window.eventYPrior = event.y;
+
+        let directionX = (event.x / (event.x - 5)) * 10 * 9;
+        let directionY = (event.y / (event.y - 5)) * 10 * 9;
+
+        // let vorzeichenX = event.x / Math.abs(event.x);     
+        // let vorzeichenY = event.y /  Math.abs(event.y);
+        
+        directionX = directionX * vorzeichenX;
+        directionY = directionY * vorzeichenY;
+      
+        alert(directionX);
+        alert(directionY);
+        
+        let coords = `${ previousCoords[0] + directionX },${ previousCoords[1] + directionY },${ previousCoords[2] + directionX },${ previousCoords[3] + directionY }`;  
+        window.showRedDot(coords);
+        console.log(`[eZii OS]: Logging cords for image map ${this.coords}`);
+        this.coords = coords;
+
+        alert('test');
+        window.draggingActivated = true;
+      "
+      ondrop="alert('test');"
+      onclick="
+        let go = confirm('Do you find this useful?');
+        if(go) { fetch('/code_change_requests/1') };
+      "
+      shape="rect"
+      coords="0,0,82,126"
+      href="#"
+      alt="Sun"
+      onresize=""
+    >
+  </map>
+
+  <%= file_path.global_path %> 
+<% end %>

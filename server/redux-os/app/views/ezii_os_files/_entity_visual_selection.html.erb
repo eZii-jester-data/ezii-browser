@@ -1,0 +1,66 @@
+
+  <div id="entity-value-marking" style="display: none;">
+  <%=
+  File.read(file_path.global_path)
+
+  res = ""
+
+  Dir.mktmpdir do |dir| 
+    Docsplit.extract_text([file_path.global_path], :ocr => false, :output => dir)
+
+    res = Dir.glob('*.txt', base: dir).map { |f| File.read(File.join(dir, f)) }
+  end
+
+  raw_text = res[0]
+
+  raw_text.each_char.with_index.map { |char,i| "<span data-index=#{i}>#{char}</span>" }.join('').gsub("\n", "<br />").html_safe
+  %>
+  </div>
+
+
+  <dl>
+
+  <p>
+  Specify an entity you want to annotate (either select previous or create a new one) and click the Search button.
+
+  Then you will see the raw text from the PDF and can select one occurence of the entity.
+
+  Just mark the text like you would mark text before copy & pasting something.
+
+  Once you confirm the text selection, the training data example will be automagically created for you.
+  </p>
+  <% 1.times do %>
+    <%= form_with model: WitAiParseModelExample.new do |f| %>
+      <%= f.hidden_field :parsable_resource, value: file_path %>
+      <%= f.hidden_field :parsable_resource_text, value: raw_text %>
+      <%= f.hidden_field :parsable_resource_entity_value_start_index %>
+      <%= f.hidden_field :parsable_resource_entity_value_end_index %>
+
+      <dt>
+        <b>Property name</b>
+        <i>Either select from previously used entity names or type to add a new one.</i>
+        <%= f.text_field :entity_name, 
+          list: "entity_names"
+        %>
+
+        <datalist id="entity_names">
+          <% WitAiParseModelExample.pluck(:entity_name).uniq.each do |entity_name| %>
+            <option value="<%= entity_name %>">
+          <% end %>
+        </datalist>
+      </dt>
+      <dd>
+        <div style="display: none;">
+          Search for the property
+          <%= f.text_field :parsable_resource_query %>
+        </div>
+
+        <div style="display: none;">
+          What is the correct value for this file?
+          <%= f.text_field :entity_value %>
+        </div>
+      </dd>
+      <%= f.submit "Search" %>
+    <% end %>
+  <% end %>
+  </dl>

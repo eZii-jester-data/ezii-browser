@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Git commit created at:</strong>
+  <%= @ezii_delta_git.git_commit_created_at %>
+</p>
+
+<p>
+  <strong>Github commit link:</strong>
+  <%= @ezii_delta_git.github_commit_link %>
+</p>
+
+<p>
+  <strong>Git:</strong>
+  <%= @ezii_delta_git.git %>
+</p>
+
+<%= link_to 'Edit', edit_ezii_delta_git_path(@ezii_delta_git) %> |
+<%= link_to 'Back', ezii_delta_gits_path %>

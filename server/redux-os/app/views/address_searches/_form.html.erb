@@ -1,0 +1,27 @@
+<%= form_with(model: address_search, local: true) do |form| %>
+  <% if address_search.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(address_search.errors.count, "error") %> prohibited this address_search from being saved:</h2>
+
+      <ul>
+        <% address_search.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :sentiment %>
+    <%= form.text_area :sentiment %>
+  </div>
+
+  <div class="field">
+    <%= form.label :search_string %>
+    <%= form.text_area :search_string %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

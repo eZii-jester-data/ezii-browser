@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Apis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rfc</th>
+      <th>Rftrolling foreign key</th>
+      <th>Code</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @apis.each do |api| %>
+      <tr>
+        <td><%= api.rfc %></td>
+        <td><%= api.rftrolling_foreign_key %></td>
+        <td><%= api.code_id %></td>
+        <td><%= link_to 'Show', api %></td>
+        <td><%= link_to 'Edit', edit_api_path(api) %></td>
+        <td><%= link_to 'Destroy', api, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Api', new_api_path %>

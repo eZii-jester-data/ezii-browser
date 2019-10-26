@@ -1,0 +1,474 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Complexes</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Weight</th>
+      <th>Parent ID</th>
+      <th>Name</th>
+      <th>Combined Weight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_complexes.each do |banal_complex| %>
+      <tr>
+        <td><%= banal_complex.id %></td>
+        <td><%= banal_complex.weight %></td>
+        <td><%= banal_complex.parent_id %></td>
+        <td><%= banal_complex.name %></td>
+        <td><%= banal_complex.weight_of_identity_plus_children  %></td>
+
+        <td><%= link_to 'Show', banal_complex %></td>
+        <td><%= link_to 'Edit', edit_banal_complex_path(banal_complex) %></td>
+        <td><%= link_to 'Destroy', banal_complex, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= render 'form', banal_complex: BanalComplex.new %>
+
+<br>
+
+
+<h3 class="display-4"><%= BanalComplex.root.all.with_descendants.all.map(&:to_s) %></h3>
+
+<br>
+<br>
+
+<div class="jumbotron tweezer-docking">
+  <%= bar_chart BanalComplex.group(:name).sum(:weight_of_identity_plus_children) %>
+
+
+    <%# timeline [
+    ["System", "0", "0"],
+    ["System", "0", "0"],
+    ["Conformity", "1", "1"],
+    ["Conformity", "1", "1"]
+  ] %>
+</div>
+<div class="jumbotron">
+  <%=
+  `dot -c`
+    t =  Tempfile.new
+    tcmapx = Tempfile.new
+    tjpeg = Tempfile.new
+ # Create a new graph
+g = GraphViz.new( :G, :type => :digraph )
+
+
+graph_mapped_by_id = {}
+BanalComplex.all.each do |bc|
+  # Create two nodes
+  node = g.add_nodes( bc.name )
+  graph_mapped_by_id[bc.id] = node
+end
+
+
+BanalComplex.pluck(:id).each do |id|
+  g.add_edges( graph_mapped_by_id[BanalComplex.find(id).parent_id], graph_mapped_by_id[id] )
+end
+
+# Create an edge between the two nodes
+
+# Generate output image
+g.output( :svg => t.path )
+
+g.output( :cmapx => tcmapx.path )
+
+g.output( :jpg => tjpeg.path )
+  %>
+
+    <pre><code>
+      <%= t.read %>
+    </pre></code>
+
+    <%
+
+      §(NOT_DELETE_BEFORE_100_TEST_COVERAGE) do
+        t.rewind
+      end
+
+      svg_string = t.read
+
+      svg_tree = Nokogiri.parse(svg_string)
+
+
+      nokogiri_output = svg_tree.to_s
+    %>
+
+
+    <svg>
+      <%= svg_string.html_safe %>
+    </svg>
+    <img src="data:image/jpeg;base64,<%= Base64.encode64(File.read(tjpeg.path)) %>" usemap="#ui"/>
+
+    <map name="ui">
+      <area shape="rect" coords="0,0,82,126" href="#" alt="New item">
+    </map>
+  </div>
+
+  <div class="futur">
+  <div id="container-1"></div>
+
+
+  <script>
+  function createChart(container, integration, linkLength) {
+    Highcharts.chart(container, {
+        chart: {
+            type: 'networkgraph',
+            plotBorderWidth: 1
+        },
+        title: {
+            text: 'Phrasal verbs'
+        },
+        subtitle: {
+            text: 'Integration: ' + integration
+        },
+        plotOptions: {
+            networkgraph: {
+                layoutAlgorithm: {
+                    enableSimulation: true,
+                    integration: integration,
+                    linkLength: linkLength
+                },
+                keys: ['from', 'to'],
+                marker: {
+                    radius: 5,
+                    lineWidth: 1
+                }
+            }
+        },
+        series: [{
+            nodes: [{
+                id: 'for',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 2,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'up',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 15,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'back',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 2.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'away',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 2.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'down',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 5.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'on',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 7.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'out',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 13.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'off',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 6.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'break',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 3
+                }
+            }, {
+                id: 'into',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 2,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'in',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 4,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'get',
+                marker: {
+                    radius: 8.5
+                }
+            }, {
+                id: 'over',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'look',
+                marker: {
+                    radius: 3
+                }
+            }, {
+                id: 'put',
+                marker: {
+                    radius: 2
+                }
+            }, {
+                id: 'run',
+                marker: {
+                    radius: 1.5
+                }
+            }, {
+                id: 'take',
+                marker: {
+                    radius: 2.5
+                }
+            }, {
+                id: 'down on',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'keep',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'fun of',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'care of',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'by',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }, {
+                id: 'out of',
+                dataLabels: {
+                    enabled: true
+                },
+                marker: {
+                    radius: 1.5,
+                    fillColor: 'red'
+                }
+            }],
+            data: [
+                ['abide', 'by'],
+                ['account', 'for'],
+                ['add', 'up'],
+                ['allow', 'for'],
+                ['apply', 'for'],
+                ['back', 'away'],
+                ['back', 'down'],
+                ['back', 'up'],
+                ['bank', 'on'],
+                ['black', 'out'],
+                ['block', 'off'],
+                ['blow', 'up'],
+                ['boot', 'up'],
+                ['break', 'away'],
+                ['break', 'down'],
+                ['break', 'into'],
+                ['break', 'out'],
+                ['break', 'up'],
+                ['bring', 'up'],
+                ['brush', 'up'],
+                ['bump', 'into'],
+                ['burn', 'out'],
+                ['call', 'back'],
+                ['call', 'off'],
+                ['calm', 'down'],
+                ['carry', 'on'],
+                ['carry', 'out'],
+                ['check', 'in'],
+                ['check', 'out'],
+                ['clam', 'up'],
+                ['clamp', 'down on'],
+                ['count', 'on'],
+                ['cut', 'down on'],
+                ['cut', 'out'],
+                ['die', 'down'],
+                ['drag', 'on'],
+                ['draw', 'up'],
+                ['dress', 'up'],
+                ['ease', 'off'],
+                ['end', 'in'],
+                ['end', 'up'],
+                ['figure', 'out'],
+                ['fill', 'out'],
+                ['find', 'out'],
+                ['focus', 'on'],
+                ['get', 'along'],
+                ['get', 'at'],
+                ['get', 'away'],
+                ['get', 'by'],
+                ['get', 'in'],
+                ['get', 'into'],
+                ['get', 'off'],
+                ['get', 'on'],
+                ['get', 'out'],
+                ['get', 'over'],
+                ['get', 'rid of'],
+                ['get', 'together'],
+                ['get', 'up'],
+                ['give', 'in'],
+                ['give', 'up'],
+                ['grow', 'up'],
+                ['hand', 'in'],
+                ['hand', 'out'],
+                ['hang', 'out'],
+                ['hang', 'up'],
+                ['hold', 'on'],
+                ['hurry', 'up'],
+                ['iron', 'out'],
+                ['join', 'in'],
+                ['join', 'up'],
+                ['keep', 'on'],
+                ['keep', 'up with'],
+                ['kick', 'off'],
+                ['leave', 'out'],
+                ['let', 'down'],
+                ['look', 'after'],
+                ['look', 'down on'],
+                ['look', 'on'],
+                ['look', 'for'],
+                ['look', 'forward to'],
+                ['look', 'up to'],
+                ['make', 'fun of'],
+                ['make', 'up'],
+                ['mix', 'up'],
+                ['move', 'in'],
+                ['move', 'out'],
+                ['nod', 'off'],
+                ['own', 'up'],
+                ['pass', 'away'],
+                ['pass', 'out'],
+                ['pay', 'back'],
+                ['put', 'off'],
+                ['put', 'on'],
+                ['put', 'out'],
+                ['put', 'up'],
+                ['pick', 'up'],
+                ['point', 'out'],
+                ['rely', 'on'],
+                ['rule', 'out'],
+                ['run', 'away'],
+                ['run', 'into'],
+                ['run', 'out of'],
+                ['set', 'off'],
+                ['set', 'up'],
+                ['show', 'off'],
+                ['show', 'up'],
+                ['shut', 'up'],
+                ['sit', 'down'],
+                ['stand', 'up'],
+                ['take', 'after'],
+                ['take', 'care of'],
+                ['take', 'off'],
+                ['take', 'on'],
+                ['take', 'out'],
+                ['tell', 'off'],
+                ['think', 'over'],
+                ['try', 'on'],
+                ['turn', 'down'],
+                ['use', 'up'],
+                ['watch', 'out'],
+                ['wear', 'out'],
+                ['work', 'out'],
+                ['wipe', 'off']
+            ]
+        }]
+    });
+}
+
+createChart('container-1', 'euler', 10);
+
+
+
+  </script>
+</div>
+
+<br>
+<br>
+
+<%= link_to 'New Banal Complex', new_banal_complex_path %>

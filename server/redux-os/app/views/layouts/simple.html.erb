@@ -1,0 +1,74 @@
+	  <script
+	    src="https://code.jquery.com/jquery-3.4.1.js"
+	    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	    crossorigin="anonymous"></script>
+
+<% redis = Redis.new %>
+
+<% redis.set('online_users', (redis.get('online_users') || '').split(',').push(Digest::SHA256.hexdigest(request.remote_ip)).uniq.join(',')) %>
+
+
+<%
+
+hash = 	Marshal.load(redis.get('online_users_messages') || Marshal.dump(nil)) || {}
+redis.get('online_users').split(',').each do |digest|
+	hash[digest] ||= {}
+	
+	
+	if params[:for_user] == digest && params[:message] == "Hey"
+		hash[digest][params[:by_user]] = params[:message]
+	end
+end
+	
+
+redis.set('online_users_messages', Marshal.dump(hash))
+	
+%>
+
+<%= yield %>
+
+
+
+<ul>
+	<% redis.get('online_users').split(',').each do |online_user| %>
+		<li>
+			<% if online_user == Digest::SHA256.hexdigest(request.remote_ip) %>
+				You:
+			<% end %>
+			<%=online_user %>
+			
+			
+			<form>
+				<%= hidden_field_tag :for_user, online_user %>
+				<%= hidden_field_tag :by_user, Digest::SHA256.hexdigest(request.remote_ip) %>
+				<%= hidden_field_tag :message, "Hey" %>
+				<button>Say "Hey"</button>
+			</form>
+			
+			<% if online_user == Digest::SHA256.hexdigest(request.remote_ip) %>
+				<%= link_to "Your world", Rails.env.production? ? "http://jester-data.herokuapp.com/ezii_os_files/%2Flocal%2Fapp%2Fgames%2Fbricklayer-game-3.html.erb?user=#{online_user}" : "http://localhost:3000/ezii_os_files/%2Flocal%2FUsers%2Flemonandroid%2FBanal%20Dropbox%2Frandom%2Fmega-os%2Fezii-os%2Fgames%2Fbricklayer-game-3.html.erb?user=#{online_user}"  %>
+			<% else %>
+	<%= link_to "Their world", Rails.env.production? ? "http://jester-data.herokuapp.com/ezii_os_files/%2Flocal%2Fapp%2Fgames%2Fbricklayer-game-3.html.erb?user=#{online_user}" : "http://localhost:3000/ezii_os_files/%2Flocal%2FUsers%2Flemonandroid%2FBanal%20Dropbox%2Frandom%2Fmega-os%2Fezii-os%2Fgames%2Fbricklayer-game-3.html.erb?user=#{online_user}"  %>			<% end %>
+			
+			<% if Marshal.load(redis.get('online_users_messages'))[Digest::SHA256.hexdigest(request.remote_ip)][online_user].present? %>
+			<%= Marshal.load(redis.get('online_users_messages'))[Digest::SHA256.hexdigest(request.remote_ip)][online_user] %>
+			<% end %>
+		</li>
+	<% end %>
+</ul>
+
+
+
+<%= 
+
+output = ""
+
+Dir.chdir(Dir.tmpdir) do
+	`git clone https://git.heroku.com/jester-data.git`
+	
+	Dir.chdir('jester-data') do
+		output = `git log -p`
+	end
+end	
+
+%>

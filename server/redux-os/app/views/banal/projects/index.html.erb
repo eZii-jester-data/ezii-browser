@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Projects</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Main category</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Launch date</th>
+      <th>Comments</th>
+      <th>Project manager</th>
+      <th>Idea owner</th>
+      <th>Dev budget cost</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_projects.each do |banal_project| %>
+      <tr id="banal-employee-<%= banal_project.id %>">
+        <td><%= banal_project.name %></td>
+        <td><%= banal_project.main_category %></td>
+        <td><%= banal_project.priority %></td>
+        <td><%= banal_project.status %></td>
+        <td><%= banal_project.launch_date %></td>
+        <td><%= banal_project.comments %></td>
+        <td><%= banal_project.project_manager %></td>
+        <td><%= banal_project.idea_owner %></td>
+        <td><%= banal_project.dev_budget_cost %></td>
+        <td><%= link_to 'Show', banal_project %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banal Project', new_banal_project_path %>

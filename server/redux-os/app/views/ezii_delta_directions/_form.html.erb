@@ -1,0 +1,27 @@
+<%= form_with(model: ezii_delta_direction, local: true) do |form| %>
+  <% if ezii_delta_direction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_delta_direction.errors.count, "error") %> prohibited this ezii_delta_direction from being saved:</h2>
+
+      <ul>
+        <% ezii_delta_direction.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ezii_delta_git_id %>
+    <%= form.text_field :ezii_delta_git_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :direction_y %>
+    <%= form.number_field :direction_y %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

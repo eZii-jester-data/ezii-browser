@@ -1,0 +1,27 @@
+<%= form_with(model: ezii_refactoring_comby, local: true) do |form| %>
+  <% if ezii_refactoring_comby.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_refactoring_comby.errors.count, "error") %> prohibited this ezii_refactoring_comby from being saved:</h2>
+
+      <ul>
+        <% ezii_refactoring_comby.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

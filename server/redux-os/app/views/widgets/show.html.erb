@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Web assembly code:</strong>
+  <%= @widget.web_assembly_code %>
+</p>
+<script>
+WebAssembly.instantiateStreaming(fetch('/widgets/<%= params[:id] %>.wasm'))
+.then(results => {
+  console.log(results);
+
+  $('pre code').text(results);
+});
+</script>
+
+
+<pre><code>
+
+
+</pre></code>
+
+
+<pre>
+<%= 
+
+# Get the Wasm module as bytes.
+#wasm_bytes = IO.read "my_program.wasm", mode: "rb"
+
+# Instantiates the Wasm module.
+instance = Wasmer::Instance.new @widget.web_assembly_code.split(" ").map(&:to_i).pack('C*')
+
+# Call a function that returns a pointer to a string for instance.
+pointer = instance.exports.return_string
+
+# Get the memory view, with the offset set to `pointer` (default is 0).
+memory = instance.memory.uint8_view pointer
+
+%>
+<%= int8 = instance.memory.int8_view %>
+<%= int16 = instance.memory.int16_view %>
+<%= int32 = instance.memory.int32_view %>
+
+</pre>
+
+<%= link_to 'Edit', edit_widget_path(@widget) %> |
+<%= link_to 'Back', widget_path(@widget) %>

@@ -1,0 +1,27 @@
+<%= form_with(model: file_system, local: true) do |form| %>
+  <% if file_system.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(file_system.errors.count, "error") %> prohibited this file_system from being saved:</h2>
+
+      <ul>
+        <% file_system.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :machine_readable_identifier %>
+    <%= form.text_field :machine_readable_identifier %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

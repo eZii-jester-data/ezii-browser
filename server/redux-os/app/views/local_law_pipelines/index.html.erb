@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Local Law Pipelines</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Paragraph</th>
+      <th>Local law link</th>
+      <th>Paragraph number</th>
+      <th>Book</th>
+      <th>Local law pipeline</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @local_law_pipelines.each do |local_law_pipeline| %>
+      <tr>
+        <td><%= local_law_pipeline.title %></td>
+        <td><%= local_law_pipeline.paragraph %></td>
+        <td><%= local_law_pipeline.local_law_link %></td>
+        <td><%= local_law_pipeline.paragraph_number %></td>
+        <td><%= local_law_pipeline.book %></td>
+        <td><%= local_law_pipeline.local_law_pipeline_id %></td>
+        <td><%= link_to 'Show', local_law_pipeline %></td>
+        <td><%= link_to 'Edit', edit_local_law_pipeline_path(local_law_pipeline) %></td>
+        <td><%= link_to 'Destroy', local_law_pipeline, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Local Law Pipeline', new_local_law_pipeline_path %>

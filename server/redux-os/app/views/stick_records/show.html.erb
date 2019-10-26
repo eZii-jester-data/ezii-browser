@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @stick_record.identifier %>
+</p>
+
+<p>
+  <strong>Modifiers:</strong>
+  <%= @stick_record.modifiers %>
+</p>
+
+<%= link_to 'Edit', edit_stick_record_path(@stick_record) %> |
+<%= link_to 'Back', stick_records_path %>

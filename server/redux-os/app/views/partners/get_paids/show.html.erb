@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Enter invoice number:</strong>
+  <%= @partners_get_paid.enter_invoice_number %>
+</p>
+
+<p>
+  <strong>You will receive this when question mark:</strong>
+  <%= @partners_get_paid.you_will_receive_this_when_question_mark %>
+</p>
+
+<%= link_to 'Edit', edit_partners_get_paid_path(@partners_get_paid) %> |
+<%= link_to 'Back', partners_get_paids_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Seeds</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Github link</th>
+      <th>Gist link</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_seeds.each do |ezii_seed| %>
+      <tr>
+        <td><%= ezii_seed.github_link %></td>
+        <td><%= ezii_seed.gist_link %></td>
+        <td><%= ezii_seed.description %></td>
+        <td><%= link_to 'Show', ezii_seed %></td>
+        <td><%= link_to 'Edit', edit_ezii_seed_path(ezii_seed) %></td>
+        <td><%= link_to 'Destroy', ezii_seed, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Seed', new_ezii_seed_path %>

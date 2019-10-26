@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @banal_employees.each do |employee| %>
+    <div class="list-group-item">
+      <%= link_to(employee.First_Name + ' ' + employee.Last_Name_1, banal_employee_path(employee)) %>
+    </div>
+  <% end %>
+</div>

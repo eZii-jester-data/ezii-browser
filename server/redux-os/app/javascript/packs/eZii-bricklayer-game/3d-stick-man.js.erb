@@ -1,0 +1,248 @@
+import * as THREE from 'three';
+
+
+// use of "test" strings signals this is unfinished
+class Fountain {
+	constructor(fountainContext) {
+		this.fountainContext = fountainContext;
+	}
+	
+	aroundFountain(fn) {
+		this.fountainContext.aroundFountain(this, () => {
+			fn.call(); // a "fountainGetter()" call in this .call, should always return this fountain, how?
+			// consider a multi threaded environment, and two contexts a and b executee fountainGetter at the same time. How would the logic at [1] know, which fountain to return?
+			// maybe the fountains for aroundFountain calls could be stored by thread id? or call scope id (i.e. stack frame id)?
+		})
+	}
+}
+
+
+class FountainContext {
+	fountains = {}
+	fountainsForThreadId = {}
+	
+	
+	fountainGetter(identifier = undefined) {
+		if(identifier !== undefined) {
+			this.fountains[identifier] = new Fountain(this);
+			return this.fountains[identifier];
+		} else {
+			console.warn(this.caller);
+			return this.fountainsForThreadId['test'];
+		}
+	}
+	
+	aroundFountain(fountain, fn) {
+		this.fountainsForThreadId['test'] = fountain;
+		fn.call();
+		delete this.fountainsForThreadId['test'];
+	}
+}
+
+
+function fountainContext(fun) {
+	const fountainContext = new FountainContext();
+	return fun(fountainContext.fountainGetter.bind(fountainContext));
+}
+
+
+const EZII3DStickMan = fountainContext(function(fountainGetter) {
+
+
+	class EZII3DCuboid {
+		width;
+		height;
+		depth;
+	
+	    constructor(width, height, depth, skipAddingToScene) {    
+	      this.width = width;
+	      this.height = height;
+		  this.depth = depth;
+	  
+		  this.skipAddingToScene;
+	  
+		  this.renderInitially()
+	    }
+	
+	
+		renderInitially(threeJsScene = window.threeJsScene, skipAddingToScene = this.skipAddingToScene) {
+			var geometry = new THREE.BoxGeometry( this.width, this.height, this.depth );
+			var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+		
+			let cuboid = new THREE.Mesh( geometry, material );
+		
+		
+			if(!skipAddingToScene) { 
+				// threeJsScene.add( cuboid );
+				
+				let fountain = fountainGetter();
+				
+				fountain.eZii3dStickManThreeJsGroup.add(cuboid);
+			}
+		
+		
+			this.threeJsMesh = cuboid; 
+		}
+	}
+
+	class EZII3DStickMan {
+	
+		constructor() {
+			let fountain = fountainGetter('stick man threejs group for all meshes and sub groups');
+			
+			
+			fountain.eZii3dStickManThreeJsGroup = new THREE.Group();
+			
+			this.eZii3dStickManThreeJsGroup = fountain.eZii3dStickManThreeJsGroup;
+			
+			fountain.aroundFountain(() => {
+				this.torso = new EZII3DStickManTorso();
+			})
+			
+			window.threeJsScene.add(fountain.eZii3dStickManThreeJsGroup);
+			
+			this.positionInitially();
+			
+			window.threeJsScene.remove(fountain.eZii3dStickManThreeJsGroup);
+		}
+		
+		
+		show(position) {
+			this.eZii3dStickManThreeJsGroup.position.x = position.x;
+			this.eZii3dStickManThreeJsGroup.position.y = position.y + 20; // stick man should appear a bit higher on the y axis than the green small character
+			this.eZii3dStickManThreeJsGroup.position.z = position.z;
+			
+			
+			window.threeJsScene.add(this.eZii3dStickManThreeJsGroup);
+		}
+	
+		positionInitially() {
+			this.torso.head.eZii3dCuboid.threeJsMesh.position.y = 20;
+			this.torso.eZii3dCuboid.threeJsMesh.position.y = -30;
+		
+		
+			this.torso.arms.leftShoulderHolder.eZii3dCuboid.threeJsMesh.position.x = -30;
+		
+			this.torso.arms.leftArm.eZii3dCuboid.threeJsMesh.position.y = -50;
+			this.torso.arms.leftArm.eZii3dCuboid.threeJsMesh.position.x = -30;
+		
+		
+			this.torso.arms.rightShoulderHolder.eZii3dCuboid.threeJsMesh.position.x = +30;
+		
+			this.torso.arms.rightArm.eZii3dCuboid.threeJsMesh.position.y = -50;
+			this.torso.arms.rightArm.eZii3dCuboid.threeJsMesh.position.x = 30;
+		
+		
+			this.torso.legs.leftLeg.eZii3dCuboid.threeJsMesh.position.y = -150;
+			this.torso.legs.leftLeg.eZii3dCuboid.threeJsMesh.position.x = -20;
+		
+			this.torso.legs.rightLeg.eZii3dCuboid.threeJsMesh.position.y = -150;
+			this.torso.legs.rightLeg.eZii3dCuboid.threeJsMesh.position.x = 20;
+				
+				
+				
+			this.torso.arms.leftArm.position(-1); // x ddirection is given
+			this.torso.arms.rightArm.position(+1); // x ddirection is given
+		}
+	}
+
+
+
+	class EZII3DStickManHead {
+		eZii3dCuboid = new EZII3DCuboid(10, 20, 10);
+	}
+
+
+	class EZII3DStickManTorso {
+		eZii3dCuboid = new EZII3DCuboid(42	, 70, 10);
+		head = new EZII3DStickManHead();
+		arms = new EZII3DStickManArms();
+		legs = new EZII3DStickManLegs();
+	}
+
+
+	class EZII3DStickManArms {
+		leftArm = new EZII3DStickManArm();
+		rightArm = new EZII3DStickManArm();
+	
+		rightShoulderHolder = new EZII3DStickManShoulderHolder();
+		leftShoulderHolder = new EZII3DStickManShoulderHolder();
+	}
+
+
+	class EZII3DStickManShoulderHolder {
+		eZii3dCuboid = new EZII3DCuboid(10, 10, 10);
+	}
+
+
+	class EZII3DStickManLegs {
+		leftLeg = new EZII3DStickManLeg();
+		rightLeg = new EZII3DStickManLeg();
+	}
+
+
+	class EZII3DStickManLeg {
+		eZii3dCuboid = new EZII3DCuboid(15, 100, 10);
+	
+	}
+
+
+	class EZII3DStickManArm {
+		eZii3dCuboid = new EZII3DCuboid(10, 75, 7, true);
+	
+		shoulderSphere = new EZII3DCuboid(10, 10, 10, true);
+	
+		eZii3dGroup = new THREE.Group();
+	
+		tiltUpwards() {
+			this.eZii3dGroup.rotateX(1);
+		}
+	
+		tiltDownwards() {
+			this.eZii3dGroup.rotateX(-1);
+			// window.currentlySelectedObject.position.z += 20;
+		}
+	
+	
+		beforeFinishedRendering() {
+		
+			this.shoulderSphere.threeJsMesh.material.color.setHex(0xff0000);
+			this.eZii3dGroup.add(this.eZii3dCuboid.threeJsMesh);
+			this.eZii3dGroup.add(this.shoulderSphere.threeJsMesh);
+		
+			let fountain = fountainGetter();
+			
+			fountain.eZii3dStickManThreeJsGroup.add(this.eZii3dGroup);
+		}
+	
+	
+		position(xDirection) {
+			// positioning of arms is done in the 3dStickMaan class atm [ƒ: position()]
+			this.shoulderSphere.threeJsMesh.position.x += 30 * xDirection
+		}
+	
+		constructor() {
+		
+			this.threeJsScene = window.threeJsScene // ladder((main) => { this.threeJsScene = main.scene }
+			this.beforeFinishedRendering();
+		
+		
+			this.addClickHandler();
+		}
+	
+		addClickHandler() {
+			this.eZii3dCuboid.threeJsMesh.on('click', (evt) => {
+				// alert('test');
+				window.currentlySelectedObject = this;
+				this.eZii3dCuboid.threeJsMesh.material.color.setHex(0x0000ff);
+			});
+		}
+	}
+
+
+	return EZII3DStickMan;
+})
+
+
+export default EZII3DStickMan;
+

@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Robot Experiments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_robot_experiments.each do |ezii_robot_experiment| %>
+      <tr>
+        <td><%= link_to 'Show', ezii_robot_experiment %></td>
+        <td><%= link_to 'Edit', edit_ezii_robot_experiment_path(ezii_robot_experiment) %></td>
+        <td><%= link_to 'Destroy', ezii_robot_experiment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Robot Experiment', new_ezii_robot_experiment_path %>

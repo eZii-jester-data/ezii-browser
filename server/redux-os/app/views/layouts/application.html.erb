@@ -1,0 +1,473 @@
+  <!DOCTYPE html>
+  <html>
+    <head>
+      <title>jEster Data</title>
+      <%= csrf_meta_tags %>
+      <%= csp_meta_tag %>
+      
+      <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+	  
+	  
+	  <script
+	    src="https://code.jquery.com/jquery-3.4.1.js"
+	    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+	    crossorigin="anonymous"></script>
+	  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+            <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_pack_tag 'shadow-dom', 'data-turbolinks-track': 'reload' %>
+            <%= javascript_pack_tag 'sortable', 'data-turbolinks-track': 'reload' %>
+
+
+
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" />
+
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+
+    <body  onscroll="//zoom(this)">
+          <%= render 'shared/imprint' %>
+
+      <!-- <div style="position: fixed; top: 0; right: 0;">
+        <div class="row">
+          <div class="col">
+            <button onclick="zoom(1)" class="btn btn-primary">Show page</button>
+            <button onclick="zoom(0)" class="btn btn-danger">Hide page</button>
+          </div>
+          <div class="col">
+            <button onclick="zoom(1, '#sub-page')" class="btn btn-primary">Show sub-page</button>
+            <button onclick="zoom(0, '#sub-page')" class="btn btn-danger">Hide sub-page</button>
+          </div>
+        </div> -->
+
+      </div>
+      <script>
+        function scroll(eQuestionMarkHahaha) {
+           $("body").css("transform", `scale(${document.documentElement.scrollTop / (document.documentElement.scrollTop + 100)})`);
+        }
+
+        $(function() {
+			
+            setTimeout(function() {
+              zoom(1);
+              setTimeout(function() {
+                zoom(1, '#sub-page');
+  			  	setTimeout(function() {
+				    $("html, body").animate({ scrollTop: $(document).height() }, "slow");
+  			  	}, 7)
+              }, 0.2)
+            }, 0)
+			
+			
+			$('#exampleModal').on('shown.bs.modal', function (e) {
+				setTimeout(() => {					
+					// § Garbage collection must remove subject(of next LOC) directly after execution of next LOC
+	    			$('.modal-backdrop').removeClass('modal-backdrop');
+					
+					 
+					// yes, this all was done quickly and in a rush, sorry again	
+				}, 1000);
+	          })
+			})
+
+
+        // §(
+          // IDEMPOTENT, 
+          // "ƒ is zoom", 
+          // EXTRAS: [
+		  
+           // BOUND_TO_INTERNATIONAL_LAW for every FTE of eZii inc.,
+           // consequence of violation: FTE_CONTRACT_TERMINATION
+          //  ]
+        //   )
+        // §(INTEND_VARIABLE_MEANING, "cssId" => "Cascading Style Sheets ID", "ƒ is zoom")
+        function zoom(zoomLevel, cssId) {
+           const tick = 0.01;
+
+           const direction = zoomLevel === 0 ? -1 : 1;
+
+           zoomLevel = (zoomLevel === 0) ? 1 : 0;
+           const timeout = setInterval(function() {
+            if(direction === -1) {
+              zoomLevel -= tick;
+            } else {
+              zoomLevel += tick;
+            }
+
+            if(zoomLevel >= 1 || zoomLevel <= 0) {
+              clearTimeout(timeout);
+            }
+
+            $(cssId || "#main").css("transform", `scale(${zoomLevel})`);
+           }, 0.000001)
+        }
+      </script>
+
+      <div id="main" class="container" style="transform: scale(0);">
+<!-- border: 1px solid blue; border-radius: 0;  -->
+          <%= render 'navigation' %>
+        
+        <!-- Copy and Paste Me -->
+<!-- <div class="glitch-embed-wrap" style="height: 420px; width: 100%;">
+  <iframe
+    src="https://glitch.com/embed/#!/embed/achieved-tortoise?path=index.html&previewSize=100"
+    title="achieved-tortoise on Glitch"
+    allow="geolocation; microphone; camera; midi; vr; encrypted-media"
+    style="height: 100%; width: 100%; border: 0;">
+  </iframe>
+</div> -->
+
+        <div id="sub-page" class="container-fluid" style="transform: scale(0);">
+
+          <div class="row">
+            <div class="col">
+              <main class="container" role="main">
+                  <br />
+
+                  <%= yield %>
+
+                  <br />
+                  <br />
+                  <br />
+                  <br />
+
+                  <%= render 'shared/browser/web' %>
+                  <br />
+                  <br />
+              </main>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col" style="margin-top: 200px">
+
+                <div class='card'>
+                  <div class='card-body'>
+                    Inspect
+					
+					(Lego Technics for programming)
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="col">
+                <div class='card'>
+                  <div 
+                  
+                  
+                    class='card-body'
+                    style="cursor: pointer;"
+                    onClick='
+
+                    window.showCopyAndPasteModal();
+
+                      '
+                  >
+                    Copy and Paste
+
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+              <div class='row'>
+                <div class='col'>
+                  <ol class='sortable copied_texts'>
+                    <li>
+                      <span><%= i=0;i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                                        <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                                        <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                  </ol>
+                </div>
+                <div class='col'>
+                <ol class='sortable pastable_texts'>
+                    <li>
+                      <span><%= i=0;i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                      <input></input>
+                    </li>
+                    <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                                        <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                                        <li>
+                      <span><%= i+=1 %></span>
+                        <input></input>
+                    </li>
+                    </ol>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+              <div class='card'>
+                <div class='card-body'>
+                  Copy
+
+
+				  	Lego Mindstorms for Progoramming
+					Labview
+					Search on Quora for "How will Lego Mindstorms 4 Brick look like"
+
+
+
+
+
+
+
+
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Settings</h4>  
+
+            </div>
+            <div class="modal-body">
+                <h3>Lorem Ipsum</h3>
+                <p>Praesent non dictum dolor, vitae interdum erat. Nam quis consectetur mi. In consequat condimentum tortor, et lobortis est convallis ac. Quisque volutpat posuere dui, pellentesque vulputate dolor. Morbi dapibus orci eu est consectetur, sed pretium mauris laoreet. Pellentesque sodales ante non justo viverra, sit amet consectetur nisl vulputate.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="loadpage" type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+              </div>
+              </div>
+                      <div class="col">
+                      <div class='card'  >
+                        <div class='card-body'     style="cursor: pointer;"         onClick="window.showDisplayModal();">
+                          Display
+
+
+
+
+
+
+
+<div id="myModal1" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                 <h4 class="modal-title">Lego Bricks for coding</h4>  
+            </div>
+            <div class="modal-body shadow-host">
+				<div class="shadow-parasite">
+					<%= §(EZII_OS_GDPR_COMPLIANCE_PROBLEM, BYPASS_GDPR_PROBLEM) do `curl -L '#{ request.protocol }#{ request.host_with_port }/copies?bypass_gdpr=1'`.html_safe end %>
+				</div>
+			</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                <button id="loadpage" type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        </div>
+                      </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <button
+        type="button"
+        class="btn btn-lg btn-danger"
+        data-toggle="popover"
+        title="New features"
+        style="margin: 5px; position: fixed; bottom: 0; left: 0;"
+        data-content="<ul><li>eZii System Check</li><li>eZii Security Check</li><li>eZii Climate</li><li>eZii Chemistry</li><li>SciDex</li><li>eZii CLAKS</li><li>eZii 4D website Safari</li></ul>"
+        data-html=true
+      >
+          NEWS: Click to toggle popover
+      </button> -->
+		 
+
+           <p>
+			   
+			   <!-- <%# request.remote_ip %> -->
+
+		 <!-- # futuree this will bee eZii TV -->
+      <% if EziiAdultVerifyAndSignin.all.pluck(:user_name).include?(request.remote_ip) %>
+      <p>Yay</p>
+<!-- non auto play start -->
+                        <iframe width="560" height="315" src="<%= ENV['EZII_TV_CHANNEL_1'] %>?&autoplay=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe
+<!-- non auto play stop -->
+
+        <% if ENV['AUTOPLAY_ENABLED'] == '1' %>
+          <% if content_for(:youtube_autoplay) %>
+                  <%= yield :youtube_autoplay %>
+          <% else %>
+
+<iframe src="https://player.twitch.tv/?channel=triviaflash" frameborder="0" allowfullscreen="true" scrolling="no" height="378" width="620"></iframe><a href="https://www.twitch.tv/triviaflash?tt_content=text_link&tt_medium=live_embed" style="padding:2px 0px 4px; display:block; width:345px; font-weight:normal; font-size:10px; text-decoration:underline;">Watch live video from TriviaFlash on www.twitch.tv</a>
+         <iframe src="https://www.twitch.tv/embed/triviaflash/chat" frameborder="0" scrolling="no" height="500" width="350"></iframe>
+         
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+
+
+      <footer>
+
+
+       <p style="border: 1px solid red; padding: 50px;">
+          <span style="background-color: red; color: white; font-size: 2em;">USE THIS AREA TO SCROLL UP</span>
+       </p>
+
+      </footer>
+      <%= yield :foot %>
+
+      <%= render 'shared/imprint' %>
+    </body>
+
+
+    <%= javascript_pack_tag('game-engine') %>
+</html>
+

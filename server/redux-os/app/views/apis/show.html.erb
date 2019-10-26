@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Rfc:</strong>
+  <%= @api.rfc %>
+</p>
+
+<p>
+  <strong>Rftrolling foreign key:</strong>
+  <%= @api.rftrolling_foreign_key %>
+</p>
+
+<p>
+  <strong>Code:</strong>
+  <%= @api.code_id %>
+</p>
+
+<%= link_to 'Edit', edit_api_path(@api) %> |
+<%= link_to 'Back', apis_path %>

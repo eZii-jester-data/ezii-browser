@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>File Systems</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Machine readable identifier</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @file_systems.each do |file_system| %>
+      <tr>
+        <td><%= file_system.description %></td>
+        <td><%= file_system.machine_readable_identifier %></td>
+        <td><%= link_to 'Show', file_system %></td>
+        <td><%= link_to 'Edit', edit_file_system_path(file_system) %></td>
+        <td><%= link_to 'Destroy', file_system, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New File System', new_file_system_path %>

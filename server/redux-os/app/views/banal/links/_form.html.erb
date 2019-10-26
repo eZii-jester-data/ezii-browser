@@ -1,0 +1,47 @@
+
+<%= form_with(model: banal_link, local: true) do |form| %>
+  <% if banal_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_link.errors.count, "error") %> prohibited this banal_link from being saved:</h2>
+
+      <ul>
+        <% banal_link.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="col">
+      <h5>Link</h5>
+      <div class="field">
+        <div class='form-group'>
+          <%= form.label :uri, 'URI' %>
+          <%= form.url_field :uri, class: 'form-control', placeholder: 'e.g. https://google.com' %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h5>Metadata</h5>
+      <%= form.fields_for :metadata do |metadata_form| %>
+          <div class='form-group'>
+            <%= metadata_form.label :category %>
+            <%= metadata_form.select :category, ['Suppliers and products', 'Competitors', 'Blogs', 'Info sites', 'News and Media', 'Datasources', 'Other'], {}, { class: 'form-control' } %>
+          </div>
+    
+          <div class='form-group'>
+            <%= metadata_form.label :language, 'Country' %>
+            <%= metadata_form.select :language, ['Norway', 'Sweden', 'Germany', 'Spain', 'Denmark', 'UK',  'International', 'Lithuania', 'Other'], {}, class: 'form-control' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'banal/related_objects/hidden_fields', {form: form} %>
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Mercurials</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ezii os global path</th>
+      <th>Detected app type</th>
+      <th>Level</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mercurials.each do |mercurial| %>
+      <tr>
+        <td><%= mercurial.ezii_os_global_path %></td>
+        <td><%= mercurial.detected_app_type %></td>
+        <td><%= mercurial.level %></td>
+        <td><%= link_to 'Show', mercurial %></td>
+        <td><%= link_to 'Edit', edit_mercurial_path(mercurial) %></td>
+        <td><%= link_to 'Destroy', mercurial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Mercurial', new_mercurial_path %>

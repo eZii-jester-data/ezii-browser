@@ -1,0 +1,52 @@
+
+
+
+<%
+def front_trace_analysis(&block)
+	output = block.call
+
+	
+		html = <<~HTML
+				<script>
+				</script>
+				<div id="test">
+					<pre>
+						<code>
+							#{debug_output = ''}
+						</code>
+					</pre>
+				</div>
+
+				<div iframe>
+			HTML
+
+
+		html+=	output.split("\n").map.with_index do |line, i|
+				str = ''
+				str += '<div>'
+								str += '<div>'
+
+				str += line
+								str += '</div>'
+
+				s = EZII_INTROSPECT_LINE[i]
+				str += s.to_s
+				str += '</div>'
+			end.join("\n")
+
+		html += <<~HTML
+			</div>
+			HTML
+			
+	return (html + output).html_safe
+end
+%>
+URL: <input><%= request.url %></input>
+
+<%= front_trace_analysis { yield } %>
+
+<pre><code>
+<%= `rake routes` %>
+</pre></code>
+
+

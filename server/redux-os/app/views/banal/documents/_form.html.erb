@@ -1,0 +1,61 @@
+<%= form_with(model: banal_document, local: true) do |form| %>
+  <% if banal_document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_document.errors.count, "error") %> prohibited this banal_document from being saved:</h2>
+
+      <ul>
+        <% banal_document.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-row">
+    <div class="col">
+      <h5>Link</h5>
+
+      <div class="field">
+        <div class='form-group'>
+          <%= form.label :global_path, 'The file path including information about where the file is stored (Dropbox, Google, OneDrive)' %>
+          <%= form.url_field :global_path, class: 'form-control', placeholder: 'e.g. ftp://your-server.com/path/to/file', disabled: true %>
+          
+          <br />
+          <span>OR:</span>
+
+          <%= yield(form) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <h5>Metadata</h5>
+      <%= form.fields_for :metadata do |metadata_form| %>
+          <div class='form-group'>
+            <%= metadata_form.label :category %>
+            <%= metadata_form.select :category, ['Articles', 'Blogs'], {}, { class: 'form-control' } %>
+          </div>
+
+          <div class='form-group'>
+            <%= metadata_form.label :sub_category, 'Status' %>
+            <%= metadata_form.select :sub_category, ['Idea', 'Articles', 'Draft', 'To be revised', 'To be translated', 'Translated articles', 'Ready for publishing', 'Published', 'Rejected'], {}, { class: 'form-control' } %>
+          </div>
+    
+          <div class='form-group'>
+            <%= metadata_form.label :language, 'Country' %>
+            <%= metadata_form.select :language, ['Norway', 'Sweden', 'Germany', 'Spain', 'Denmark', 'UK',  'International', 'Lithuania', 'Other'], {}, class: 'form-control' %>
+          </div>
+      <% end %>
+    </div>
+  </div>
+
+  <%= render 'banal/related_objects/hidden_fields', {form: form} %>
+
+  <br />
+  <br />
+  <br />
+
+  <div class="actions">
+    <%= form.submit class: 'btn btn-primary float-right' %>
+  </div>
+<% end %>

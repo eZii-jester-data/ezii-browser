@@ -1,0 +1,27 @@
+<%= form_with(model: hart_science_experiment, local: true) do |form| %>
+  <% if hart_science_experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(hart_science_experiment.errors.count, "error") %> prohibited this hart_science_experiment from being saved:</h2>
+
+      <ul>
+        <% hart_science_experiment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :text %>
+    <%= form.rich_text_area :text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :url %>
+    <%= form.text_field :url %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

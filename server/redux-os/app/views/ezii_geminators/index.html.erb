@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Geminators</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Graphql query text</th>
+      <th>Url text</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_geminators.each do |ezii_geminator| %>
+      <tr>
+        <td><%= ezii_geminator.graphql_query_text %></td>
+        <td><%= ezii_geminator.url_text %></td>
+        <td><%= link_to 'Show', ezii_geminator %></td>
+        <td><%= link_to 'Edit', edit_ezii_geminator_path(ezii_geminator) %></td>
+        <td><%= link_to 'Destroy', ezii_geminator, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Geminator', new_ezii_geminator_path %>

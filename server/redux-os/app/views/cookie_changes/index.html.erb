@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Cookie Changes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifier</th>
+      <th>Value</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cookie_changes.each do |cookie_change| %>
+      <tr>
+        <td><%= cookie_change.identifier %></td>
+        <td><%= cookie_change.value %></td>
+        <td><%= link_to 'Show', cookie_change %></td>
+        <td><%= link_to 'Edit', edit_cookie_change_path(cookie_change) %></td>
+        <td><%= link_to 'Destroy', cookie_change, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cookie Change', new_cookie_change_path %>

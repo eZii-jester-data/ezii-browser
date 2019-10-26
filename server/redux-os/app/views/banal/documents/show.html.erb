@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Global path:</strong>
+  <%= link_to @banal_document.global_path, directory_path(File.dirname(@banal_document.global_path)) %>
+</p>
+
+<p>
+  <strong>Metadata:</strong>
+  <%= @banal_document.metadata.inspect %>
+</p>
+
+<p>
+  <strong>Related object:</strong>
+  <%= @banal_document.related_object.inspect %>
+</p>
+
+<%= link_to 'Edit', edit_banal_document_path(@banal_document) %> |
+<%= link_to 'Back', banal_documents_path %>

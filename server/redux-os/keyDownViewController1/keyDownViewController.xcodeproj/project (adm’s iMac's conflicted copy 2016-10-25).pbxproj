@@ -1,0 +1,504 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		45063EF01BEC293F0040BD05 /* IBM412-CID.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 45063EEF1BEC293F0040BD05 /* IBM412-CID.pdf */; };
+		454217A51B9FF9C1003CADF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454217A41B9FF9C1003CADF2 /* AppDelegate.swift */; };
+		454217A71B9FF9C1003CADF2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454217A61B9FF9C1003CADF2 /* ViewController.swift */; };
+		454217A91B9FF9C1003CADF2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 454217A81B9FF9C1003CADF2 /* Assets.xcassets */; };
+		454217AC1B9FF9C1003CADF2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 454217AA1B9FF9C1003CADF2 /* Main.storyboard */; };
+		454217B71B9FF9C2003CADF2 /* keyDownViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454217B61B9FF9C2003CADF2 /* keyDownViewControllerTests.swift */; };
+		454217C21B9FF9C2003CADF2 /* keyDownViewControllerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454217C11B9FF9C2003CADF2 /* keyDownViewControllerUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		454217B31B9FF9C2003CADF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454217991B9FF9C1003CADF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454217A01B9FF9C1003CADF2;
+			remoteInfo = keyDownViewController;
+		};
+		454217BE1B9FF9C2003CADF2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 454217991B9FF9C1003CADF2 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 454217A01B9FF9C1003CADF2;
+			remoteInfo = keyDownViewController;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		45063EEF1BEC293F0040BD05 /* IBM412-CID.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "IBM412-CID.pdf"; sourceTree = "<group>"; };
+		454217A11B9FF9C1003CADF2 /* keyDownViewController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = keyDownViewController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		454217A41B9FF9C1003CADF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		454217A61B9FF9C1003CADF2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		454217A81B9FF9C1003CADF2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		454217AB1B9FF9C1003CADF2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		454217AD1B9FF9C1003CADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		454217B21B9FF9C2003CADF2 /* keyDownViewControllerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keyDownViewControllerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		454217B61B9FF9C2003CADF2 /* keyDownViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyDownViewControllerTests.swift; sourceTree = "<group>"; };
+		454217B81B9FF9C2003CADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		454217BD1B9FF9C2003CADF2 /* keyDownViewControllerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = keyDownViewControllerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		454217C11B9FF9C2003CADF2 /* keyDownViewControllerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = keyDownViewControllerUITests.swift; sourceTree = "<group>"; };
+		454217C31B9FF9C2003CADF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4542179E1B9FF9C1003CADF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217AF1B9FF9C2003CADF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217BA1B9FF9C2003CADF2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		454217981B9FF9C1003CADF2 = {
+			isa = PBXGroup;
+			children = (
+				454217A31B9FF9C1003CADF2 /* keyDownViewController */,
+				454217B51B9FF9C2003CADF2 /* keyDownViewControllerTests */,
+				454217C01B9FF9C2003CADF2 /* keyDownViewControllerUITests */,
+				454217A21B9FF9C1003CADF2 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		454217A21B9FF9C1003CADF2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				454217A11B9FF9C1003CADF2 /* keyDownViewController.app */,
+				454217B21B9FF9C2003CADF2 /* keyDownViewControllerTests.xctest */,
+				454217BD1B9FF9C2003CADF2 /* keyDownViewControllerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		454217A31B9FF9C1003CADF2 /* keyDownViewController */ = {
+			isa = PBXGroup;
+			children = (
+				454217A41B9FF9C1003CADF2 /* AppDelegate.swift */,
+				45063EEF1BEC293F0040BD05 /* IBM412-CID.pdf */,
+				454217A61B9FF9C1003CADF2 /* ViewController.swift */,
+				454217A81B9FF9C1003CADF2 /* Assets.xcassets */,
+				454217AA1B9FF9C1003CADF2 /* Main.storyboard */,
+				454217AD1B9FF9C1003CADF2 /* Info.plist */,
+			);
+			path = keyDownViewController;
+			sourceTree = "<group>";
+		};
+		454217B51B9FF9C2003CADF2 /* keyDownViewControllerTests */ = {
+			isa = PBXGroup;
+			children = (
+				454217B61B9FF9C2003CADF2 /* keyDownViewControllerTests.swift */,
+				454217B81B9FF9C2003CADF2 /* Info.plist */,
+			);
+			path = keyDownViewControllerTests;
+			sourceTree = "<group>";
+		};
+		454217C01B9FF9C2003CADF2 /* keyDownViewControllerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				454217C11B9FF9C2003CADF2 /* keyDownViewControllerUITests.swift */,
+				454217C31B9FF9C2003CADF2 /* Info.plist */,
+			);
+			path = keyDownViewControllerUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		454217A01B9FF9C1003CADF2 /* keyDownViewController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 454217C61B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewController" */;
+			buildPhases = (
+				4542179D1B9FF9C1003CADF2 /* Sources */,
+				4542179E1B9FF9C1003CADF2 /* Frameworks */,
+				4542179F1B9FF9C1003CADF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = keyDownViewController;
+			productName = keyDownViewController;
+			productReference = 454217A11B9FF9C1003CADF2 /* keyDownViewController.app */;
+			productType = "com.apple.product-type.application";
+		};
+		454217B11B9FF9C2003CADF2 /* keyDownViewControllerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 454217C91B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewControllerTests" */;
+			buildPhases = (
+				454217AE1B9FF9C2003CADF2 /* Sources */,
+				454217AF1B9FF9C2003CADF2 /* Frameworks */,
+				454217B01B9FF9C2003CADF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				454217B41B9FF9C2003CADF2 /* PBXTargetDependency */,
+			);
+			name = keyDownViewControllerTests;
+			productName = keyDownViewControllerTests;
+			productReference = 454217B21B9FF9C2003CADF2 /* keyDownViewControllerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		454217BC1B9FF9C2003CADF2 /* keyDownViewControllerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 454217CC1B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewControllerUITests" */;
+			buildPhases = (
+				454217B91B9FF9C2003CADF2 /* Sources */,
+				454217BA1B9FF9C2003CADF2 /* Frameworks */,
+				454217BB1B9FF9C2003CADF2 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				454217BF1B9FF9C2003CADF2 /* PBXTargetDependency */,
+			);
+			name = keyDownViewControllerUITests;
+			productName = keyDownViewControllerUITests;
+			productReference = 454217BD1B9FF9C2003CADF2 /* keyDownViewControllerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		454217991B9FF9C1003CADF2 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = inDabusiness;
+				TargetAttributes = {
+					454217A01B9FF9C1003CADF2 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					454217B11B9FF9C2003CADF2 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 454217A01B9FF9C1003CADF2;
+					};
+					454217BC1B9FF9C2003CADF2 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = 454217A01B9FF9C1003CADF2;
+					};
+				};
+			};
+			buildConfigurationList = 4542179C1B9FF9C1003CADF2 /* Build configuration list for PBXProject "keyDownViewController" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 454217981B9FF9C1003CADF2;
+			productRefGroup = 454217A21B9FF9C1003CADF2 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				454217A01B9FF9C1003CADF2 /* keyDownViewController */,
+				454217B11B9FF9C2003CADF2 /* keyDownViewControllerTests */,
+				454217BC1B9FF9C2003CADF2 /* keyDownViewControllerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4542179F1B9FF9C1003CADF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454217A91B9FF9C1003CADF2 /* Assets.xcassets in Resources */,
+				454217AC1B9FF9C1003CADF2 /* Main.storyboard in Resources */,
+				45063EF01BEC293F0040BD05 /* IBM412-CID.pdf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217B01B9FF9C2003CADF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217BB1B9FF9C2003CADF2 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4542179D1B9FF9C1003CADF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454217A71B9FF9C1003CADF2 /* ViewController.swift in Sources */,
+				454217A51B9FF9C1003CADF2 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217AE1B9FF9C2003CADF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454217B71B9FF9C2003CADF2 /* keyDownViewControllerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		454217B91B9FF9C2003CADF2 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				454217C21B9FF9C2003CADF2 /* keyDownViewControllerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		454217B41B9FF9C2003CADF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454217A01B9FF9C1003CADF2 /* keyDownViewController */;
+			targetProxy = 454217B31B9FF9C2003CADF2 /* PBXContainerItemProxy */;
+		};
+		454217BF1B9FF9C2003CADF2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 454217A01B9FF9C1003CADF2 /* keyDownViewController */;
+			targetProxy = 454217BE1B9FF9C2003CADF2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		454217AA1B9FF9C1003CADF2 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				454217AB1B9FF9C1003CADF2 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		454217C41B9FF9C2003CADF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		454217C51B9FF9C2003CADF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		454217C71B9FF9C2003CADF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		454217C81B9FF9C2003CADF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewController/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewController;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		454217CA1B9FF9C2003CADF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/keyDownViewController.app/Contents/MacOS/keyDownViewController";
+			};
+			name = Debug;
+		};
+		454217CB1B9FF9C2003CADF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewControllerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewControllerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/keyDownViewController.app/Contents/MacOS/keyDownViewController";
+			};
+			name = Release;
+		};
+		454217CD1B9FF9C2003CADF2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = keyDownViewController;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		454217CE1B9FF9C2003CADF2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = keyDownViewControllerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = inDabusiness.com.keyDownViewControllerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = keyDownViewController;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4542179C1B9FF9C1003CADF2 /* Build configuration list for PBXProject "keyDownViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454217C41B9FF9C2003CADF2 /* Debug */,
+				454217C51B9FF9C2003CADF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		454217C61B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454217C71B9FF9C2003CADF2 /* Debug */,
+				454217C81B9FF9C2003CADF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		454217C91B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewControllerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454217CA1B9FF9C2003CADF2 /* Debug */,
+				454217CB1B9FF9C2003CADF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		454217CC1B9FF9C2003CADF2 /* Build configuration list for PBXNativeTarget "keyDownViewControllerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				454217CD1B9FF9C2003CADF2 /* Debug */,
+				454217CE1B9FF9C2003CADF2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 454217991B9FF9C1003CADF2 /* Project object */;
+}

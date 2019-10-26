@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Delta Gits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Git commit created at</th>
+      <th>Github commit link</th>
+      <th>Git</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_delta_gits.each do |ezii_delta_git| %>
+      <tr>
+        <td><%= ezii_delta_git.git_commit_created_at %></td>
+        <td><%= ezii_delta_git.github_commit_link %></td>
+        <td><%= ezii_delta_git.git %></td>
+        <td><%= link_to 'Show', ezii_delta_git %></td>
+        <td><%= link_to 'Edit', edit_ezii_delta_git_path(ezii_delta_git) %></td>
+        <td><%= link_to 'Destroy', ezii_delta_git, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Delta Git', new_ezii_delta_git_path %>

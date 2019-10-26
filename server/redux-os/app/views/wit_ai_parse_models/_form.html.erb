@@ -1,0 +1,27 @@
+<%= form_with(model: wit_ai_parse_model, local: true) do |form| %>
+  <% if wit_ai_parse_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(wit_ai_parse_model.errors.count, "error") %> prohibited this wit_ai_parse_model from being saved:</h2>
+
+      <ul>
+        <% wit_ai_parse_model.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :wit_ai_client_token %>
+    <%= form.text_field :wit_ai_client_token %>
+  </div>
+
+  <div class="field">
+    <%= form.label :wit_ai_server_token %>
+    <%= form.text_field :wit_ai_server_token %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

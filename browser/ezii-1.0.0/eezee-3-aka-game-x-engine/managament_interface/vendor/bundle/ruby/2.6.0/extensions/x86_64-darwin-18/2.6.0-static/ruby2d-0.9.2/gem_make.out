@@ -1,0 +1,15 @@
+current directory: /Users/lemonandroid/Dropbox/ezii-browser/browser/ezii-1.0.0/eezee-3-aka-game-x-engine/managament_interface/vendor/bundle/ruby/2.6.0/gems/ruby2d-0.9.2/ext/ruby2d
+/Users/lemonandroid/.rbenv/versions/2.6.3/bin/ruby -I /Users/lemonandroid/.rbenv/versions/2.6.3/lib/ruby/2.6.0 -r ./siteconf20191024-34874-1chxbwi.rb extconf.rb
+creating Makefile
+
+current directory: /Users/lemonandroid/Dropbox/ezii-browser/browser/ezii-1.0.0/eezee-3-aka-game-x-engine/managament_interface/vendor/bundle/ruby/2.6.0/gems/ruby2d-0.9.2/ext/ruby2d
+make "DESTDIR=" clean
+
+current directory: /Users/lemonandroid/Dropbox/ezii-browser/browser/ezii-1.0.0/eezee-3-aka-game-x-engine/managament_interface/vendor/bundle/ruby/2.6.0/gems/ruby2d-0.9.2/ext/ruby2d
+make "DESTDIR="
+compiling ruby2d.c
+linking shared-object ruby2d/ruby2d.bundle
+
+current directory: /Users/lemonandroid/Dropbox/ezii-browser/browser/ezii-1.0.0/eezee-3-aka-game-x-engine/managament_interface/vendor/bundle/ruby/2.6.0/gems/ruby2d-0.9.2/ext/ruby2d
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby2d.bundle ./.gem.20191024-34874-xap61v/ruby2d

@@ -1,0 +1,42 @@
+<%= @local_law_pipeline.content %>
+
+
+
+<% if @local_law_pipeline.id === 1 %>
+  <p id="cookie-inspect">
+  </p>
+<% end %>
+
+
+<script>
+function listCookies() {
+    var theCookies = document.cookie.split(';');
+    var aString = '';
+    for (var i = 1 ; i <= theCookies.length; i++) {
+        aString += i + ' ' + theCookies[i-1] + "\n";
+    }
+    return aString;
+}
+
+
+let string = listCookies();
+
+document.getElementById('cookie-inspect').innerText = string;
+</script>
+
+<br />
+<br />
+<br />
+
+<% §(HACK_MUST_BE_CHANGED, GDPR_COMPLIANCE_PROBLEM) do %>
+  <%= link_to 'Accept/Akzeptieren', @local_law_pipeline.id > @local_law_pipeline.local_law_pipeline_id ? '/?user_accepted_all_gdpr_disclaimers=1' : local_law_pipeline_path(@local_law_pipeline.local_law_pipeline.id), class: 'btn btn-danger' %>
+<% end %>
+
+<%= link_to 'Deny/Parieren', 'about:blank', class: 'btn btn-primary' %>
+
+<style>
+.btn {
+  padding: 20px;
+  border: 1px solid red;
+}
+</style>

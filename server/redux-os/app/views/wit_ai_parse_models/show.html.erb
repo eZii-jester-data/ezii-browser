@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Wit ai client token:</strong>
+  <%= @wit_ai_parse_model.wit_ai_client_token %>
+</p>
+
+<p>
+  <strong>Wit ai server token:</strong>
+  <%= @wit_ai_parse_model.wit_ai_server_token %>
+</p>
+
+<%= link_to 'Edit', edit_wit_ai_parse_model_path(@wit_ai_parse_model) %> |
+<%= link_to 'Back', wit_ai_parse_models_path %>

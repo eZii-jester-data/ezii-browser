@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   type = "0"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "keyDownViewController/ViewController.swift"
+            timestampString = "592657584.741155"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "ViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "keyDownViewController.ViewController.webView.getter : Swift.Optional&lt;__C.WKWebView&gt;"
+                  moduleName = "keyDownViewController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lemonandroid/Banal%20Dropbox/random/mega-os/ezii-os/keyDownViewController1/keyDownViewController/ViewController.swift"
+                  timestampString = "592655937.592603"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "114">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "keyDownViewController.ViewController.webView.setter : Swift.Optional&lt;__C.WKWebView&gt;"
+                  moduleName = "keyDownViewController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lemonandroid/Banal%20Dropbox/random/mega-os/ezii-os/keyDownViewController1/keyDownViewController/ViewController.swift"
+                  timestampString = "592655937.5948139"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "128">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "keyDownViewController.ViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; Swift.Optional&lt;keyDownViewController.ViewController&gt;"
+                  moduleName = "keyDownViewController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lemonandroid/Banal%20Dropbox/random/mega-os/ezii-os/keyDownViewController1/keyDownViewController/ViewController.swift"
+                  timestampString = "592655937.59621"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "169">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "keyDownViewController.ViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;keyDownViewController.ViewController&gt;"
+                  moduleName = "keyDownViewController"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lemonandroid/Banal%20Dropbox/random/mega-os/ezii-os/keyDownViewController1/keyDownViewController/ViewController.swift"
+                  timestampString = "592655937.597674"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "138">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

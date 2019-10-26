@@ -1,0 +1,142 @@
+
+// import * as THREE from '../build/three.module.js';
+import * as THREE from 'three';
+import { OrbitControls } from './kmz/jsm/controls/OrbitControls.js';
+import { KMZLoader } from './kmz/jsm/loaders/KMZLoader.js';
+
+import * as _ from 'lodash';
+
+
+var camera, scene, renderer, cube;
+init();
+function init() {
+	scene = new THREE.Scene();
+	
+	var geometry = new THREE.BoxGeometry( 100, 100, 100 );
+	var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+	
+	// §
+	cube = new THREE.Mesh( geometry, material );
+	scene.add( cube );
+	
+	
+	scene.background = new THREE.Color( 0x999999 );
+	var light = new THREE.DirectionalLight( 0xffffff );
+	light.position.set( 0.5, 1.0, 0.5 ).normalize();
+	scene.add( light );
+	camera = new THREE.PerspectiveCamera( 35, window.innerWidth / window.innerHeight, 1, 500 );
+	camera.position.y = 5;
+	camera.position.z = 10;
+	scene.add( camera );
+	var grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x555555 );
+	scene.add( grid );
+	renderer = new THREE.WebGLRenderer( { antialias: true } );
+	renderer.setPixelRatio( window.devicePixelRatio );
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	document.body.appendChild( renderer.domElement );
+	var loader = new KMZLoader();
+	
+	// 2 or 1
+	loader.load( '/kmz_models/1.kmz', function ( kmz ) {
+		kmz.scene.position.y = 0.5;
+		scene.add( kmz.scene );
+		render();
+	} );
+	var controls = new OrbitControls( camera, renderer.domElement );
+	controls.addEventListener( 'change', render );
+	controls.update();
+	window.addEventListener( 'resize', onWindowResize, false );
+}
+function onWindowResize() {
+	camera.aspect = window.innerWidth / window.innerHeight;
+	camera.updateProjectionMatrix();
+	renderer.setSize( window.innerWidth, window.innerHeight );
+	render();
+}
+function render() {
+	renderer.render( scene, camera );
+}
+
+
+$(document).on('eZii/moveCube', function(e) {
+	// would be cool to ddo the following using a small neural network like rubygemms brainz
+	// then the layeres of the network could be be printed
+	// and understdoo
+	// maybe by converting them to markov chains // What are hiddden markov chains?
+	
+	<%
+	
+	require 'brainz'
+
+	brainz = Brainz::Brainz.new
+	
+
+	brainz.num_hidden = [2, 7, 2]
+
+	brainz.teach(max_iterations: 200) do |iteration, error|
+		that(north: 1, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).is(north: 1, east: 0, south: 0, west: 0)
+		that(north: 0, east: 1, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).is(north: 0, east: 1, south: 0, west: 0)
+		that(north: 0, east: 0, south: 1, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).is(north: 0, east: 0, south: 1, west: 0)
+		that(north: 0, east: 0, south: 0, west: 1, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).is(north: 0, east: 0, south: 0, west: 1)
+		that(north: 0, east: 0, south: 0, west: 0, move_straight: 1, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).is(north: 0, east: 0, south: 0, west: 1)
+		that(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 1, stand_still: 0, move_to_next_poi: 0).is(north: 0, east: 0, south: 0, west: 1)
+		that(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 1, move_to_next_poi: 0).is(north: 0, east: 0, south: 0, west: 0)
+		that(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 1).is(north: 0, east: 0, south: 0, west: 1)
+
+		p "error_rate = #{'%.3f' % error || 0 } after #{iteration} iterations" if iteration % 10 == 0
+	end
+
+	
+	%>
+
+	const dIRECTION_INDDEX_PRE_BRAINZ = {
+		'north': [1, 0, 0, 0, 0, 0, 0, 0],
+		'east': [0, 1, 0, 0, 0, 0, 0, 0],
+		'south': [0, 0, 1, 0, 0, 0, 0, 0],
+		'west': [0, 0, 0, 1, 0, 0, 0, 0],
+		'nearest_poi': [0, 0, 0, 0, 1, 0, 0, 0],
+		'sraight': [0, 0, 0, 0, 0, 1, 0, 0],
+		'stand_still': [0, 0, 0, 0, 0, 0, 1, 0],
+		'next_poi': [0, 0, 0, 0, 0, 0, 0, 1],
+	}
+
+
+	function dIRECTION_INDDEX_POST_BRAINZ(a) {
+		debugger;
+		if(_.isEqual(a, [1, 0, 0, 0, 0, 0, 0, 0])) return '<%= brainz.guess(north: 1, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 1, 0, 0, 0, 0, 0, 0])) return '<%= brainz.guess(north: 0, east: 1, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).to_s %>';// if b ? ⚕
+		if(_.isEqual(a, [0, 0, 1, 0, 0, 0, 0, 0])) return '<%= brainz.guess(north: 0, east: 0, south: 1, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 0, 0, 1, 0, 0, 0, 0])) return '<%= brainz.guess(north: 0, east: 0, south: 0, west: 1, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 0, 0, 0, 1, 0, 0, 0])) return '<%= brainz.guess(north: 0, east: 0, south: 0, west: 0, move_straight: 1, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 0, 0, 0, 0, 1, 0, 0])) return '<%= brainz.guess(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 1, stand_still: 0, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 0, 0, 0, 0, 0, 1, 0])) return '<%= brainz.guess(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 1, move_to_next_poi: 0).to_s %>';
+		if(_.isEqual(a, [0, 0, 0, 0, 0, 0, 0, 1])) return '<%= brainz.guess(north: 0, east: 0, south: 0, west: 0, move_straight: 0, move_to_nearest_poi: 0, stand_still: 0, move_to_next_poi: 1).to_s %>';
+
+	}
+
+
+	let direction_index_pre = dIRECTION_INDDEX_PRE_BRAINZ[e.direction]
+	let direction_index = dIRECTION_INDDEX_POST_BRAINZ(direction_index_pre)
+
+	switch (direction_index) {
+	case 'north':
+			cube.position.z -= 10; // probablly reversed because of initial "LOOK_AT" of this scene §CHANGE_SOON
+		break;
+	case 'east':
+			cube.position.x += 10;
+		break;
+	case 'south':
+			cube.position.z += 10; // probablly reversed because of initial "LOOK_AT" of this scene §CHANGE_SOON
+		break;
+	case 'west':
+			cube.position.x -= 10;
+		break;
+	}
+
+
+	render()
+})
+
+function moveCube(cardinalPoint) {
+	cube.position.z += 1;
+}

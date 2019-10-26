@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Business Testcases</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Org</th>
+      <th>Name</th>
+      <th>Metainfo</th>
+      <th>Link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_business_testcases.each do |banal_business_testcase| %>
+      <tr>
+        <td><%= banal_business_testcase.org_id %></td>
+        <td><%= banal_business_testcase.name %></td>
+        <td><%= banal_business_testcase.metainfo %></td>
+        <td><%= banal_business_testcase.link %></td>
+        <td><%= link_to 'Show', banal_business_testcase %></td>
+        <td><%= link_to 'Edit', edit_banal_business_testcase_path(banal_business_testcase) %></td>
+        <td><%= link_to 'Destroy', banal_business_testcase, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banal Business Testcase', new_banal_business_testcase_path %>

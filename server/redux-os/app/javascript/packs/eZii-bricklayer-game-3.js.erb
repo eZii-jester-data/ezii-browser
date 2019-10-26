@@ -1,0 +1,171 @@
+const character3dAssetId = <%= Rails.env.production? ? 8 : 4 %>;
+const brick3dAssetId = <%= Rails.env.production? ? 9 : 6 %>;
+const electricShelf3dAssetId = <%= Rails.env.production? ? 10 : 7 %>;
+
+
+
+
+import EZIIBrickLayerGameMain from './eZii-bricklayer-game/main.js';
+import * as THREE from 'three';
+
+
+import EZII3DStickMan from './eZii-bricklayer-game/3d-stick-man.js'
+
+var eZii3dStickMan;
+$(function() {
+	
+	var piemenu = new wheelnav('piemenu');
+	piemenu.sliceInitPathFunction = piemenu.slicePathFunction;
+	piemenu.initPercent = 0.1;
+	piemenu.wheelRadius = piemenu.wheelRadius * 0.83;
+	
+	piemenu.createWheel();	
+	
+	
+	var main = new EZIIBrickLayerGameMain();
+	
+	var playerWalkingDirection = [0, 0, 0];
+	main.findDomDockingPoint().then(function() {
+		main.init();
+		main.moveObjectZAxis(main.cubes[1]);
+		
+		
+		window.threeJsScene = main.scene;
+		
+		
+		eZii3dStickMan = new EZII3DStickMan();
+		
+	
+		main.addObject(character3dAssetId).then(function([object, mixer, id]) {
+			window.mainObject = object;
+			main.mixers[id] = mixer;
+		
+			main.animate(id);
+		
+			window.mainObject.position.z = 20;
+			
+			
+			main.every10MilliSeconds(function() {
+				window.mainObject.position.z += playerWalkingDirection[2] / 5;
+				window.mainObject.position.y += playerWalkingDirection[1] / 5;
+				window.mainObject.position.x += playerWalkingDirection[0] / 5;
+			})
+			
+			main.every10MilliSeconds(function() {
+				if (window.positionWanted === undefined) return;
+				
+				if ((window.mainObject.position.z < window.positionWanted.z + 0.10) && (window.mainObject.position	.z > window.positionWanted.z - 0.10) && (window.mainObject.position	.x < window.positionWanted.x + 0.10) && (window.mainObject.position	.x > window.positionWanted.x - 0.10)) {
+					window.positionWanted = undefined;
+					playerWalkingDirection = [0,0,0]
+					
+					main.stopAnimation(character3dAssetId);
+					
+					while(main.stoppedMixers[character3dAssetId].time > 0.3) {
+						main.stoppedMixers[character3dAssetId].update(-0.1);
+					}		
+				}
+			})
+			
+			main.every10MilliSeconds(function() {
+				if(main.stoppedMixers[character3dAssetId] !== undefined && main.stoppedMixers[character3dAssetId].time > 0.2) {
+					main.stoppedMixers[character3dAssetId].update(-0.001);
+				}
+			})
+		});
+		
+		
+		main.addObject(brick3dAssetId).then(function([object, mixer, id]) {
+			window.mainObject2 = object;
+			
+			main.mixers[id] = mixer;
+		
+			// main.animate(id);
+		
+			window.mainObject2.position.z = 20;
+		});
+		
+		main.addObject(electricShelf3dAssetId).then(function([object, mixer, id]) {
+			window.mainObject3 = object;
+			
+			main.mixers[id] = mixer;
+		
+			main.animate(id);
+		
+			window.mainObject3.position.z = 20;
+			window.mainObject3.position.x = 20;	
+		});
+		
+		
+		main.grid.on('click', function(ev) {
+			console.log(ev);
+			
+			main.startAnimation(character3dAssetId);
+			
+			let dir = new THREE.Vector3();
+			
+			let position = new THREE.Vector3(window.mainObject.position.x, 0, window.mainObject.position.z);
+			let positionWanted = new THREE.Vector3(ev.intersects[0].point.x, 0, ev.intersects[0].point.z);
+			window.positionWanted = positionWanted;
+			dir.subVectors( positionWanted, position).normalize();
+			
+			playerWalkingDirection[0] = dir.x;
+			playerWalkingDirection[2] = dir.z;
+			
+			window.lastUpdateForMainObjectLookAt = positionWanted;
+			window.mainObject.lookAt(positionWanted);
+		});
+		
+			
+		
+		
+		$(document).on('keydown', function(evt) {
+			console.log(evt.which);
+			
+			switch(evt.which) {
+			  case 77:
+  				main.addObject(brick3dAssetId).then(function([object, mixer, id]) {
+  					main.mixers[id] = mixer;
+		
+  					main.animate(id);
+					
+  					object.position.z = window.mainObject.position.z;
+  					object.position.x = window.mainObject.position.x;
+  				});
+			   break;
+			  case 38:
+				  main.tiltCurrentlySelectedObjectUpwards();
+			    break;
+			  case 40:
+				  main.tiltCurrentlySelectedObjectDownwards();
+			    break;
+			  default:
+				console.log(evt.which, 'not handled');
+			}
+		});
+		
+		
+		window.letStickManAppear = function() {
+			eZii3dStickMan.show(window.mainObject.position); // should be pass by value, not by reference to value (default in ruby and js), ideally this would be a deepCopy or a native javascript passByValue that is not implemented via reference passing (as in an array is passed and argument receiver function can alter the array). IMMPORTANT FOR IT PEOPLE: Don't confuse "pass by reference" (refernece to variable holder), "passy by value via referencee" (reference to value) and "pass by value", ok? We all learn all our life long, just because on doesn't understand something, it doesn't mean the person who designed it is "imbecile" (https://medium.com/@manu_78098/im-quite-aware-of-the-concept-of-optimistic-locking-d633fc28ce6c).
+				
+				eZii3dStickMan.eZii3dStickManThreeJsGroup.lookAt(window.lastUpdateForMainObjectLookAt);
+		}
+		
+		
+		$(document).on('contextmenu', function(evt) {
+			
+			console.log(evt);
+			
+			// $("#contextmenu-eZii-brick-game-3").remove();
+			
+			// let div = $('<div id="contextmenu-eZii-brick-game-3" style="background-color: white;">TEST</div>');
+			
+			
+			// $(document.body).append(div);
+			$('#piemenu').css('position', 'fixed');
+			
+			$('#piemenu').css('top', evt.clientY);
+			$('#piemenu').css('left', evt.clientX);
+			
+		});
+	})
+});

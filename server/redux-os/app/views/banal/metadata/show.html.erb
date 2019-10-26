@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @banal_metadatum.category %>
+</p>
+
+<p>
+  <strong>Language:</strong>
+  <%= @banal_metadatum.language %>
+</p>
+
+<p>
+  <strong>Sub category:</strong>
+  <%= @banal_metadatum.sub_category %>
+</p>
+
+<%= link_to 'Edit', edit_banal_metadatum_path(@banal_metadatum) %> |
+<%= link_to 'Back', banal_metadata_path %>

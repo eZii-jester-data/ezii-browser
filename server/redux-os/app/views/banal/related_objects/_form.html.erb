@@ -1,0 +1,27 @@
+<%= form_with(model: banal_related_object, local: true) do |form| %>
+  <% if banal_related_object.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_related_object.errors.count, "error") %> prohibited this banal_related_object from being saved:</h2>
+
+      <ul>
+        <% banal_related_object.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :object_id %>
+    <%= form.text_field :object_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :object_type %>
+    <%= form.text_field :object_type %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

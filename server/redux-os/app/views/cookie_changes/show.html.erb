@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Identifier:</strong>
+  <%= @cookie_change.identifier %>
+</p>
+
+<p>
+  <strong>Value:</strong>
+  <%= @cookie_change.value %>
+</p>
+
+<%= link_to 'Edit', edit_cookie_change_path(@cookie_change) %> |
+<%= link_to 'Back', cookie_changes_path %>

@@ -1,0 +1,7 @@
+<div class="list-group">
+  <% @employees.each do |employee| %>
+    <div class="list-group-item">
+      <%= link_to(employee.full_name, employee_path(employee)) %>
+    </div>
+  <% end %>
+</div>

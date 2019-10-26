@@ -1,0 +1,32 @@
+<%= form_with(model: mercurial, local: true) do |form| %>
+  <% if mercurial.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mercurial.errors.count, "error") %> prohibited this mercurial from being saved:</h2>
+
+      <ul>
+        <% mercurial.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ezii_os_global_path %>
+    <%= form.text_area :ezii_os_global_path %>
+  </div>
+
+  <div class="field">
+    <%= form.label :detected_app_type %>
+    <%= form.text_area :detected_app_type %>
+  </div>
+
+  <div class="field">
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

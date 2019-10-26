@@ -1,0 +1,18 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sentiment:</strong>
+  <%= @address_search.sentiment %>
+</p>
+
+<p>
+  <strong>Search string:</strong>
+  <%= @address_search.search_string %>
+</p>
+
+<pre><code>
+  <%= @search_result_json.inspect %>
+</pre></code>
+
+<%= link_to 'Edit', edit_address_search_path(@address_search) %> |
+<%= link_to 'Back', address_searches_path %>

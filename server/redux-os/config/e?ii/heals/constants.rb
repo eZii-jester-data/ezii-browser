@@ -1,0 +1,2 @@
+# typed: strong
+ARGUMENT_WOULD_OTHERWISE_BE_ALWAYS_NIL = :a # i already use 0-1000 for laws and their constant values - refer to ../laws_of_code/paragraphs/main.rb ∆(EXTRACT_CONSTANTS, laws_of_code/paragraphs/constants.rb)

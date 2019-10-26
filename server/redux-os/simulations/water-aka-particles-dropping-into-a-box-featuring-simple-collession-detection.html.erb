@@ -1,0 +1,15 @@
+<% ezii_rails_view_helper = Object.new.tap { |o| o.extend(Webpacker::Helper); o.extend(ActionView::Helpers::AssetTagHelper); o.extend(ActionView::Helpers::TagHelper) } %>
+
+
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+
+<%= ezii_rails_view_helper.javascript_pack_tag 'simulations/water-extremely-simple' %>
+
+
+
+
+<div id="docking-point-for-threejs" style="height: 500px;"> </div>
+

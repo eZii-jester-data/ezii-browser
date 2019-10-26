@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Kmz Models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Global path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @kmz_models.each do |kmz_model| %>
+      <tr>
+        <td><%= kmz_model.description %></td>
+        <td><%= kmz_model.global_path %></td>
+        <td><%= link_to 'Show', kmz_model %></td>
+        <td><%= link_to 'Edit', edit_kmz_model_path(kmz_model) %></td>
+        <td><%= link_to 'Destroy', kmz_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Kmz Model', new_kmz_model_path %>

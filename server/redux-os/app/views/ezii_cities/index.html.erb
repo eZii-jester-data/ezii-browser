@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Cities</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Address</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_cities.each do |ezii_city| %>
+      <tr>
+        <td><%= ezii_city.address %></td>
+        <td><%= link_to 'Show', ezii_city %></td>
+        <td><%= link_to 'Edit', edit_ezii_city_path(ezii_city) %></td>
+        <td><%= link_to 'Destroy', ezii_city, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii City', new_ezii_city_path %>

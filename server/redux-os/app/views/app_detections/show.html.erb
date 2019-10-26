@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App type:</strong>
+  <%= @app_detection.app_type %>
+</p>
+
+<p>
+  <strong>Strategy:</strong>
+  <%= @app_detection.strategy %>
+</p>
+
+<%= link_to 'Edit', edit_app_detection_path(@app_detection) %> |
+<%= link_to 'Back', app_detections_path %>

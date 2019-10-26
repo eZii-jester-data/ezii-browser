@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Refactoring Combies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_refactoring_combies.each do |ezii_refactoring_comby| %>
+      <tr>
+        <td><%= ezii_refactoring_comby.text %></td>
+        <td><%= ezii_refactoring_comby.url %></td>
+        <td><%= link_to 'Show', ezii_refactoring_comby %></td>
+        <td><%= link_to 'Edit', edit_ezii_refactoring_comby_path(ezii_refactoring_comby) %></td>
+        <td><%= link_to 'Destroy', ezii_refactoring_comby, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Refactoring Comby', new_ezii_refactoring_comby_path %>

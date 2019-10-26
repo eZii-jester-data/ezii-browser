@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Metadata</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Language</th>
+      <th>Sub category</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_metadata.each do |banal_metadatum| %>
+      <tr>
+        <td><%= banal_metadatum.category %></td>
+        <td><%= banal_metadatum.language %></td>
+        <td><%= banal_metadatum.sub_category %></td>
+        <td><%= link_to 'Show', banal_metadatum %></td>
+        <td><%= link_to 'Edit', edit_banal_metadatum_path(banal_metadatum) %></td>
+        <td><%= link_to 'Destroy', banal_metadatum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banal Metadatum', new_banal_metadatum_path %>

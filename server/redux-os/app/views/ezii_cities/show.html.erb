@@ -1,0 +1,72 @@
+<p id="notice"><%= notice %></p>
+
+
+<%= javascript_pack_tag 'kmz' %>
+<p>
+  <strong>Address:</strong>
+  <%= @ezii_city.address %>
+</p>
+
+	<script>
+		function moveCube(direction) {
+			$(document).trigger({type: 'eZii/moveCube', direction: direction});
+		}
+	</script>
+	
+	<div class='flex-container-3'>
+		<div class="previous-address flex-container">
+			<p onClick="moveCube('west')" class='btn btn-primary'>⛪ <------ WESTEN</p>
+		</div>
+		<div class='flex-container'>
+			<div class='flex-container-2'>
+				<span class="right">Left (West-Nord)</span>
+				<span class="middle btn btn-primary" onClick="moveCube('north')">NORDEN</span>
+				<span class="left">Right (Nord Ost)</span>
+			</div>
+
+			<div class="flex-container main">
+
+			</div>
+				<div class='flex-container-2'>
+				<span class="right">Left (Süd-West)</span>
+				<span class="middle btn btn-primary" onClick="moveCube('south')">SÜDEN</span>
+				<span class="left">Right (Ost-Süd)</span>
+			</div>
+		</div>
+		<div class="next-address flex-container">
+			<p class='btn btn-primary' onClick="moveCube('east')">------> ⛪ OSTEN</p>
+		</div>
+	</div>
+
+
+
+<script>
+	$('.main.flex-container').append($('canvas'));
+
+</script>
+<style>
+	canvas {
+		width: 50% !important;
+		height: 50% !important;
+	}
+	
+	.flex-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.flex-container-2 {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.flex-container-3 {
+		display: flex;
+	}
+</style>
+			
+<%= link_to 'Edit', edit_ezii_city_path(@ezii_city) %> |
+<%= link_to 'Back', ezii_cities_path %>

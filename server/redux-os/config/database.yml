@@ -1,0 +1,6 @@
+production:
+  url: postgres://yprxfzrq:Ne6smqWdc0Lb6Nx9YEsBvUYe5vrfhZll@salt.db.elephantsql.com:5432/yprxfzrq
+development:
+  url: postgres://yprxfzrq:Ne6smqWdc0Lb6Nx9YEsBvUYe5vrfhZll@salt.db.elephantsql.com:5432/yprxfzrq
+test:
+  url: postgres://yprxfzrq:Ne6smqWdc0Lb6Nx9YEsBvUYe5vrfhZll@salt.db.elephantsql.com:5432/yprxfzrq

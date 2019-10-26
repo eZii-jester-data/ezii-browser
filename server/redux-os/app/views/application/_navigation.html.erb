@@ -1,0 +1,376 @@
+<div class="device-xs visible-xs"></div>
+<div class="device-sm visible-sm"></div>
+<div class="device-md visible-md"></div>
+<div class="device-lg visible-lg"></div>
+
+<script>
+	function isBreakpoint() {
+	    return !($('.navbar-toggler-icon').is(':visible'));
+	}
+</script>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="overflow: scroll;">
+    <a class="navbar-brand" href="/">
+      <img src="https://i.gyazo.com/9ae7dbe1712f052211f29e6728db7623.png" width="70" height="42">
+      <img src="https://i.gyazo.com/41ab4080b2159e2a3d31f0bdd32a216f.png" width="70" height="42">
+      extremum of ? (X,Y,Z,T,N,K,etc...) is infinite
+    </a>
+
+    <h1 style="color: white; text-shadow: -4px 0 red, 0 4px red, 4px 0 red, 0 -4px red;">SCROLL ->>>>></h1>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	  <script>
+		  var notSorting = true;
+		  function sort(event) {
+		  	event.preventDefault();
+
+        $('.navbar').css('width', '300px');
+
+			// $("#navbar-dropdown-toggle-eZii").dropdown("show");
+			// $("#navbar-dropdown-toggle-bAnal").dropdown("show");
+			
+			$(".dropdown-menu").css({'display': 'block'})
+			// $(".dropdown-menu").css('position', 'static');
+			
+			if(isBreakpoint()) {
+				$("#navbar-dropdown-menu-eZii").css({'transform': 'translateX(-90%)'});               //    ʽ             ¶¶¶§: ORIGINAL_ITENT_OF_IMPLEMENTATION, NOT_TO_BE_DELETED
+				$("#navbar-dropdownwn-menu-bAnal").css({'transform': 'translateX(-125%)'});
+			}
+			
+			
+			$('#eZii-sort-navbar-dropdowns').text("Finish sorting");
+			$('#eZii-sort-navbar-dropdowns').removeClass('btn-warning');
+			$('#eZii-sort-navbar-dropdowns').addClass('btn-secondary');
+			
+			if(notSorting) {
+				setTimeout(()=> {
+					notSorting = false;   // Sorry to any javscript experts, i know this is tricky/hacky implementation, i was alone, no teamwork, no eZii sphere yet :) Someday this world will be perfect and everyone you love is resurrected
+				}, 100);
+			}
+		  }
+		  																																																																						////////////// ROCKET SCIENCE =====> FREEDOM AND PEACE
+		  
+		  $(document).on('click', '#eZii-sort-navbar-dropdowns', () => {
+			  alert('1');
+			  if(notSorting) return;
+			  alert('2');
+			  
+			  
+  			$('#eZii-sort-navbar-dropdowns').text("Sort");
+  			$('#eZii-sort-navbar-dropdowns').addClass('btn-warning');
+  			$('#eZii-sort-navbar-dropdowns').removeClass('btn-secondary');
+			
+			
+			if(isBreakpoint()) {
+				$("#navbar-dropdown-menu-eZii").css({'transform': 'translateX(0%)'});                  //   ´             ¶¶¶§: ORIGINAL_ITENT_OF_IMPLEMENTATION, NOT_TO_BE_DELETED
+				$("#navbar-dropdown-menu-btAnal").css({'transform': 'translateX(0%)'});
+			}
+			
+			$(".dropdown-menu").css('display', 'none');
+			
+			notSorting = true;
+		  })
+	 </script>
+		  
+	  <a 
+	  	href="#"
+		id='eZii-sort-navbar-dropdowns'
+		class="btn btn-warning" 
+		onClick='sort(event);'>
+		  Sort
+	  </a>
+
+
+    <a
+      onClick="window.currentGameXTool = 'archiving'"
+		  id='eZii-Archiv-a-la-JAR'
+		  class="btn btn-light">
+      Inspect/Archive
+      <%= image_tag 'c.svg' %>
+	  </a>
+
+    <a
+      onClick="window.currentGameXTool = 'alter'"
+		  id='eZii-Archiv-a-la-JAR'
+		  class="btn btn-light">
+      Add a feature or fix a bug
+      <span style="font-size: 4em;">🛠️</span>
+		</a>
+
+  <a
+      href="/hart_science_experiments"
+		  id='eZii-Archiv-a-la-JAR'
+		  class="btn btn-light">
+       Quantum Leap
+
+      <%= image_tag 'https://cdn3.iconfinder.com/data/icons/science-2-9/48/106-512.png', style: "width: 50px;"%>
+		</a>
+
+    <%= link_to 'Legacy', request.path + '?legacy_layout=1', class: 'btn btn-danger' %>
+
+
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+
+            <a class="nav-link dropdown-toggle" href="#" id="navbar-dropdown-toggle-eZii" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              eZii
+            </a>
+			
+			<script>
+				
+				var itemIdOfDraggableItemInDrag;
+				function drag(event) {					
+					itemIdOfDraggableItemInDrag = event.target.id;
+				}
+				
+				//$(document).on('dragover', '.dropdown-menu', function(e) {
+				//	console.log('ondragover');
+				//});
+				
+				
+				//$(document).on('mousemove', function(e) {
+				//	console.log('onmouseover');
+				//});
+				
+				
+				setInterval(function() {
+					
+				}, 500)
+			</script>
+            
+			    <div class="dropdown-menu" id="navbar-dropdown-menu-eZii" aria-labelledby="#navbar-dropdown-toggle-eZii">
+					
+					<% i=0 %>
+					
+					
+              <a draggable id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/visualizations">eZii Visual</a>
+			  
+			  
+			  
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/visualizations">eZii System Check</a>
+			  
+			  
+			  
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_teamworks">eZii Teamwork</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_zapping">eZii Zapping (Like Tinder or linear television for websites)</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/whitelabel_system_extensions">WISE</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="<%=  directory_path('/local/') %>">OS</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_delta_gits">eZii Delta System > Git</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_delta_directions">eZii Delta System > Directions</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_adult_verify_and_signins">eZii SignIN</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/widgets">Apps</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/big_discrete_modules">Big Discrete Modules</a>
+              <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_refactoring_combies">eZii Refactoring Comby (IMPORTANT)</a>
+
+			                <a  id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/mercurials">eZii Source (mercurialHub)</a>
+
+			                <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_cities">eZii Cities (3d)</a>
+                      			                <a id="navbar-dropdown-menu-<%= 'eZii' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_robots_experiments">eZii Robot Experiments (3d)</a>
+
+             </div>
+          </li>	
+
+          <li class="nav-item dropdown">
+            <a id="navbar-dropdown-toggle-bAnal" class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              bAnal
+            </a>
+            <div class="dropdown-menu" id="navbar-dropdown-menu-bAnal" aria-labelledby="navbarDropdown">
+				
+				
+				
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal/brainstorms">bAnal Brainstorms</a>
+			  
+			  
+			  
+			  
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal/projects">bAnal Projects</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal/documents">bAnal Documents</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal/links">bAnal Links</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal_business_testcases">bAnal Business Test Cases</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/banal_complexes">bAnal Complexes</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/address_searches">bAnal Address Searches</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/apis">bAnal API</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" target="_blank" href="/blazer">bAnal BI</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" target="_blank" href="/searchjoy">bAnal Search Analytics</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" target="_blank" href="https://rubygems.org/gems/pdf_search">bAnal PDF Search Rubygem</a>
+              <a id="navbar-dropdown-menu-<%= 'bAnal' %>-<%= i+=1 %>" class="dropdown-item" href="/ezii_os_files/%2Fdropbox%2FSystem.pdf">SYSTEM</a>
+            </div>
+          </li>
+        </ul>
+
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search_query">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+
+
+          <% if params[:search_query] %>
+                        <!-- Button trigger modal -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+              Show search results <%= Comment.search(params[:search_query]).count + EziiCity.search(params[:search_query]).count %>
+            </button>
+
+      
+          <% end %>
+        </form>
+    </div>
+
+
+<%
+  
+  
+  # require 'brainz'
+#
+# 	brainz = Brainz::Brainz.new
+#
+# 	brainz.num_hidden = [5, 20, 50, 100, 50, 20, 10, 5]
+#
+# 	brainz.teach(learning_rate: 0.2, momentum: 0.01, wanted_error: 0.00) do |iteration, error|
+# 		that(ip_1: request.remote_ip.split(/.|:/)[0], ip_2: request.remote_ip.split(/.|:/)[0]).is(0)
+# 		that(ip_1: request.remote_ip.split(/.|:/)[0], ip_2: request.remote_ip.split(/.|:/)[0]).is(0)
+# 		that(ip_1: request.remote_ip.split(/.|:/)[0], ip_2: request.remote_ip.split(/.|:/)[0]).is(0)
+# 		that(ip_1: request.remote_ip.split(/.|:/)[0], ip_2: request.remote_ip.split(/.|:/)[0]).is(1)
+#
+# 		p "error_rate = #{'%.3f' % error || 0 } after #{iteration} iterations" if iteration % 10 == 0
+
+ # brainz.guess(ip_1: request.remote_ip.split(/.|:/)[0], ip_2: request.remote_ip.split(/.|:/)[0]) 
+ 
+ # ^ planned for LOC 256
+# 	end
+
+	
+  
+ %>
+    <style>
+      #peace-make-button-agitation-field  {
+        padding: 30px;
+      }
+      #peace-make-button-agitation-field:active {
+        background: linear-gradient(191deg, #007bff, #ff0000, #007bff);
+        background-size: 400% 400%;
+
+        -webkit-animation: AnimationName 5s ease infinite;
+        animation: AnimationName <%= 0 %>s ease infinite;
+
+      }
+
+
+        @-webkit-keyframes AnimationName {
+            0%{background-position:59% 0%}
+            50%{background-position:42% 100%}
+            100%{background-position:59% 0%}
+        }
+        @keyframes AnimationName {
+            0%{background-position:59% 0%}
+            50%{background-position:42% 100%}
+            100%{background-position:59% 0%}
+        }
+    </style>
+
+    <style>
+      #eZii-Make-a-la-DOSB:hover {
+        background-color: blue;
+        color: white !important;
+        margin-right: 30px !important;
+        
+      }
+
+        .white-stripe {
+          top: 100%;
+          height: 3px;
+          width:  100%;
+          background-color: white;
+          z-index: 1;
+          position: sticky; /* §(IMPORTANT) */
+
+          font-size: 5px;
+        }
+
+        :active > .white-stripe{
+            animation: AnimationName2 1s ease infinite;
+        }
+
+        @-webkit-keyframes AnimationName2 {
+            0%{top: 0%}
+            50%{top: 42%%}
+            100%{top: 100%%}
+        }
+        @keyframes AnimationName2 {
+            0%{top: 0%}
+            50%{top: 42%%}
+            100%{top: 100%%}
+        }
+    </style>
+
+
+    <div id="peace-make-button-agitation-field">
+      <a
+        href="/makes"
+        id='eZii-Make-a-la-DOSB'
+        class="btn btn-light"
+        style="border: 1px solid blue; color: blue; margin-left: 100px; font-size:  2em; padding: 20px; border-radius: 5px; margin-right: 3px !important;"
+        >
+
+        <span class='white-stripe'>1231231231231231231231123</span>
+        MAKE
+
+        <!--- A la DOSB (Deutscher Olympischer Sport Bund), Njiuko, Pascal  Friedrich, Norman Timmler, Sebastian Korfmann, Ralph Von Der Heyden ---->
+      </a>
+    </div>
+</nav>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h5>Comments</h5>
+                    <%=
+
+                      uid = request.remote_ip.sub('.', '000')
+                      uid = uid.sub('::', '000').to_i
+
+                      comments = Comment.search(params[:search_query])
+
+                      Searchjoy::Search.create(
+                        search_type: "Comment", # typically the model name
+                        query: params[:search_query],
+                        results_count: comments.count,
+                        user_id: uid
+                      )
+
+                      comments.map do |comment|
+                        link_to(comment.comment_text, '/banal/brainstorms#' + 'comment-' + comment.id.to_s)
+                      end.join('<br>').html_safe
+
+                    %>
+                    
+                    <h5>News</h5>
+
+                    To be implemented soon
+					
+					<h5>Cities</h5>
+					
+					<%= 
+                    	ezii_cities = EziiCity.search(params[:search_query])
+						
+                        ezii_cities.map do |ezii_city|
+                          link_to(ezii_city.address, '/ezii_cities/' + ezii_city.id.to_s)
+                        end.join('<br>').html_safe
+					%>
+        </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Documents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Global path</th>
+      <th>Category</th>
+      <th>Status</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_documents.each do |banal_document| %>
+      <tr>
+        <td><%= directory_path(File.dirname(banal_document.global_path)) %></td>
+        <td><%= banal_document.metadata.category %></td>
+        <td><%= banal_document.metadata.sub_category %></td>
+        <td><%= link_to 'Show', banal_document %></td>
+        <td><%= link_to 'Edit', edit_banal_document_path(banal_document) %></td>
+        <td><%= link_to 'Destroy', banal_document, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Banal Document', new_banal_document_path(related_object_id: params[:related_object_id], related_object_type: params[:related_object_type]) %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Ezii adult verify and signin:</strong>
+  <%= @user_text_copy.ezii_adult_verify_and_signin_id %>
+</p>
+
+<p>
+  <strong>Copies:</strong>
+  <%= @user_text_copy.copies %>
+</p>
+
+<%= link_to 'Edit', edit_user_text_copy_path(@user_text_copy) %> |
+<%= link_to 'Back', user_text_copies_path %>

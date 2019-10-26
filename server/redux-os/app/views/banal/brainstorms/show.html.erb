@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Idea:</strong>
+  <%= @banal_brainstorm.idea %>
+</p>
+
+<p>
+  <strong>Main category:</strong>
+  <%= @banal_brainstorm.main_category %>
+</p>
+
+<p>
+  <strong>Priority:</strong>
+  <%= @banal_brainstorm.priority %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @banal_brainstorm.status %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @banal_brainstorm.comments %>
+</p>
+
+<p>
+  <strong>Idea owner:</strong>
+  <%= @banal_brainstorm.idea_owner %>
+</p>
+
+<%= link_to 'Edit', edit_banal_brainstorm_path(@banal_brainstorm) %> |
+<%= link_to 'Back', banal_brainstorms_path %>

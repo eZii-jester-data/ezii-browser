@@ -1,0 +1,32 @@
+<% content_for(:foot) do %>
+  <script type="text/javascript" src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="vn4xinkxhr71tk1"></script>
+<% end %>
+
+<h1>New Banal Document</h1>
+
+<%= render 'form', banal_document: @banal_document do |form| %>
+    <%= hidden_field_tag 'dropbox_file_id', params[:dropbox_file_id] %>
+    <div id="dropbox-choose-file-button-container"></div>
+<% end %>
+
+
+<script>
+setTimeout(function() {
+    let options  = {
+
+        // Required. Called when a user selects an item in the Chooser.
+        success: function(files) {
+            let file = files[0];
+
+            $("#banal_document_global_path").attr('disabled', true);
+            $("#banal_document_global_path").attr('placeholder', "File was selected via \"Choose from Dropbox\"");
+            
+            $("[name=\"dropbox_file_id\"]").val(file.id);
+        }
+    }
+    var button = Dropbox.createChooseButton(options);
+    document.getElementById("dropbox-choose-file-button-container").appendChild(button);
+}, 1000)
+</script>
+
+<%= link_to 'Back', banal_documents_path %>

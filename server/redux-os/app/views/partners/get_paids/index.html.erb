@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Partners Get Paids</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Enter invoice number</th>
+      <th>You will receive this when question mark</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @partners_get_paids.each do |partners_get_paid| %>
+      <tr>
+        <td><%= partners_get_paid.enter_invoice_number %></td>
+        <td><%= partners_get_paid.you_will_receive_this_when_question_mark %></td>
+        <td><%= link_to 'Show', partners_get_paid %></td>
+        <td><%= link_to 'Edit', edit_partners_get_paid_path(partners_get_paid) %></td>
+        <td><%= link_to 'Destroy', partners_get_paid, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Partners Get Paid', new_partners_get_paid_path %>

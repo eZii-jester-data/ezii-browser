@@ -1,0 +1,48 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @ezii_refactoring_comby.text %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @ezii_refactoring_comby.url %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_ezii_refactoring_comby_path(@ezii_refactoring_comby) %> |
+<%= link_to 'Back', ezii_refactoring_combies_path %>
+
+
+<div style="border: 1px solid yellow; width: 70%; height: 200px !important;" id="docking-point-for-threejs" class="tweezer-docking">
+  <pre style="display: none; position: fixed;">
+    <code class='tweezer-digestable'>
+      scene = new THREE.Scene();
+    
+      var geometry = new THREE.BoxGeometry( 100, 100, 10 );
+      var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+    
+      cube = new THREE.Mesh( geometry, material );
+      scene.add( cube );
+      
+      var geometry2 = new THREE.BoxGeometry( 100, 100, 10 );
+      var material2 = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+    
+      cube2 = new THREE.Mesh( geometry2, material2 );
+      scene.add( cube2 );
+
+      function moveObjectZAxis(object) {
+        object.position.z += 10;
+      }
+
+      moveObjectZAxis(cube2);
+      render();
+    </code>
+  </pre>
+</div>
+
+<%= javascript_pack_tag 'eZii-query-programming', 
+                        :"data-archive-path" => 'git/commit/9f1d141b2c6e07dec55e6ca077a9c785f3357abe'
+%>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>User Text Copies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Ezii adult verify and signin</th>
+      <th>Copies</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @user_text_copies.each do |user_text_copy| %>
+      <tr>
+        <td><%= user_text_copy.ezii_adult_verify_and_signin_id %></td>
+        <td><%= user_text_copy.copies %></td>
+        <td><%= link_to 'Show', user_text_copy %></td>
+        <td><%= link_to 'Edit', edit_user_text_copy_path(user_text_copy) %></td>
+        <td><%= link_to 'Destroy', user_text_copy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New User Text Copy', new_user_text_copy_path %>

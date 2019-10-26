@@ -1,0 +1,12 @@
+<div class="card">
+  <div class="card-header">
+    Featured task <span class="badge badge-dark">+ <%= "%.2f" % (@task.reward.to_f / 100) %>$ on completion</span>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.title %></h5>
+    <p class="card-text">
+      <%= @task.briefing %>
+    </p>
+    <a href="#" class="btn btn-primary"><%= @task.cta_copy %></a>
+  </div>
+</div>

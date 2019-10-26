@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Big Discrete Modules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Why</th>
+      <th>How</th>
+      <th>What</th>
+      <th>When</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @big_discrete_modules.each do |big_discrete_module| %>
+      <tr>
+        <td><%= big_discrete_module.why %></td>
+        <td><%= big_discrete_module.how %></td>
+        <td><%= big_discrete_module.what %></td>
+        <td><%= big_discrete_module.when %></td>
+        <td><%= link_to 'Show', big_discrete_module %></td>
+        <td><%= link_to 'Edit', edit_big_discrete_module_path(big_discrete_module) %></td>
+        <td><%= link_to 'Destroy', big_discrete_module, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Big Discrete Module', new_big_discrete_module_path %>

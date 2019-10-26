@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Hart Science Experiments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Text</th>
+      <th>Url</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @hart_science_experiments.each do |hart_science_experiment| %>
+      <tr>
+        <td><%= hart_science_experiment.text %></td>
+        <td><%= hart_science_experiment.url %></td>
+        <td><%= link_to 'Show', hart_science_experiment %></td>
+        <td><%= link_to 'Edit', edit_hart_science_experiment_path(hart_science_experiment) %></td>
+        <td><%= link_to 'Destroy', hart_science_experiment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Hart Science Experiment', new_hart_science_experiment_path %>

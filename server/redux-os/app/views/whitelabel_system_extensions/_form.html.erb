@@ -1,0 +1,27 @@
+<%= form_with(model: whitelabel_system_extension, local: true) do |form| %>
+  <% if whitelabel_system_extension.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(whitelabel_system_extension.errors.count, "error") %> prohibited this whitelabel_system_extension from being saved:</h2>
+
+      <ul>
+        <% whitelabel_system_extension.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :rfc %>
+    <%= form.text_area :rfc %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment_id %>
+    <%= form.text_field :comment_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,37 @@
+<%# form_with(model: ezii_adult_verify_and_signin, local: true) do |form| %>
+  <% if ezii_adult_verify_and_signin.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_adult_verify_and_signin.errors.count, "error") %> prohibited this ezii_adult_verify_and_signin from being saved:</h2>
+
+      <ul>
+        <% ezii_adult_verify_and_signin.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :user_name %>
+    <%= form.text_field :user_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :scm_id %>
+    <%= form.text_field :scm_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :shell_script_used %>
+    <%= form.text_field :shell_script_used %>
+  </div>
+
+  <div class="field">
+    <%= form.label :when_will_scm_scl011_be_available_as_rubygem_integration %>
+    <%= form.text_area :when_will_scm_scl011_be_available_as_rubygem_integration %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

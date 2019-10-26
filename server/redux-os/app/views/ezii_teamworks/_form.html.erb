@@ -1,0 +1,32 @@
+<%= form_with(model: ezii_teamwork, local: true) do |form| %>
+  <% if ezii_teamwork.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_teamwork.errors.count, "error") %> prohibited this ezii_teamwork from being saved:</h2>
+
+      <ul>
+        <% ezii_teamwork.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :employee_graph_svg_text %>
+    <%= form.text_area :employee_graph_svg_text %>
+  </div>
+
+  <div class="field">
+    <%= form.label :medium_link %>
+    <%= form.text_area :medium_link %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ezii_game_x_zip_download_link %>
+    <%= form.text_area :ezii_game_x_zip_download_link %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

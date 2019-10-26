@@ -1,0 +1,27 @@
+<%= form_with(model: stick_record, local: true) do |form| %>
+  <% if stick_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(stick_record.errors.count, "error") %> prohibited this stick_record from being saved:</h2>
+
+      <ul>
+        <% stick_record.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :identifier %>
+    <%= form.text_area :identifier %>
+  </div>
+
+  <div class="field">
+    <%= form.label :modifiers %>
+    <%= form.text_area :modifiers %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<%= form_with(model: partners_get_paid, local: true) do |form| %>
+  <% if partners_get_paid.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(partners_get_paid.errors.count, "error") %> prohibited this partners_get_paid from being saved:</h2>
+
+      <ul>
+        <% partners_get_paid.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :enter_invoice_number %>
+    <%= form.number_field :enter_invoice_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :you_will_receive_this_when_question_mark %>
+    <%= form.text_field :you_will_receive_this_when_question_mark %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

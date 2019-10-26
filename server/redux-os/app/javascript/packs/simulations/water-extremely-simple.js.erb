@@ -1,0 +1,88 @@
+
+import * as THREE from 'three';
+import { OrbitControls } from '../kmz/jsm/controls/OrbitControls.js';
+
+$(function() {
+	
+	
+	
+	var notFound = true;
+	var i = 0;
+	while(notFound) {
+		var docking = document.body.querySelector('#docking-point-for-threejs');
+		console.log(docking);
+		if(!docking) {
+			i++;
+			if (i < 40) { continue } else { break };
+		} else {
+			notFound = false;
+		}
+	
+		var camera, scene, renderer;
+		var cube, cube2, cube3;
+		var gltf, background, envMap, mixer, gui, extensionControls, controls;
+		var clock = new THREE.Clock();
+
+		function init() {
+
+			scene = new THREE.Scene();
+		
+			var geometry = new THREE.BoxGeometry( 100, 100, 10 );
+			var material = new THREE.MeshBasicMaterial( {color: 0x00ff00} );
+		
+			// §
+			cube = new THREE.Mesh( geometry, material );
+			scene.add( cube );
+		
+			var geometry2 = new THREE.BoxGeometry( 100, 100, 10 );
+			var material2 = new THREE.MeshBasicMaterial( {color: 0x0000ff} );
+		
+			// §
+			cube2 = new THREE.Mesh( geometry2, material2 );
+			scene.add( cube2 );
+		
+			scene.background = new THREE.Color( 0x999999 );
+			var light = new THREE.DirectionalLight( 0xffffff );
+			light.position.set( 0.5, 1.0, 0.5 ).normalize();
+			scene.add( light );
+			camera = new THREE.PerspectiveCamera( 35, docking.clientWidth / docking.clientHeight, 1, 500 );
+			camera.position.y = 5;
+			camera.position.z = 10;
+			scene.add( camera );
+			var grid = new THREE.GridHelper( 50, 50, 0xffffff, 0x555555 );
+			scene.add( grid );
+			renderer = new THREE.WebGLRenderer( { antialias: true } );
+			renderer.setPixelRatio( window.devicePixelRatio );
+			renderer.setSize( docking.clientWidth, docking.clientHeight );
+			docking.appendChild( renderer.domElement );
+		
+
+		    controls = new OrbitControls( camera, renderer.domElement );
+			controls.addEventListener( 'change', render ); // why was this outcommented at first?
+			controls.update();
+			window.addEventListener( 'resize', onWindowResize, false );
+		}
+		function onWindowResize() {
+			camera.aspect = docking.clientWidth / docking.clientHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( docking.clientWidth, docking.clientHeight );
+			render();
+		}
+		
+		function render() {
+			renderer.render( scene, camera );
+		}
+
+
+		function moveObjectZAxis(object) {
+			object.position.z += 10;
+		}
+		
+			
+
+
+		init();
+		moveObjectZAxis(cube2);
+        render();
+	}
+});

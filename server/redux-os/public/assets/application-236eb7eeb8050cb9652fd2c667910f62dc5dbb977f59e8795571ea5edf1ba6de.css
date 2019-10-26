@@ -1,0 +1,1591 @@
+
+/*
+Trix 1.2.0
+Copyright © 2019 Basecamp, LLC
+http://trix-editor.org/*/
+
+trix-editor {
+  border: 1px solid #bbb;
+  border-radius: 3px;
+  margin: 0;
+  padding: 0.4em 0.6em;
+  min-height: 5em;
+  outline: none; }
+trix-toolbar * {
+  box-sizing: border-box; }
+trix-toolbar .trix-button-row {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between; }
+trix-toolbar .trix-button-group {
+  display: flex;
+  margin-bottom: 10px;
+  border: 1px solid #bbb;
+  border-top-color: #ccc;
+  border-bottom-color: #888;
+  border-radius: 3px; }
+  trix-toolbar .trix-button-group:not(:first-child) {
+    margin-left: 1.5vw; }
+    @media (max-device-width: 768px) {
+      trix-toolbar .trix-button-group:not(:first-child) {
+        margin-left: 0; } }
+trix-toolbar .trix-button-group-spacer {
+  flex-grow: 1; }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button-group-spacer {
+      display: none; } }
+trix-toolbar .trix-button {
+  position: relative;
+  float: left;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 0.75em;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 0 0.5em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid #ddd;
+  border-radius: 0;
+  background: transparent; }
+  trix-toolbar .trix-button:not(:first-child) {
+    border-left: 1px solid #ccc; }
+  trix-toolbar .trix-button.trix-active {
+    background: #cbeefa;
+    color: black; }
+  trix-toolbar .trix-button:not(:disabled) {
+    cursor: pointer; }
+  trix-toolbar .trix-button:disabled {
+    color: rgba(0, 0, 0, 0.125); }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button {
+      letter-spacing: -0.01em;
+      padding: 0 0.3em; } }
+trix-toolbar .trix-button--icon {
+  font-size: inherit;
+  width: 2.6em;
+  height: 1.6em;
+  max-width: calc(0.8em + 4vw);
+  text-indent: -9999px; }
+  @media (max-device-width: 768px) {
+    trix-toolbar .trix-button--icon {
+      height: 2em;
+      max-width: calc(0.8em + 3.5vw); } }
+  trix-toolbar .trix-button--icon::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.6;
+    content: "";
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain; }
+    @media (max-device-width: 768px) {
+      trix-toolbar .trix-button--icon::before {
+        right: 6%;
+        left: 6%; } }
+  trix-toolbar .trix-button--icon.trix-active::before {
+    opacity: 1; }
+  trix-toolbar .trix-button--icon:disabled::before {
+    opacity: 0.125; }
+trix-toolbar .trix-button--icon-attach::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M16.5%206v11.5a4%204%200%201%201-8%200V5a2.5%202.5%200%200%201%205%200v10.5a1%201%200%201%201-2%200V6H10v9.5a2.5%202.5%200%200%200%205%200V5a4%204%200%201%200-8%200v12.5a5.5%205.5%200%200%200%2011%200V6h-1.5z%22%2F%3E%3C%2Fsvg%3E);
+  top: 8%;
+  bottom: 4%; }
+trix-toolbar .trix-button--icon-bold::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M15.6%2011.8c1-.7%201.6-1.8%201.6-2.8a4%204%200%200%200-4-4H7v14h7c2.1%200%203.7-1.7%203.7-3.8%200-1.5-.8-2.8-2.1-3.4zM10%207.5h3a1.5%201.5%200%201%201%200%203h-3v-3zm3.5%209H10v-3h3.5a1.5%201.5%200%201%201%200%203z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-italic::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M10%205v3h2.2l-3.4%208H6v3h8v-3h-2.2l3.4-8H18V5h-8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-link::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M9.88%2013.7a4.3%204.3%200%200%201%200-6.07l3.37-3.37a4.26%204.26%200%200%201%206.07%200%204.3%204.3%200%200%201%200%206.06l-1.96%201.72a.91.91%200%201%201-1.3-1.3l1.97-1.71a2.46%202.46%200%200%200-3.48-3.48l-3.38%203.37a2.46%202.46%200%200%200%200%203.48.91.91%200%201%201-1.3%201.3z%22%2F%3E%3Cpath%20d%3D%22M4.25%2019.46a4.3%204.3%200%200%201%200-6.07l1.93-1.9a.91.91%200%201%201%201.3%201.3l-1.93%201.9a2.46%202.46%200%200%200%203.48%203.48l3.37-3.38c.96-.96.96-2.52%200-3.48a.91.91%200%201%201%201.3-1.3%204.3%204.3%200%200%201%200%206.07l-3.38%203.38a4.26%204.26%200%200%201-6.07%200z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-strike::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.73%2014l.28.14c.26.15.45.3.57.44.12.14.18.3.18.5%200%20.3-.15.56-.44.75-.3.2-.76.3-1.39.3A13.52%2013.52%200%200%201%207%2014.95v3.37a10.64%2010.64%200%200%200%204.84.88c1.26%200%202.35-.19%203.28-.56.93-.37%201.64-.9%202.14-1.57s.74-1.45.74-2.32c0-.26-.02-.51-.06-.75h-5.21zm-5.5-4c-.08-.34-.12-.7-.12-1.1%200-1.29.52-2.3%201.58-3.02%201.05-.72%202.5-1.08%204.34-1.08%201.62%200%203.28.34%204.97%201l-1.3%202.93c-1.47-.6-2.73-.9-3.8-.9-.55%200-.96.08-1.2.26-.26.17-.38.38-.38.64%200%20.27.16.52.48.74.17.12.53.3%201.05.53H7.23zM3%2013h18v-2H3v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-quote::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M6%2017h3l2-4V7H5v6h3zm8%200h3l2-4V7h-6v6h3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-heading-1::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12%209v3H9v7H6v-7H3V9h9zM8%204h14v3h-6v12h-3V7H8V4z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-code::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.2%2012L15%2015.2l1.4%201.4L21%2012l-4.6-4.6L15%208.8l3.2%203.2zM5.8%2012L9%208.8%207.6%207.4%203%2012l4.6%204.6L9%2015.2%205.8%2012z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-bullet-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20version%3D%221%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M4%204a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm0%206a2%202%200%201%200%200%204%202%202%200%200%200%200-4zm4%203h14v-2H8v2zm0-6h14v-2H8v2zm0-8v2h14V5H8z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-number-list::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M2%2017h2v.5H3v1h1v.5H2v1h3v-4H2v1zm1-9h1V4H2v1h1v3zm-1%203h1.8L2%2013.1v.9h3v-1H3.2L5%2010.9V10H2v1zm5-6v2h14V5H7zm0%2014h14v-2H7v2zm0-6h14v-2H7v2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-undo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M12.5%208c-2.6%200-5%201-6.9%202.6L2%207v9h9l-3.6-3.6A8%208%200%200%201%2020%2016l2.4-.8a10.5%2010.5%200%200%200-10-7.2z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-redo::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M18.4%2010.6a10.5%2010.5%200%200%200-16.9%204.6L4%2016a8%208%200%200%201%2012.7-3.6L13%2016h9V7l-3.6%203.6z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-decrease-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-8.3-.3l2.8%202.9L6%2014.2%204%2012l2-2-1.4-1.5L1%2012l.7.7zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-button--icon-increase-nesting-level::before {
+  background-image: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%3E%3Cpath%20d%3D%22M3%2019h19v-2H3v2zm7-6h12v-2H10v2zm-6.9-1L1%2014.2l1.4%201.4L6%2012l-.7-.7-2.8-2.8L1%209.9%203.1%2012zM3%205v2h19V5H3z%22%2F%3E%3C%2Fsvg%3E); }
+trix-toolbar .trix-dialogs {
+  position: relative; }
+trix-toolbar .trix-dialog {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 0.75em;
+  padding: 15px 10px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em #ccc;
+  border-top: 2px solid #888;
+  border-radius: 5px;
+  z-index: 5; }
+trix-toolbar .trix-input--dialog {
+  font-size: inherit;
+  font-weight: normal;
+  padding: 0.5em 0.8em;
+  margin: 0 10px 0 0;
+  border-radius: 3px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+  box-shadow: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+  trix-toolbar .trix-input--dialog.validate:invalid {
+    box-shadow: #F00 0px 0px 1.5px 1px; }
+trix-toolbar .trix-button--dialog {
+  font-size: inherit;
+  padding: 0.5em;
+  border-bottom: none; }
+trix-toolbar .trix-dialog--link {
+  max-width: 600px; }
+trix-toolbar .trix-dialog__link-fields {
+  display: flex;
+  align-items: baseline; }
+  trix-toolbar .trix-dialog__link-fields .trix-input {
+    flex: 1; }
+  trix-toolbar .trix-dialog__link-fields .trix-button-group {
+    flex: 0 0 content;
+    margin: 0; }
+trix-editor [data-trix-mutable]:not(.attachment__caption-editor) {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none; }
+
+trix-editor [data-trix-mutable]::-moz-selection,
+trix-editor [data-trix-cursor-target]::-moz-selection, trix-editor [data-trix-mutable] ::-moz-selection {
+  background: none; }
+trix-editor [data-trix-mutable]::selection,
+trix-editor [data-trix-cursor-target]::selection, trix-editor [data-trix-mutable] ::selection {
+  background: none; }
+
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::-moz-selection {
+  background: highlight; }
+trix-editor [data-trix-mutable].attachment__caption-editor:focus::selection {
+  background: highlight; }
+
+trix-editor [data-trix-mutable].attachment.attachment--file {
+  box-shadow: 0 0 0 2px highlight;
+  border-color: transparent; }
+trix-editor [data-trix-mutable].attachment img {
+  box-shadow: 0 0 0 2px highlight; }
+trix-editor .attachment {
+  position: relative; }
+  trix-editor .attachment:hover {
+    cursor: default; }
+trix-editor .attachment--preview .attachment__caption:hover {
+  cursor: text; }
+trix-editor .attachment__progress {
+  position: absolute;
+  z-index: 1;
+  height: 20px;
+  top: calc(50% - 10px);
+  left: 5%;
+  width: 90%;
+  opacity: 0.9;
+  transition: opacity 200ms ease-in; }
+  trix-editor .attachment__progress[value="100"] {
+    opacity: 0; }
+trix-editor .attachment__caption-editor {
+  display: inline-block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  line-height: inherit;
+  color: inherit;
+  text-align: center;
+  vertical-align: top;
+  border: none;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none; }
+trix-editor .attachment__toolbar {
+  position: absolute;
+  z-index: 1;
+  top: -0.9em;
+  left: 0;
+  width: 100%;
+  text-align: center; }
+trix-editor .trix-button-group {
+  display: inline-flex; }
+trix-editor .trix-button {
+  position: relative;
+  float: left;
+  color: #666;
+  white-space: nowrap;
+  font-size: 80%;
+  padding: 0 0.8em;
+  margin: 0;
+  outline: none;
+  border: none;
+  border-radius: 0;
+  background: transparent; }
+  trix-editor .trix-button:not(:first-child) {
+    border-left: 1px solid #ccc; }
+  trix-editor .trix-button.trix-active {
+    background: #cbeefa; }
+  trix-editor .trix-button:not(:disabled) {
+    cursor: pointer; }
+trix-editor .trix-button--remove {
+  text-indent: -9999px;
+  display: inline-block;
+  padding: 0;
+  outline: none;
+  width: 1.8em;
+  height: 1.8em;
+  line-height: 1.8em;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid highlight;
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.25); }
+  trix-editor .trix-button--remove::before {
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.7;
+    content: "";
+    background-image: url(data:image/svg+xml,%3Csvg%20height%3D%2224%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22M19%206.4L17.6%205%2012%2010.6%206.4%205%205%206.4l5.6%205.6L5%2017.6%206.4%2019l5.6-5.6%205.6%205.6%201.4-1.4-5.6-5.6z%22%2F%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22%2F%3E%3C%2Fsvg%3E);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%; }
+  trix-editor .trix-button--remove:hover {
+    border-color: #333; }
+    trix-editor .trix-button--remove:hover::before {
+      opacity: 1; }
+trix-editor .attachment__metadata-container {
+  position: relative; }
+trix-editor .attachment__metadata {
+  position: absolute;
+  left: 50%;
+  top: 2em;
+  transform: translate(-50%, 0);
+  max-width: 90%;
+  padding: 0.1em 0.6em;
+  font-size: 0.8em;
+  color: #fff;
+  background-color: rgba(0, 0, 0, 0.7);
+  border-radius: 3px; }
+  trix-editor .attachment__metadata .attachment__name {
+    display: inline-block;
+    max-width: 100%;
+    vertical-align: bottom;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
+  trix-editor .attachment__metadata .attachment__size {
+    margin-left: 0.2em;
+    white-space: nowrap; }
+@charset "UTF-8";
+.trix-content {
+  line-height: 1.5; }
+  .trix-content * {
+    box-sizing: border-box; }
+  .trix-content h1 {
+    font-size: 1.2em;
+    line-height: 1.2;
+    margin: 0; }
+  .trix-content blockquote {
+    margin: 0 0 0 0.3em;
+    padding: 0 0 0 0.6em;
+    border-left: 0.3em solid #ccc; }
+  .trix-content pre {
+    display: inline-block;
+    width: 100%;
+    vertical-align: top;
+    font-family: monospace;
+    font-size: 0.9em;
+    margin: 0;
+    padding: 0.5em;
+    white-space: pre;
+    background-color: #eee;
+    overflow-x: auto; }
+  .trix-content ul, .trix-content ol, .trix-content li {
+    margin: 0;
+    padding: 0; }
+    .trix-content ul li, .trix-content ol li, .trix-content li li {
+      margin-left: 1em; }
+  .trix-content img {
+    max-width: 100%;
+    height: auto; }
+  .trix-content .attachment {
+    display: inline-block;
+    position: relative;
+    max-width: 100%;
+    margin: 0;
+    padding: 0; }
+    .trix-content .attachment a {
+      color: inherit;
+      text-decoration: none; }
+      .trix-content .attachment a:hover, .trix-content .attachment a:visited:hover {
+        color: inherit; }
+  .trix-content .attachment__caption {
+    padding: 0;
+    text-align: center; }
+    .trix-content .attachment__caption .attachment__name + .attachment__size::before {
+      content: ' · '; }
+  .trix-content .attachment--preview {
+    width: 100%;
+    text-align: center; }
+    .trix-content .attachment--preview .attachment__caption {
+      color: #666;
+      font-size: 0.9em;
+      line-height: 1.2; }
+  .trix-content .attachment--file {
+    color: #333;
+    line-height: 1;
+    margin: 0 2px 2px 0;
+    padding: 0.4em 1em;
+    border: 1px solid #bbb;
+    border-radius: 5px; }
+  .trix-content .attachment-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    margin: 0;
+    padding: 0; }
+    .trix-content .attachment-gallery .attachment {
+      flex: 1 0 33%;
+      padding: 0 0.5em;
+      max-width: 33%; }
+    .trix-content .attachment-gallery.attachment-gallery--2 .attachment, .trix-content .attachment-gallery.attachment-gallery--4 .attachment {
+      flex-basis: 50%;
+      max-width: 50%; }
+/* line 13, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/actiontext.scss */
+.trix-content .attachment-gallery > action-text-attachment,
+.trix-content .attachment-gallery > .attachment {
+  flex: 1 0 33%;
+  padding: 0 0.5em;
+  max-width: 33%;
+}
+/* line 22, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/actiontext.scss */
+.trix-content .attachment-gallery.attachment-gallery--2 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--2 > .attachment, .trix-content .attachment-gallery.attachment-gallery--4 > action-text-attachment,
+.trix-content .attachment-gallery.attachment-gallery--4 > .attachment {
+  flex-basis: 50%;
+  max-width: 50%;
+}
+/* line 31, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/actiontext.scss */
+.trix-content action-text-attachment .attachment {
+  padding: 0 !important;
+  max-width: 100% !important;
+}
+/* line 5, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/directories.scss */
+.current-user-search-target {
+  background-color: red !important;
+}
+/* Bootstrap */
+/* Override Bootstrap default variable */
+@font-face {
+  font-family: 'Icons';
+  src: url("../fonts/open-iconic.eot");
+  src: url("../fonts/open-iconic.eot?#iconic-sm") format("embedded-opentype"), url("../fonts/open-iconic.woff") format("woff"), url("../fonts/open-iconic.ttf") format("truetype"), url("../fonts/open-iconic.svg#iconic-sm") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+/* line 16, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi {
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Icons';
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* line 28, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi:empty:before {
+  width: 1em;
+  text-align: center;
+  box-sizing: content-box;
+}
+/* line 34, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-align-center:before {
+  text-align: center;
+}
+/* line 38, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-align-left:before {
+  text-align: left;
+}
+/* line 42, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-align-right:before {
+  text-align: right;
+}
+/* line 47, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-flip-horizontal:before {
+  -webkit-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+/* line 53, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-flip-vertical:before {
+  -webkit-transform: scale(1, -1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(1, -1);
+}
+/* line 59, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi.oi-flip-horizontal-vertical:before {
+  -webkit-transform: scale(-1, -1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, -1);
+}
+
+/* line 68, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-account-login:before {
+  content: '\e000';
+}
+
+/* line 72, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-account-logout:before {
+  content: '\e001';
+}
+
+/* line 76, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-action-redo:before {
+  content: '\e002';
+}
+
+/* line 80, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-action-undo:before {
+  content: '\e003';
+}
+
+/* line 84, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-align-center:before {
+  content: '\e004';
+}
+
+/* line 88, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-align-left:before {
+  content: '\e005';
+}
+
+/* line 92, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-align-right:before {
+  content: '\e006';
+}
+
+/* line 96, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-aperture:before {
+  content: '\e007';
+}
+
+/* line 100, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-bottom:before {
+  content: '\e008';
+}
+
+/* line 104, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-circle-bottom:before {
+  content: '\e009';
+}
+
+/* line 108, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-circle-left:before {
+  content: '\e00a';
+}
+
+/* line 112, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-circle-right:before {
+  content: '\e00b';
+}
+
+/* line 116, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-circle-top:before {
+  content: '\e00c';
+}
+
+/* line 120, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-left:before {
+  content: '\e00d';
+}
+
+/* line 124, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-right:before {
+  content: '\e00e';
+}
+
+/* line 128, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-thick-bottom:before {
+  content: '\e00f';
+}
+
+/* line 132, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-thick-left:before {
+  content: '\e010';
+}
+
+/* line 136, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-thick-right:before {
+  content: '\e011';
+}
+
+/* line 140, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-thick-top:before {
+  content: '\e012';
+}
+
+/* line 144, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-arrow-top:before {
+  content: '\e013';
+}
+
+/* line 148, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-audio-spectrum:before {
+  content: '\e014';
+}
+
+/* line 152, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-audio:before {
+  content: '\e015';
+}
+
+/* line 156, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-badge:before {
+  content: '\e016';
+}
+
+/* line 160, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-ban:before {
+  content: '\e017';
+}
+
+/* line 164, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bar-chart:before {
+  content: '\e018';
+}
+
+/* line 168, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-basket:before {
+  content: '\e019';
+}
+
+/* line 172, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-battery-empty:before {
+  content: '\e01a';
+}
+
+/* line 176, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-battery-full:before {
+  content: '\e01b';
+}
+
+/* line 180, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-beaker:before {
+  content: '\e01c';
+}
+
+/* line 184, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bell:before {
+  content: '\e01d';
+}
+
+/* line 188, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bluetooth:before {
+  content: '\e01e';
+}
+
+/* line 192, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bold:before {
+  content: '\e01f';
+}
+
+/* line 196, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bolt:before {
+  content: '\e020';
+}
+
+/* line 200, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-book:before {
+  content: '\e021';
+}
+
+/* line 204, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bookmark:before {
+  content: '\e022';
+}
+
+/* line 208, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-box:before {
+  content: '\e023';
+}
+
+/* line 212, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-briefcase:before {
+  content: '\e024';
+}
+
+/* line 216, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-british-pound:before {
+  content: '\e025';
+}
+
+/* line 220, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-browser:before {
+  content: '\e026';
+}
+
+/* line 224, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-brush:before {
+  content: '\e027';
+}
+
+/* line 228, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bug:before {
+  content: '\e028';
+}
+
+/* line 232, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-bullhorn:before {
+  content: '\e029';
+}
+
+/* line 236, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-calculator:before {
+  content: '\e02a';
+}
+
+/* line 240, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-calendar:before {
+  content: '\e02b';
+}
+
+/* line 244, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-camera-slr:before {
+  content: '\e02c';
+}
+
+/* line 248, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-caret-bottom:before {
+  content: '\e02d';
+}
+
+/* line 252, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-caret-left:before {
+  content: '\e02e';
+}
+
+/* line 256, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-caret-right:before {
+  content: '\e02f';
+}
+
+/* line 260, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-caret-top:before {
+  content: '\e030';
+}
+
+/* line 264, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cart:before {
+  content: '\e031';
+}
+
+/* line 268, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-chat:before {
+  content: '\e032';
+}
+
+/* line 272, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-check:before {
+  content: '\e033';
+}
+
+/* line 276, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-chevron-bottom:before {
+  content: '\e034';
+}
+
+/* line 280, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-chevron-left:before {
+  content: '\e035';
+}
+
+/* line 284, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-chevron-right:before {
+  content: '\e036';
+}
+
+/* line 288, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-chevron-top:before {
+  content: '\e037';
+}
+
+/* line 292, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-circle-check:before {
+  content: '\e038';
+}
+
+/* line 296, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-circle-x:before {
+  content: '\e039';
+}
+
+/* line 300, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-clipboard:before {
+  content: '\e03a';
+}
+
+/* line 304, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-clock:before {
+  content: '\e03b';
+}
+
+/* line 308, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cloud-download:before {
+  content: '\e03c';
+}
+
+/* line 312, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cloud-upload:before {
+  content: '\e03d';
+}
+
+/* line 316, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cloud:before {
+  content: '\e03e';
+}
+
+/* line 320, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cloudy:before {
+  content: '\e03f';
+}
+
+/* line 324, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-code:before {
+  content: '\e040';
+}
+
+/* line 328, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-cog:before {
+  content: '\e041';
+}
+
+/* line 332, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-collapse-down:before {
+  content: '\e042';
+}
+
+/* line 336, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-collapse-left:before {
+  content: '\e043';
+}
+
+/* line 340, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-collapse-right:before {
+  content: '\e044';
+}
+
+/* line 344, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-collapse-up:before {
+  content: '\e045';
+}
+
+/* line 348, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-command:before {
+  content: '\e046';
+}
+
+/* line 352, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-comment-square:before {
+  content: '\e047';
+}
+
+/* line 356, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-compass:before {
+  content: '\e048';
+}
+
+/* line 360, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-contrast:before {
+  content: '\e049';
+}
+
+/* line 364, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-copywriting:before {
+  content: '\e04a';
+}
+
+/* line 368, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-credit-card:before {
+  content: '\e04b';
+}
+
+/* line 372, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-crop:before {
+  content: '\e04c';
+}
+
+/* line 376, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-dashboard:before {
+  content: '\e04d';
+}
+
+/* line 380, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-data-transfer-download:before {
+  content: '\e04e';
+}
+
+/* line 384, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-data-transfer-upload:before {
+  content: '\e04f';
+}
+
+/* line 388, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-delete:before {
+  content: '\e050';
+}
+
+/* line 392, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-dial:before {
+  content: '\e051';
+}
+
+/* line 396, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-document:before {
+  content: '\e052';
+}
+
+/* line 400, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-dollar:before {
+  content: '\e053';
+}
+
+/* line 404, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-double-quote-sans-left:before {
+  content: '\e054';
+}
+
+/* line 408, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-double-quote-sans-right:before {
+  content: '\e055';
+}
+
+/* line 412, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-double-quote-serif-left:before {
+  content: '\e056';
+}
+
+/* line 416, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-double-quote-serif-right:before {
+  content: '\e057';
+}
+
+/* line 420, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-droplet:before {
+  content: '\e058';
+}
+
+/* line 424, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-eject:before {
+  content: '\e059';
+}
+
+/* line 428, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-elevator:before {
+  content: '\e05a';
+}
+
+/* line 432, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-ellipses:before {
+  content: '\e05b';
+}
+
+/* line 436, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-envelope-closed:before {
+  content: '\e05c';
+}
+
+/* line 440, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-envelope-open:before {
+  content: '\e05d';
+}
+
+/* line 444, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-euro:before {
+  content: '\e05e';
+}
+
+/* line 448, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-excerpt:before {
+  content: '\e05f';
+}
+
+/* line 452, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-expand-down:before {
+  content: '\e060';
+}
+
+/* line 456, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-expand-left:before {
+  content: '\e061';
+}
+
+/* line 460, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-expand-right:before {
+  content: '\e062';
+}
+
+/* line 464, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-expand-up:before {
+  content: '\e063';
+}
+
+/* line 468, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-external-link:before {
+  content: '\e064';
+}
+
+/* line 472, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-eye:before {
+  content: '\e065';
+}
+
+/* line 476, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-eyedropper:before {
+  content: '\e066';
+}
+
+/* line 480, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-file:before {
+  content: '\e067';
+}
+
+/* line 484, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-fire:before {
+  content: '\e068';
+}
+
+/* line 488, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-flag:before {
+  content: '\e069';
+}
+
+/* line 492, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-flash:before {
+  content: '\e06a';
+}
+
+/* line 496, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-folder:before {
+  content: '\e06b';
+}
+
+/* line 500, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-fork:before {
+  content: '\e06c';
+}
+
+/* line 504, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-fullscreen-enter:before {
+  content: '\e06d';
+}
+
+/* line 508, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-fullscreen-exit:before {
+  content: '\e06e';
+}
+
+/* line 512, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-globe:before {
+  content: '\e06f';
+}
+
+/* line 516, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-graph:before {
+  content: '\e070';
+}
+
+/* line 520, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-grid-four-up:before {
+  content: '\e071';
+}
+
+/* line 524, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-grid-three-up:before {
+  content: '\e072';
+}
+
+/* line 528, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-grid-two-up:before {
+  content: '\e073';
+}
+
+/* line 532, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-hard-drive:before {
+  content: '\e074';
+}
+
+/* line 536, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-header:before {
+  content: '\e075';
+}
+
+/* line 540, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-headphones:before {
+  content: '\e076';
+}
+
+/* line 544, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-heart:before {
+  content: '\e077';
+}
+
+/* line 548, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-home:before {
+  content: '\e078';
+}
+
+/* line 552, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-image:before {
+  content: '\e079';
+}
+
+/* line 556, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-inbox:before {
+  content: '\e07a';
+}
+
+/* line 560, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-infinity:before {
+  content: '\e07b';
+}
+
+/* line 564, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-info:before {
+  content: '\e07c';
+}
+
+/* line 568, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-italic:before {
+  content: '\e07d';
+}
+
+/* line 572, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-justify-center:before {
+  content: '\e07e';
+}
+
+/* line 576, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-justify-left:before {
+  content: '\e07f';
+}
+
+/* line 580, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-justify-right:before {
+  content: '\e080';
+}
+
+/* line 584, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-key:before {
+  content: '\e081';
+}
+
+/* line 588, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-laptop:before {
+  content: '\e082';
+}
+
+/* line 592, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-layers:before {
+  content: '\e083';
+}
+
+/* line 596, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-lightbulb:before {
+  content: '\e084';
+}
+
+/* line 600, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-link-broken:before {
+  content: '\e085';
+}
+
+/* line 604, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-link-intact:before {
+  content: '\e086';
+}
+
+/* line 608, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-list-rich:before {
+  content: '\e087';
+}
+
+/* line 612, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-list:before {
+  content: '\e088';
+}
+
+/* line 616, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-location:before {
+  content: '\e089';
+}
+
+/* line 620, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-lock-locked:before {
+  content: '\e08a';
+}
+
+/* line 624, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-lock-unlocked:before {
+  content: '\e08b';
+}
+
+/* line 628, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-loop-circular:before {
+  content: '\e08c';
+}
+
+/* line 632, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-loop-square:before {
+  content: '\e08d';
+}
+
+/* line 636, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-loop:before {
+  content: '\e08e';
+}
+
+/* line 640, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-magnifying-glass:before {
+  content: '\e08f';
+}
+
+/* line 644, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-map-marker:before {
+  content: '\e090';
+}
+
+/* line 648, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-map:before {
+  content: '\e091';
+}
+
+/* line 652, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-pause:before {
+  content: '\e092';
+}
+
+/* line 656, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-play:before {
+  content: '\e093';
+}
+
+/* line 660, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-record:before {
+  content: '\e094';
+}
+
+/* line 664, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-skip-backward:before {
+  content: '\e095';
+}
+
+/* line 668, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-skip-forward:before {
+  content: '\e096';
+}
+
+/* line 672, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-step-backward:before {
+  content: '\e097';
+}
+
+/* line 676, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-step-forward:before {
+  content: '\e098';
+}
+
+/* line 680, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-media-stop:before {
+  content: '\e099';
+}
+
+/* line 684, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-medical-cross:before {
+  content: '\e09a';
+}
+
+/* line 688, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-menu:before {
+  content: '\e09b';
+}
+
+/* line 692, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-microphone:before {
+  content: '\e09c';
+}
+
+/* line 696, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-minus:before {
+  content: '\e09d';
+}
+
+/* line 700, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-monitor:before {
+  content: '\e09e';
+}
+
+/* line 704, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-moon:before {
+  content: '\e09f';
+}
+
+/* line 708, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-move:before {
+  content: '\e0a0';
+}
+
+/* line 712, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-musical-note:before {
+  content: '\e0a1';
+}
+
+/* line 716, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-paperclip:before {
+  content: '\e0a2';
+}
+
+/* line 720, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-pencil:before {
+  content: '\e0a3';
+}
+
+/* line 724, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-people:before {
+  content: '\e0a4';
+}
+
+/* line 728, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-person:before {
+  content: '\e0a5';
+}
+
+/* line 732, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-phone:before {
+  content: '\e0a6';
+}
+
+/* line 736, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-pie-chart:before {
+  content: '\e0a7';
+}
+
+/* line 740, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-pin:before {
+  content: '\e0a8';
+}
+
+/* line 744, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-play-circle:before {
+  content: '\e0a9';
+}
+
+/* line 748, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-plus:before {
+  content: '\e0aa';
+}
+
+/* line 752, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-power-standby:before {
+  content: '\e0ab';
+}
+
+/* line 756, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-print:before {
+  content: '\e0ac';
+}
+
+/* line 760, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-project:before {
+  content: '\e0ad';
+}
+
+/* line 764, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-pulse:before {
+  content: '\e0ae';
+}
+
+/* line 768, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-puzzle-piece:before {
+  content: '\e0af';
+}
+
+/* line 772, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-question-mark:before {
+  content: '\e0b0';
+}
+
+/* line 776, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-rain:before {
+  content: '\e0b1';
+}
+
+/* line 780, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-random:before {
+  content: '\e0b2';
+}
+
+/* line 784, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-reload:before {
+  content: '\e0b3';
+}
+
+/* line 788, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-resize-both:before {
+  content: '\e0b4';
+}
+
+/* line 792, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-resize-height:before {
+  content: '\e0b5';
+}
+
+/* line 796, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-resize-width:before {
+  content: '\e0b6';
+}
+
+/* line 800, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-rss-alt:before {
+  content: '\e0b7';
+}
+
+/* line 804, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-rss:before {
+  content: '\e0b8';
+}
+
+/* line 808, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-script:before {
+  content: '\e0b9';
+}
+
+/* line 812, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-share-boxed:before {
+  content: '\e0ba';
+}
+
+/* line 816, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-share:before {
+  content: '\e0bb';
+}
+
+/* line 820, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-shield:before {
+  content: '\e0bc';
+}
+
+/* line 824, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-signal:before {
+  content: '\e0bd';
+}
+
+/* line 828, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-signpost:before {
+  content: '\e0be';
+}
+
+/* line 832, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-sort-ascending:before {
+  content: '\e0bf';
+}
+
+/* line 836, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-sort-descending:before {
+  content: '\e0c0';
+}
+
+/* line 840, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-spreadsheet:before {
+  content: '\e0c1';
+}
+
+/* line 844, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-star:before {
+  content: '\e0c2';
+}
+
+/* line 848, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-sun:before {
+  content: '\e0c3';
+}
+
+/* line 852, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-tablet:before {
+  content: '\e0c4';
+}
+
+/* line 856, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-tag:before {
+  content: '\e0c5';
+}
+
+/* line 860, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-tags:before {
+  content: '\e0c6';
+}
+
+/* line 864, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-target:before {
+  content: '\e0c7';
+}
+
+/* line 868, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-task:before {
+  content: '\e0c8';
+}
+
+/* line 872, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-terminal:before {
+  content: '\e0c9';
+}
+
+/* line 876, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-text:before {
+  content: '\e0ca';
+}
+
+/* line 880, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-thumb-down:before {
+  content: '\e0cb';
+}
+
+/* line 884, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-thumb-up:before {
+  content: '\e0cc';
+}
+
+/* line 888, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-timer:before {
+  content: '\e0cd';
+}
+
+/* line 892, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-transfer:before {
+  content: '\e0ce';
+}
+
+/* line 896, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-trash:before {
+  content: '\e0cf';
+}
+
+/* line 900, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-underline:before {
+  content: '\e0d0';
+}
+
+/* line 904, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-vertical-align-bottom:before {
+  content: '\e0d1';
+}
+
+/* line 908, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-vertical-align-center:before {
+  content: '\e0d2';
+}
+
+/* line 912, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-vertical-align-top:before {
+  content: '\e0d3';
+}
+
+/* line 916, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-video:before {
+  content: '\e0d4';
+}
+
+/* line 920, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-volume-high:before {
+  content: '\e0d5';
+}
+
+/* line 924, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-volume-low:before {
+  content: '\e0d6';
+}
+
+/* line 928, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-volume-off:before {
+  content: '\e0d7';
+}
+
+/* line 932, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-warning:before {
+  content: '\e0d8';
+}
+
+/* line 936, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-wifi:before {
+  content: '\e0d9';
+}
+
+/* line 940, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-wrench:before {
+  content: '\e0da';
+}
+
+/* line 944, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-x:before {
+  content: '\e0db';
+}
+
+/* line 948, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-yen:before {
+  content: '\e0dc';
+}
+
+/* line 952, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-zoom-in:before {
+  content: '\e0dd';
+}
+
+/* line 956, /Users/lemonandroid/Dropbox/ezii-browser/server/redux-os/app/assets/stylesheets/open-iconic-bootstrap.scss */
+.oi-zoom-out:before {
+  content: '\e0de';
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+
+ :target {
+    background-color: yellow;
+    border: 1px solid black;
+    color: red;
+ }

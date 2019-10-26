@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Banal Brainstorms</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Idea</th>
+      <th>Main category</th>
+      <th>Priority</th>
+      <th>Status</th>
+      <th>Comments</th>
+      <th>Idea owner</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @banal_brainstorms.each do |banal_brainstorm| %>
+      <tr id="banal-brainstorming-idea-<%= banal_brainstorm.id %>">
+        <td><%= banal_brainstorm.idea %></td>
+        <td><%= banal_brainstorm.main_category %></td>
+        <td><%= banal_brainstorm.priority %></td>
+        <td><%= banal_brainstorm.status %></td>
+        <td><%= banal_brainstorm.comments %></td>
+        <td><%= banal_brainstorm.idea_owner %></td>
+
+
+        <td><%= link_to 'Make project', make_project_banal_brainstorm_path(banal_brainstorm), method: 'PUT', class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Kill Idea', banal_brainstorm, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+
+      <tr>
+        <td colspan="8">
+          <% #if banal_brainstorm.comments.none? %>
+            <%= form_for Comment.new(banal_brainstorm_id: banal_brainstorm.id) do |f| %>
+                <%= f.text_field :comment_text %>
+                <%= f.hidden_field :banal_brainstorm_id %>
+                <%= f.submit %>
+            <% end %>
+          <% #end %>
+
+          <br />
+
+          <%= render 'shared/comments', comments: banal_brainstorm.comments %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<div  id="form">
+<%= @banal_brainstorm = Banal::Brainstorm.new %>
+<%= render template: 'banal/brainstorms/new' %>
+</div>
+
+<%= link_to 'New Banal Brainstorm', new_banal_brainstorm_path, class: 'btn btn-primary' %>
+
+<% if params[:only_killed] %>
+  <%= link_to "New ideas", banal_brainstorms_path, class: 'btn btn-primary' %>
+<% else %>
+  <%= link_to "Killed ideas", banal_brainstorms_path(only_killed: true) %>
+<% end %>

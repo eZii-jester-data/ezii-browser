@@ -1,0 +1,17 @@
+<%= form_with(model: ezii_robot_experiment, local: true) do |form| %>
+  <% if ezii_robot_experiment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ezii_robot_experiment.errors.count, "error") %> prohibited this ezii_robot_experiment from being saved:</h2>
+
+      <ul>
+        <% ezii_robot_experiment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

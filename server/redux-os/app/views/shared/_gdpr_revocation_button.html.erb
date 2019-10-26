@@ -1,0 +1,21 @@
+<button onClick='deleteAllCookies(); window.location = "/";' class='btn btn-danger'>
+    DSGVO-Verständnis-, DSGVO-Erklärung- und Cookie- Hinweis-Akzeptanz wiederrufen 
+    (Cookies werden automatisch gelöscht, allerdings nur Cookies, auf die diese Domain Zugriff hat)
+    </button>
+
+<a href="/local_law_pipelines/1" class="btn btn-light">Gespeicherte Cookies einsehen</a>
+
+<script>
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+        let deleteCookieString = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;";
+        document.cookie = deleteCookieString;
+    }
+}
+</script>

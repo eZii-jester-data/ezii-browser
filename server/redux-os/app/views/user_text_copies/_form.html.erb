@@ -1,0 +1,27 @@
+<%= form_with(model: user_text_copy, local: true) do |form| %>
+  <% if user_text_copy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user_text_copy.errors.count, "error") %> prohibited this user_text_copy from being saved:</h2>
+
+      <ul>
+        <% user_text_copy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :ezii_adult_verify_and_signin_id %>
+    <%= form.text_field :ezii_adult_verify_and_signin_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :copies %>
+    <%= form.text_area :copies %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

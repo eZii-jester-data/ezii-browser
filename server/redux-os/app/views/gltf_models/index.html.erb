@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Gltf Models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Global path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @gltf_models.each do |gltf_model| %>
+      <tr>
+        <td><%= gltf_model.global_path %></td>
+        <td><%= link_to 'Show', gltf_model %></td>
+        <td><%= link_to 'Edit', edit_gltf_model_path(gltf_model) %></td>
+        <td><%= link_to 'Destroy', gltf_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Gltf Model', new_gltf_model_path %>

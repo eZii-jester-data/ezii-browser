@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @code_link_batch.description %>
+</p>
+
+<p>
+  <strong>Code link:</strong>
+  <%= @code_link_batch.code_link_id %>
+</p>
+
+<%= link_to 'Edit', edit_code_link_batch_path(@code_link_batch) %> |
+<%= link_to 'Back', code_link_batches_path %>

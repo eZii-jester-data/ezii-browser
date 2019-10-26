@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Unzips</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Zip file path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @unzips.each do |unzip| %>
+      <tr>
+        <td><%= unzip.zip_file_path %></td>
+        <td><%= link_to 'Show', unzip %></td>
+        <td><%= link_to 'Edit', edit_unzip_path(unzip) %></td>
+        <td><%= link_to 'Destroy', unzip, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Unzip', new_unzip_path %>

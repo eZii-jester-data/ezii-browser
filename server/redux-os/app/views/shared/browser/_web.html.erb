@@ -1,0 +1,38 @@
+<div>
+    <form>
+        <input name="browser[address]" value="<%= params.require('browser').permit('address')['address'] rescue 'https://google.com' %>"></input><button>Show</button>
+    </form>
+    <p>Current location: <%= params.require('browser').permit('address')['address'] rescue 'https://google.com' %></p>
+    <pre><code>
+        <%= params.inspect %>
+    </pre></code>
+
+    <!--- irgendwann vielleicht ein schimmliger iFrame --->
+
+    <div style="height: 200px; overflow: scroll;" class="shadow-host">
+        <div class='shadow-parasite'>
+			
+			
+			<% def 🚧; yield; end; 🚧 do %>
+			
+			<% §(USER_OTHER_WEBSITES_GDPR_PROBLEM, EZII_OS_GDPR_COMPLIANCE_PROBLEM) do %>
+			
+			<!-- >>>>>>>> EZII_OS_GDPR_COMPLIANCE_PROBLEM <<<<<<<<<<<<< -->
+			
+			
+            	<%= `curl -L #{params.require('browser').permit('address')['address'] rescue 'https://google.com'}`.html_safe %>
+			
+			
+			
+			<!-- >>>>>>>> EZII_OS_GDPR_COMPLIANCE_PROBLEM <<<<<<<<<<<<< -->
+			
+			<% end %>
+			
+			<% end %>
+			
+
+        </div>
+    </div>
+<div>
+</div>
+</div>

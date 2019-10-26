@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Wit Ai Parse Models</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Wit ai client token</th>
+      <th>Wit ai server token</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @wit_ai_parse_models.each do |wit_ai_parse_model| %>
+      <tr>
+        <td><%= wit_ai_parse_model.wit_ai_client_token %></td>
+        <td><%= wit_ai_parse_model.wit_ai_server_token %></td>
+        <td><%= link_to 'Show', wit_ai_parse_model %></td>
+        <td><%= link_to 'Edit', edit_wit_ai_parse_model_path(wit_ai_parse_model) %></td>
+        <td><%= link_to 'Destroy', wit_ai_parse_model, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Wit Ai Parse Model', new_wit_ai_parse_model_path %>

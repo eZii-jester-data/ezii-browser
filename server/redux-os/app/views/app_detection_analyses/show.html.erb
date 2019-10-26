@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>App detection:</strong>
+  <%= @app_detection_analysis.app_detection_id %>
+</p>
+
+<p>
+  <strong>Confidence:</strong>
+  <%= @app_detection_analysis.confidence %>
+</p>
+
+<%= link_to 'Edit', edit_app_detection_analysis_path(@app_detection_analysis) %> |
+<%= link_to 'Back', app_detection_analyses_path %>

@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Github link:</strong>
+  <%= @ezii_seed.github_link %>
+</p>
+
+<p>
+  <strong>Gist link:</strong>
+  <%= @ezii_seed.gist_link %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @ezii_seed.description %>
+</p>
+
+<%= link_to 'Edit', edit_ezii_seed_path(@ezii_seed) %> |
+<%= link_to 'Back', ezii_seeds_path %>

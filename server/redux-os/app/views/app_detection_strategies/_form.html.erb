@@ -1,0 +1,27 @@
+<%= form_with(model: app_detection_strategy, local: true) do |form| %>
+  <% if app_detection_strategy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(app_detection_strategy.errors.count, "error") %> prohibited this app_detection_strategy from being saved:</h2>
+
+      <ul>
+        <% app_detection_strategy.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :app_detection_id %>
+    <%= form.text_field :app_detection_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :implementation_in_ruby_dsl %>
+    <%= form.text_area :implementation_in_ruby_dsl %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

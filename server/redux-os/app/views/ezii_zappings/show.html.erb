@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Previous url:</strong>
+  <%= @ezii_zapping.previous_url %>
+</p>
+
+<p>
+  <strong>Next url:</strong>
+  <%= @ezii_zapping.next_url %>
+</p>
+
+<%= link_to 'Edit', edit_ezii_zapping_path(@ezii_zapping) %> |
+<%= link_to 'Back', ezii_zappings_path %>

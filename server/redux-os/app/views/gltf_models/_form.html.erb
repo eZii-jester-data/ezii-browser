@@ -1,0 +1,22 @@
+<%= form_with(model: gltf_model, local: true) do |form| %>
+  <% if gltf_model.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(gltf_model.errors.count, "error") %> prohibited this gltf_model from being saved:</h2>
+
+      <ul>
+        <% gltf_model.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :global_path %>
+    <%= form.text_area :global_path %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

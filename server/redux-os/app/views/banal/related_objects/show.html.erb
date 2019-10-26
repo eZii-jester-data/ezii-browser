@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Object:</strong>
+  <%= @banal_related_object.object_id %>
+</p>
+
+<p>
+  <strong>Object type:</strong>
+  <%= @banal_related_object.object_type %>
+</p>
+
+<%= link_to 'Edit', edit_banal_related_object_path(@banal_related_object) %> |
+<%= link_to 'Back', banal_related_objects_path %>

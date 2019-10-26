@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Uri:</strong>
+  <%= @banal_link.uri %>
+</p>
+
+<p>
+  <strong>Metadata:</strong>
+  <%= @banal_link.metadata.inspect %>
+</p>
+
+<p>
+  <strong>Related object:</strong>
+  <%= @banal_link.related_object.inspect %>
+</p>
+
+<%= link_to 'Edit', edit_banal_link_path(@banal_link) %> |
+<%= link_to 'Back', banal_links_path %>

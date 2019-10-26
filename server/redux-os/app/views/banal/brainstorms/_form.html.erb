@@ -1,0 +1,43 @@
+<%= form_with(model: banal_brainstorm, local: true, remote: true) do |form| %>
+  <% if banal_brainstorm.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(banal_brainstorm.errors.count, "error") %> prohibited this banal_brainstorm from being saved:</h2>
+
+      <ul>
+        <% banal_brainstorm.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :idea %>
+    <%= form.text_area :idea %>
+  </div>
+
+  <div class="field">
+    <%= form.label :main_category %>
+    <%= form.text_field :main_category %>
+  </div>
+
+  <div class="field">
+    <%= form.label :priority %>
+    <%= form.text_field :priority %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+    <%= form.label :idea_owner %>
+    <%= form.text_field :idea_owner %>
+  </div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

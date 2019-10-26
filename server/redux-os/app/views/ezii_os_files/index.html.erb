@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Ezii Os Files</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>File path</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ezii_os_files.each do |ezii_os_file| %>
+      <tr>
+        <td><%= ezii_os_file.file_path %></td>
+        <td><%= link_to 'Show', ezii_os_file %></td>
+        <td><%= link_to 'Edit', edit_ezii_os_file_path(ezii_os_file) %></td>
+        <td><%= link_to 'Destroy', ezii_os_file, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Ezii Os File', new_ezii_os_file_path %>
