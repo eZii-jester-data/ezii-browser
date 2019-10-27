@@ -30,7 +30,7 @@ FileSystem.create(
 # )
 
 
-§(IDEMPOTENCY_IS_QUESTIONABLE) do
+# §(IDEMPOTENCY_IS_QUESTIONABLE) do
 begin
 ActiveRecord::Base.connection.execute(
         "INSERT INTO banal_complexes (id, weight, parent_id, name, created_at, updated_at) VALUES (0, 0, 1, \'Root\', \'#{Time.now}\', \'#{Time.now}\')"
@@ -39,34 +39,40 @@ ActiveRecord::Base.connection.execute(
         "INSERT INTO banal_complexes (id, weight, parent_id, name, created_at, updated_at) VALUES (1, 0, 0, \'?\', \'#{Time.now}\', \'#{Time.now}\')"
     )
     
-  rescue
-    warn "Banal Complex Idempotency is questionable for rails db:seed"
+  rescue PG::UniqueViolation, ActiveRecord::RecordNotUnique
+    warn "Banal Complex seeding  Idempotency is questionable for rails db:seed"
   end
-end
+# end//
 
 
 
-§(ORDER_OF_LOC_IS_IMPORTANT) do
-  §(EXECUTE_IN_SUCCESSION, NOT_TO_BE_CHANGED_BEFORE_VOTES_EXEEDED_70_PERCENT) do
-    firstly do
-      §(ORDER_OF_LOC_IS_IMPORTANT_1, ORDER_OF_LOC_IS_IMPORTANT_IMPORTANCE_IS_KNOWN, "09/26/2019 21:26") do
+# §(ORDER_OF_LOC_IS_IMPORTANT) do
+  # §(EXECUTE_IN_SUCCESSION, NOT_TO_BE_CHANGED_BEFORE_VOTES_EXEEDED_70_PERCENT) do
+    # firstly do
+      # §(ORDER_OF_LOC_IS_IMPORTANT_1, ORDER_OF_LOC_IS_IMPORTANT_IMPORTANCE_IS_KNOWN, "09/26/2019 21:26") do
         EziiCity.reindex
-      end
-    end
+    #   end
+    # end
     
-    secondly do
-      §(ORDER_OF_LOC_IS_IMPORTANT_2, ORDER_OF_LOC_IS_IMPORTANT_IMPORTANCE_IS_KNOWN, "09/26/2019 21:26") do
+    # secondly do
+      # §(ORDER_OF_LOC_IS_IMPORTANT_2, ORDER_OF_LOC_IS_IMPORTANT_IMPORTANCE_IS_KNOWN, "09/26/2019 21:26") do
         EziiCity.create!(address: 'Aachen, Germany')
-      end
-    end
-  end
+      # end
+    # end
+  # end
 
   
-  §(ORDER_OF_LOC_IS_IMPORTANT_2) do
+  # §(ORDER_OF_LOC_IS_IMPORTANT_2) do
    Comment.reindex
+  # end
+# __END__
+
+
+begin
+
+    KmzModel.create!(id: 1, description: "Aachen Dome", global_path: '/' + File.join('local', Rails.application.root, 'storage', 'kmz_models', 'aachen-dome.kmz'))
+    KmzModel.create!(description: "Aachen Dome", global_path: '/' + File.join('local', Rails.application.root, 'storage', 'kmz_models', 'aachen-dome.kmz'))
+  rescue PG::UniqueViolation, ActiveRecord::RecordNotUnique
+    warn "KmzModel seeding Idempotency is questionable for rails db:seed"
   end
-end
 
-
-KmzModel.create!(id: 1, description: "Aachen Dome", global_path: '/' + File.join('local', Rails.application.root, 'storage', 'kmz_models', 'aachen-dome.kmz'))
-KmzModel.create!(description: "Aachen Dome", global_path: '/' + File.join('local', Rails.application.root, 'storage', 'kmz_models', 'aachen-dome.kmz'))
