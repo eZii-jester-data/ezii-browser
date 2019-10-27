@@ -218,7 +218,7 @@ $('.toast').toast({autohide: false});
 
 
                     (session[:dfficulty_level].to_i > 20 ? 2 : 1).times do
-                      i = (1..(parts.length - 1)).to_a.sample 
+                      i = (1..(parts.length - 2)).to_a.sample 
 
                       parts[i] = '[GUESS :), this is the game]'
                     end
