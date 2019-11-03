@@ -1,0 +1,409 @@
+I, [2019-11-02T20:27:12.995208 #1]  INFO -- : [11407cca-72b5-43a5-8ee9-3c0ff0073d6d] Started GET "/" for 172.20.0.1 at 2019-11-02 20:27:12 +0000
+I, [2019-11-02T20:27:13.002552 #1]  INFO -- : [11407cca-72b5-43a5-8ee9-3c0ff0073d6d] Processing by ImportedDataController#overview as HTML
+I, [2019-11-02T20:27:13.010664 #1]  INFO -- : [11407cca-72b5-43a5-8ee9-3c0ff0073d6d] Redirected to http://localhost:3000/directories/%2Flocal%2F
+I, [2019-11-02T20:27:13.011910 #1]  INFO -- : [11407cca-72b5-43a5-8ee9-3c0ff0073d6d] Completed 302 Found in 9ms (Allocations: 1042)
+I, [2019-11-02T20:27:13.018181 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd] Started GET "/directories/%2Flocal%2F" for 172.20.0.1 at 2019-11-02 20:27:13 +0000
+I, [2019-11-02T20:27:13.019721 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd] Processing by DirectoriesController#show as HTML
+I, [2019-11-02T20:27:13.020289 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   Parameters: {"id"=>"/local/"}
+D, [2019-11-02T20:27:15.393839 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mFileSystem Load (113.3ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.645130 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.645976 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.646641 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.647301 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.647998 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.648951 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.649725 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.650639 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.651330 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.651985 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.652697 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.653407 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.654068 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.654778 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.655478 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.656162 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.656824 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.657490 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.658144 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.658767 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-02T20:27:15.659445 #1] DEBUG -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+I, [2019-11-02T20:27:15.672128 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   Rendering directories/show.html.erb within layouts/application-landing-page-redux
+I, [2019-11-02T20:27:15.879887 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   Rendered directories/show.html.erb within layouts/application-landing-page-redux (Duration: 207.3ms | Allocations: 9307)
+I, [2019-11-02T20:27:15.898771 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd]   Rendered application/_navigation-landing-page-redux.html.erb (Duration: 2.8ms | Allocations: 85)
+I, [2019-11-02T20:27:15.899514 #1]  INFO -- : [55547ff5-4430-47ba-8bf9-991b5d8afccd] Completed 200 OK in 2879ms (Views: 231.4ms | ActiveRecord: 1517.3ms | Allocations: 22637)
+I, [2019-11-02T20:27:15.921921 #1]  INFO -- : [dd7f74d7-1039-49ca-8b62-78eee7ec53c0] Started GET "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css" for 172.20.0.1 at 2019-11-02 20:27:15 +0000
+F, [2019-11-02T20:27:15.924208 #1] FATAL -- : [dd7f74d7-1039-49ca-8b62-78eee7ec53c0]   
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] ActionController::RoutingError (No route matches [GET] "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css"):
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0]   
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[dd7f74d7-1039-49ca-8b62-78eee7ec53c0] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-02T20:27:15.925415 #1]  INFO -- : [01e2a5d1-b536-4d62-b4ea-1f08b3688361] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-02 20:27:15 +0000
+F, [2019-11-02T20:27:15.928795 #1] FATAL -- : [01e2a5d1-b536-4d62-b4ea-1f08b3688361]   
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361]   
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[01e2a5d1-b536-4d62-b4ea-1f08b3688361] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-02T20:27:16.013319 #1]  INFO -- : [84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-02 20:27:16 +0000
+F, [2019-11-02T20:27:16.014342 #1] FATAL -- : [84fb7e8d-ba1c-43c4-beb9-a43c1d98f254]   
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254]   
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[84fb7e8d-ba1c-43c4-beb9-a43c1d98f254] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:38:07.458025 #1]  INFO -- : [93869a0a-f01e-42f9-891a-588914570543] Started GET "/" for 172.20.0.1 at 2019-11-03 13:38:07 +0000
+I, [2019-11-03T13:38:07.494271 #1]  INFO -- : [93869a0a-f01e-42f9-891a-588914570543] Processing by ImportedDataController#overview as HTML
+I, [2019-11-03T13:38:07.501952 #1]  INFO -- : [93869a0a-f01e-42f9-891a-588914570543] Redirected to http://localhost:3000/directories/%2Flocal%2F
+I, [2019-11-03T13:38:07.503215 #1]  INFO -- : [93869a0a-f01e-42f9-891a-588914570543] Completed 302 Found in 8ms (Allocations: 560)
+I, [2019-11-03T13:38:07.509191 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7] Started GET "/directories/%2Flocal%2F" for 172.20.0.1 at 2019-11-03 13:38:07 +0000
+I, [2019-11-03T13:38:07.510603 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7] Processing by DirectoriesController#show as HTML
+I, [2019-11-03T13:38:07.511074 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   Parameters: {"id"=>"/local/"}
+D, [2019-11-03T13:38:09.884657 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mFileSystem Load (111.4ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.138141 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.139147 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.140047 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.140835 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.141762 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.142568 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.143454 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.144355 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.145212 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.145936 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.146729 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.147715 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.148728 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.149440 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.150113 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.150796 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.151480 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.152135 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.152866 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.153556 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:38:10.154235 #1] DEBUG -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+I, [2019-11-03T13:38:10.166395 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   Rendering directories/show.html.erb within layouts/application-landing-page-redux
+I, [2019-11-03T13:38:10.182007 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   Rendered directories/show.html.erb within layouts/application-landing-page-redux (Duration: 15.2ms | Allocations: 6698)
+I, [2019-11-03T13:38:10.192355 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7]   Rendered application/_navigation-landing-page-redux.html.erb (Duration: 1.6ms | Allocations: 85)
+I, [2019-11-03T13:38:10.192949 #1]  INFO -- : [3e8fe2c1-9666-47dd-a0c2-5a6fdaef60c7] Completed 200 OK in 2681ms (Views: 30.1ms | ActiveRecord: 1512.4ms | Allocations: 19550)
+I, [2019-11-03T13:38:10.210720 #1]  INFO -- : [3d314e96-e653-4f07-9f51-c3ede4e627dc] Started GET "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css" for 172.20.0.1 at 2019-11-03 13:38:10 +0000
+F, [2019-11-03T13:38:10.213347 #1] FATAL -- : [3d314e96-e653-4f07-9f51-c3ede4e627dc]   
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] ActionController::RoutingError (No route matches [GET] "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css"):
+[3d314e96-e653-4f07-9f51-c3ede4e627dc]   
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[3d314e96-e653-4f07-9f51-c3ede4e627dc] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:38:10.212308 #1]  INFO -- : [c82911d2-66b9-4812-9a92-ce982960744c] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-03 13:38:10 +0000
+F, [2019-11-03T13:38:10.216537 #1] FATAL -- : [c82911d2-66b9-4812-9a92-ce982960744c]   
+[c82911d2-66b9-4812-9a92-ce982960744c] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[c82911d2-66b9-4812-9a92-ce982960744c]   
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[c82911d2-66b9-4812-9a92-ce982960744c] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[c82911d2-66b9-4812-9a92-ce982960744c] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[c82911d2-66b9-4812-9a92-ce982960744c] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[c82911d2-66b9-4812-9a92-ce982960744c] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[c82911d2-66b9-4812-9a92-ce982960744c] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[c82911d2-66b9-4812-9a92-ce982960744c] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[c82911d2-66b9-4812-9a92-ce982960744c] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[c82911d2-66b9-4812-9a92-ce982960744c] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[c82911d2-66b9-4812-9a92-ce982960744c] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:38:11.330237 #1]  INFO -- : [24a2f3c3-37d4-4bef-8101-e5485289fd6e] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-03 13:38:11 +0000
+F, [2019-11-03T13:38:11.331238 #1] FATAL -- : [24a2f3c3-37d4-4bef-8101-e5485289fd6e]   
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e]   
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[24a2f3c3-37d4-4bef-8101-e5485289fd6e] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:38:11.580434 #1]  INFO -- : [9aff66f9-9d60-497c-a870-e16203e2486a] Started GET "/favicon.ico" for 172.20.0.1 at 2019-11-03 13:38:11 +0000
+F, [2019-11-03T13:38:11.581821 #1] FATAL -- : [9aff66f9-9d60-497c-a870-e16203e2486a]   
+[9aff66f9-9d60-497c-a870-e16203e2486a] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+[9aff66f9-9d60-497c-a870-e16203e2486a]   
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[9aff66f9-9d60-497c-a870-e16203e2486a] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[9aff66f9-9d60-497c-a870-e16203e2486a] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[9aff66f9-9d60-497c-a870-e16203e2486a] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[9aff66f9-9d60-497c-a870-e16203e2486a] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[9aff66f9-9d60-497c-a870-e16203e2486a] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[9aff66f9-9d60-497c-a870-e16203e2486a] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[9aff66f9-9d60-497c-a870-e16203e2486a] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[9aff66f9-9d60-497c-a870-e16203e2486a] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+D, [2019-11-03T13:38:37.704637 #1] DEBUG -- [Bugsnag]: Request to https://sessions.bugsnag.com completed, status: 202
+I, [2019-11-03T13:42:31.653896 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b] Started GET "/directories/%2Flocal%2F" for 172.20.0.1 at 2019-11-03 13:42:31 +0000
+I, [2019-11-03T13:42:31.656078 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b] Processing by DirectoriesController#show as HTML
+I, [2019-11-03T13:42:31.656811 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   Parameters: {"id"=>"/local/"}
+D, [2019-11-03T13:42:31.882388 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mFileSystem Load (109.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.884415 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.1ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.885646 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.1ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.886708 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.887485 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.888217 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.888991 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.889817 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.890727 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.891840 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.892753 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.893537 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.894314 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.895036 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.895739 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.896502 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.897205 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.897956 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.899027 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.1ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.900698 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.1ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.901844 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+D, [2019-11-03T13:42:31.902657 #1] DEBUG -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   [1m[36mCACHE FileSystem Load (0.0ms)[0m  [1m[34mSELECT "file_systems".* FROM "file_systems" WHERE "file_systems"."machine_readable_identifier" = $1 LIMIT $2[0m  [["machine_readable_identifier", "local"], ["LIMIT", 1]]
+I, [2019-11-03T13:42:31.903660 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   Rendering directories/show.html.erb within layouts/application-landing-page-redux
+I, [2019-11-03T13:42:31.909417 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   Rendered directories/show.html.erb within layouts/application-landing-page-redux (Duration: 5.2ms | Allocations: 5759)
+I, [2019-11-03T13:42:31.910571 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b]   Rendered application/_navigation-landing-page-redux.html.erb (Duration: 0.1ms | Allocations: 16)
+I, [2019-11-03T13:42:31.911308 #1]  INFO -- : [6f3dad7d-a68e-4a5b-bbfb-fd69c72cb48b] Completed 200 OK in 254ms (Views: 7.7ms | ActiveRecord: 109.9ms | Allocations: 9545)
+I, [2019-11-03T13:42:31.935830 #1]  INFO -- : [93bd7b2c-7f38-4fdb-a83d-3a295933bace] Started GET "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css" for 172.20.0.1 at 2019-11-03 13:42:31 +0000
+F, [2019-11-03T13:42:31.936953 #1] FATAL -- : [93bd7b2c-7f38-4fdb-a83d-3a295933bace]   
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] ActionController::RoutingError (No route matches [GET] "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css"):
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace]   
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[93bd7b2c-7f38-4fdb-a83d-3a295933bace] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:42:31.943967 #1]  INFO -- : [93512a55-bc97-4224-a51b-0f5612a7ef7d] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-03 13:42:31 +0000
+F, [2019-11-03T13:42:31.945448 #1] FATAL -- : [93512a55-bc97-4224-a51b-0f5612a7ef7d]   
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[93512a55-bc97-4224-a51b-0f5612a7ef7d]   
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[93512a55-bc97-4224-a51b-0f5612a7ef7d] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:42:32.077747 #1]  INFO -- : [f3bed1d9-1321-481e-b01a-801dda763f90] Started GET "/packs/js/application-58386a5d25d4fbe95123.js" for 172.20.0.1 at 2019-11-03 13:42:32 +0000
+F, [2019-11-03T13:42:32.078788 #1] FATAL -- : [f3bed1d9-1321-481e-b01a-801dda763f90]   
+[f3bed1d9-1321-481e-b01a-801dda763f90] ActionController::RoutingError (No route matches [GET] "/packs/js/application-58386a5d25d4fbe95123.js"):
+[f3bed1d9-1321-481e-b01a-801dda763f90]   
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[f3bed1d9-1321-481e-b01a-801dda763f90] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[f3bed1d9-1321-481e-b01a-801dda763f90] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[f3bed1d9-1321-481e-b01a-801dda763f90] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[f3bed1d9-1321-481e-b01a-801dda763f90] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[f3bed1d9-1321-481e-b01a-801dda763f90] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[f3bed1d9-1321-481e-b01a-801dda763f90] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[f3bed1d9-1321-481e-b01a-801dda763f90] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[f3bed1d9-1321-481e-b01a-801dda763f90] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:42:32.177674 #1]  INFO -- : [a807b218-af57-4344-b84b-0a61d2bb3c16] Started GET "/favicon.ico" for 172.20.0.1 at 2019-11-03 13:42:32 +0000
+F, [2019-11-03T13:42:32.179363 #1] FATAL -- : [a807b218-af57-4344-b84b-0a61d2bb3c16]   
+[a807b218-af57-4344-b84b-0a61d2bb3c16] ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+[a807b218-af57-4344-b84b-0a61d2bb3c16]   
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[a807b218-af57-4344-b84b-0a61d2bb3c16] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+I, [2019-11-03T13:42:36.465135 #1]  INFO -- : [eb36bbd3-7fd4-4131-a538-3b68332a45bd] Started GET "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css" for 172.20.0.1 at 2019-11-03 13:42:36 +0000
+F, [2019-11-03T13:42:36.466836 #1] FATAL -- : [eb36bbd3-7fd4-4131-a538-3b68332a45bd]   
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] ActionController::RoutingError (No route matches [GET] "/assets/application-f62c98ed83ee5b2ad56cbbf6540a69e92913fdf1ca81d56e9ecd670de795dc3c.css"):
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd]   
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] railties (6.0.0) lib/rails/rack/logger.rb:38:in `call_app'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] railties (6.0.0) lib/rails/rack/logger.rb:26:in `block in call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] activesupport (6.0.0) lib/active_support/tagged_logging.rb:28:in `tagged'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] activesupport (6.0.0) lib/active_support/tagged_logging.rb:80:in `tagged'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] railties (6.0.0) lib/rails/rack/logger.rb:26:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] rack (2.0.7) lib/rack/method_override.rb:22:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] rack (2.0.7) lib/rack/runtime.rb:22:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] activesupport (6.0.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] rack (2.0.7) lib/rack/sendfile.rb:111:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] actionpack (6.0.0) lib/action_dispatch/middleware/host_authorization.rb:77:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] railties (6.0.0) lib/rails/engine.rb:526:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] puma (3.12.1) lib/puma/configuration.rb:227:in `call'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] puma (3.12.1) lib/puma/server.rb:660:in `handle_request'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] puma (3.12.1) lib/puma/server.rb:474:in `process_client'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] puma (3.12.1) lib/puma/server.rb:334:in `block in run'
+[eb36bbd3-7fd4-4131-a538-3b68332a45bd] puma (3.12.1) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+D, [2019-11-03T13:42:37.433449 #1] DEBUG -- [Bugsnag]: Request to https://sessions.bugsnag.com completed, status: 202
