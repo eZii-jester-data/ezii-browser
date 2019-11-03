@@ -1,0 +1,33 @@
+curl -X POST \
+"https://ezii-os.myshopify.com/api/2019-07/graphql" \
+-H "Accept: application/json" \
+-H "Content-Type: application/graphql" \
+-H "X-Shopify-Storefront-Access-Token: 1cb7b6d0fc6df40843d192627e5670d8" \
+-d '
+{
+  collections(first: 5) {
+    edges {
+      node {
+        id
+        handle
+        products(first: 10) {
+          edges {
+		node {
+                    handle
+                    description
+                    priceRange {
+     			maxVariantPrice {
+                           amount
+     			}
+                    }
+                }
+          }
+        }
+      }
+    }
+    pageInfo {
+      hasNextPage
+    }
+  }
+}
+'
