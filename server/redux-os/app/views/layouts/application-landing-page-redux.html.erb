@@ -59,71 +59,108 @@
 				  
 				  <script type="text/babel" data-presets="es2015, react, stage-2">
 					  $(function() {
+						 
+						  class RailsApplicationLayoutYieldContent extends React.Component {
+							  render() {
+								  return <div dangerouslySetInnerHTML={{__html: $('#rails-application-layout-yield-content')[0].innerHTML }} />
+							  }
+						  }
+						  
+						  
+						  class ShopItem extends React.Component {
+							  render() {
+								  console.log(this.props);
+							  	return <ReactBootstrap.Card>
+    <ReactBootstrap.Card.Img variant="top" src="holder.js/100px160" />
+    <ReactBootstrap.Card.Body>
+      <ReactBootstrap.Card.Title>{this.props.details.node.handle}</ReactBootstrap.Card.Title>
+      <ReactBootstrap.Card.Text>
+								 { this.props.details.node.description }
+      </ReactBootstrap.Card.Text>
+    </ReactBootstrap.Card.Body>
+								 
+    <ReactBootstrap.Card.Footer>
+      <small className="text-muted">								  {this.props.details.node.priceRange.maxVariantPrice.amount} ¢</small>
+    </ReactBootstrap.Card.Footer>
+  </ReactBootstrap.Card>
+							  }
+						  }
+						  
+						  class Shop extends React.Component {
+			
+							  render() {
+								  console.log(this.props);
+								  const shopItemComponents = this.props.shopItems.map((json) =>
+									  <ShopItem details={json} />
+								  );
+								  
+								  return <ReactBootstrap.CardColumns> { shopItemComponents } </ReactBootstrap.CardColumns>
+			  
+							  }
+						  }
 
-
-						  const CounterComponent = ({ onIncrement, onDecrement, value }) => (
-						      <div>
+						  class LayoutComponent extends React.Component {
+							  constructor() {
+								  super();
+								  this.state = {currentContent: 'rails-application-layout-yield-content'}
+							  }
 							  
-<ReactBootstrap.Nav variant="tabs" defaultActiveKey="/home">
+							  render() {
+							  
+						      return <div>
+							  
+<ReactBootstrap.Nav variant="tabs" defaultActiveKey="/" onSelect={selectedKey => this.setState({currentContent: selectedKey})}
+>
   <ReactBootstrap.Nav.Item>
-    <ReactBootstrap.Nav.Link href="/home">Active</ReactBootstrap.Nav.Link>
+    <ReactBootstrap.Nav.Link href="/">Files</ReactBootstrap.Nav.Link>
   </ReactBootstrap.Nav.Item>
   <ReactBootstrap.Nav.Item>
-    <ReactBootstrap.Nav.Link eventKey="link-1">Option 2</ReactBootstrap.Nav.Link>
+    <ReactBootstrap.Nav.Link eventKey="shop">Shop</ReactBootstrap.Nav.Link>
   </ReactBootstrap.Nav.Item>
   <ReactBootstrap.Nav.Item>
     <ReactBootstrap.Nav.Link eventKey="disabled" disabled>
-      Disabled
+      Custom NavBar Item #1
     </ReactBootstrap.Nav.Link>
   </ReactBootstrap.Nav.Item>
 </ReactBootstrap.Nav>
-						          <h1>Counter: {value}</h1>
-						          <div class="button-container">
-						              <button onClick={onIncrement}>+</button>
-						              <button onClick={onDecrement}>-</button>
-						          </div>
+
+
+							<div style={{display: this.state.currentContent === 'shop' ? 'block' : 'none'}}>
+
+
+<Shop shopItems={<%= `sh #{File.join(Rails.application.root, 'test.curl')}`.html_safe %>['data']['collections']['edges'][1]['node']['products']['edges'] } />
+							</div>
+
+
+							<div style={{display: this.state.currentContent === 'rails-application-layout-yield-content'  ? 'block' : 'none'}}>
+
+								<RailsApplicationLayoutYieldContent />
+							</div>
+						   
 						      </div>
-						  );
+							}
+						  };
 
-						  class RootComponent extends React.Component {
-						      constructor(props) {
-						          super(props);
-
-						          this.state = {
-						              value: 0
-						          };
-						      }
-
-						      render() {
-						          return <CounterComponent
-						              value={this.state.value}
-						              onIncrement={() => {
-						                  this.setState({
-						                      value: this.state.value + 1
-						                  });
-						              }}
-						              onDecrement={() => {
-						                  this.setState({
-						                      value: this.state.value - 1
-						                  });
-						              }}
-						          />;
-						      }
-						  }
+							  class RootComponent extends React.Component {
+							      render() {
+							          return <LayoutComponent/>;
+							      }
+							  }
 
 
-						  ReactDOM.render(
-						      <RootComponent />,
-						      document.getElementById('react-container')
-						  );
+							  ReactDOM.render(
+							      <RootComponent />,
+							      document.getElementById('react-container')
+							  );
 
 	  					  });
 					  
 					  
 				</script>
 				  
-				  
+				  <div id="rails-application-layout-yield-content" style="display: none">
                   <%= yield %>
+			  </div>
 	 
               </main>
             </div>
