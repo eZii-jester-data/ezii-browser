@@ -100,14 +100,51 @@
 						  class LayoutComponent extends React.Component {
 							  constructor() {
 								  super();
-								  this.state = {currentContent: 'rails-application-layout-yield-content'}
+								  this.state = {currentContent: 'rails-application-layout-yield-content', showA: false, showB: false, showC_Input: false}
 							  }
 							  
 							  render() {
 							  
 						      return <div>
 
+        <Toast onClose={toggleShowB} show={showA} animation={false}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">User engagement system V1</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Do something</Toast.Body>
+        </Toast>
 
+		      <Toast onClose={toggleShowC_Input} show={showB} animation={false}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">User engagement system V1</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Do something</Toast.Body>
+        </Toast>
+
+		      <Toast onClose={triggerSetIntervalForNextToggleShowA} show={showC_Input} animation={false}>
+          <Toast.Header>
+            <img
+              src="holder.js/20x20?text=%20"
+              className="rounded mr-2"
+              alt=""
+            />
+            <strong className="mr-auto">User engagement system V1</strong>
+            <small>11 mins ago</small>
+          </Toast.Header>
+          <Toast.Body>Do something</Toast.Body>
+        </Toast>
 							  
 <ReactBootstrap.Nav variant="tabs" defaultActiveKey="/" onSelect={selectedKey => this.setState({currentContent: selectedKey})}
 >
@@ -145,6 +182,12 @@
 
 						   <div style={{height: 200}}>
 							  								<ThreeDMindMap />
+															  <img 
+															  	src="https://previews.dropbox.com/p/thumb/AAkwW9xBsSAhNqLpyQPibSTUKstsAzSaguPk_1usWti6ybeGOjuBhyDyOAH73mysAe8Zdh-03vDC0Hx8dBEVksXp0q2Fw-r0ZxpKNRuxH751hPH_bAS4OpN1QKkQXlj0FnZ-h8jRzEFJxVUbOvwJ6cKlWprxE5wn5T3TMPM1Ixgl6WCs2ZMzIrNk5adiNZROkVEH7hnngYYeRUUPvuuETIpK9Rhv03GhHSqsHYBrSAjmqTI8j7H7DW6JbAGsBM0ahFPtBZDT_LokvnqtZw93sgZ63gUCkcWEvhX_i6NCC0f3tj2ychKFbVoeKWhtyJ7LIPMTvCfRy_z-Zl_Ok7ff_2rECmDGxvHdjjbOgk-OYAnlvxBIgilOtC-RxuTSetnHsD_yfLhlQFDafXK2ywMyC8Q9N9Z1xrtdZShGcquDqRAhlg/p.png?fv_content=true&size_mode=5" 
+																  alt="Example for use case of 3d mind map: higher level programming via mindmap, example created in XMind Zen" 
+																  height="500"
+
+																  />
 </div>
 </div>
 						      </div>
