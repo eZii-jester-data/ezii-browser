@@ -117,7 +117,7 @@
             <strong className="mr-auto">User engagement system V1</strong>
             <small>11 mins ago</small>
           </Toast.Header>
-          <Toast.Body>Do something</Toast.Body>
+          <Toast.Body>{"Do something", "press cmd + c, then enter, news.ycombinator.com", "open a new tab in your browser", "get your pen and make notes on a piece of paper"].sample()}</Toast.Body>
         </Toast>
 
 		      <Toast onClose={toggleShowC_Input} show={showB} animation={false}>
@@ -130,7 +130,7 @@
             <strong className="mr-auto">User engagement system V1</strong>
             <small>11 mins ago</small>
           </Toast.Header>
-          <Toast.Body>Do something</Toast.Body>
+          <Toast.Body>Think about {["computers", 'poor systems', 'charity', 'water'].sample()}</Toast.Body>
         </Toast>
 
 		      <Toast onClose={triggerSetIntervalForNextToggleShowA} show={showC_Input} animation={false}>
@@ -143,7 +143,7 @@
             <strong className="mr-auto">User engagement system V1</strong>
             <small>11 mins ago</small>
           </Toast.Header>
-          <Toast.Body>Do something</Toast.Body>
+          <Toast.Body>Input ideas: {["a computer program you know", "a windows key combination (just random)", "A strategy for learning to program"].sample()</Toast.Body>
         </Toast>
 							  
 <ReactBootstrap.Nav variant="tabs" defaultActiveKey="/" onSelect={selectedKey => this.setState({currentContent: selectedKey})}
