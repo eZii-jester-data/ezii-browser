@@ -97,15 +97,7 @@
 							  }
 						  }
 
-						  class LayoutComponent extends React.Component {
-							  constructor() {
-								  super();
-								  this.state = {currentContent: 'rails-application-layout-yield-content', showA: false, showB: false, showC_Input: false}
-							  }
-							  
-							  render() {
-							  
-						      return <div>
+
 // repeat after 14-30 seconds for second alert
 
 // for all other alerts to 30-90 seconds timeout between next alert set (all 3 of them)
@@ -121,44 +113,17 @@
 
 
 // disable/freeze entire website every 10 minutes for 1 minute (show a (-) sign, like the one in streets where it's not allowed to drive, show support button or email mailto button on the freeze site)
-        <Toast onClose={toggleShowB} show={showA} animation={false}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt=""
-            />
-            <strong className="mr-auto">User engagement system V1</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>{"Do something", "press cmd + c, then enter, news.ycombinator.com", "open a new tab in your browser", "get your pen and make notes on a piece of paper"].sample()}</Toast.Body>
-        </Toast>
+						  class LayoutComponent extends React.Component {
+							  constructor() {
+								  super();
+								  this.state = {currentContent: 'rails-application-layout-yield-content', showA: false, showB: false, showC_Input: false}
+							  }
+							  
+							  render() {
+							  
+						      return <div>
 
-		      <Toast onClose={toggleShowC_Input} show={showB} animation={false}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt=""
-            />
-            <strong className="mr-auto">User engagement system V1</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Think about {["computers", 'poor systems', 'charity', 'water'].sample()}</Toast.Body>
-        </Toast>
-
-		      <Toast onClose={triggerSetIntervalForNextToggleShowA} show={showC_Input} animation={false}>
-          <Toast.Header>
-            <img
-              src="holder.js/20x20?text=%20"
-              className="rounded mr-2"
-              alt=""
-            />
-            <strong className="mr-auto">User engagement system V1</strong>
-            <small>11 mins ago</small>
-          </Toast.Header>
-          <Toast.Body>Input ideas: {["a computer program you know", "a windows key combination (just random)", "A strategy for learning to program"].sample()</Toast.Body>
-        </Toast>
+    
 							  
 <ReactBootstrap.Nav variant="tabs" defaultActiveKey="/" onSelect={selectedKey => this.setState({currentContent: selectedKey})}
 >

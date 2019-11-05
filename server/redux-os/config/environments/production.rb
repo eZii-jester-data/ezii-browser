@@ -1,5 +1,6 @@
 # typed: strict
 Rails.application.configure do
+  config.assets.digest = false
   # Settings specified here will take precedence over those in config/application.rb.
   ENV["BLAZER_DATABASE_URL"] = ENV["DATABASE_URL"]
   # Code is not reloaded between requests.
